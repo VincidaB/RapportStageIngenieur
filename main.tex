@@ -1,0 +1,122 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\usepackage{glossaries}
+
+
+\makenoidxglossaries
+
+
+\loadglsentries{lexique}
+
+
+%\renewcommand{\contentsname}{Table des matières}
+
+\usepackage{xcolor}
+
+\usepackage{eso-pic}
+\usepackage{tikz}
+\usepackage{float}
+
+\usepackage{soul}
+\usepackage{listings}
+\newcommand{\hilight}{\makebox[0pt][s]{\color{green!50}\rule[-3.5pt]{1.0\linewidth}{11pt}}}
+
+
+\usepackage{tikz}
+
+
+
+\lstset{
+    language=C,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{green!40!black},
+    stringstyle=\color{orange},
+    showstringspaces=false,
+    breaklines=true,
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    frame=tb,
+    framexleftmargin=16pt,
+    framexrightmargin=0pt,
+    xleftmargin=16pt,
+    backgroundcolor=\color{gray!10},
+    tabsize=2
+    }
+
+
+\renewcommand{\epsilon}{\varepsilon} 
+\renewcommand{\phi}{\varphi} 
+\title{Rapport de stage Ingénieur \\-\\Implémentation d'un ordonnanceur temps réel sur
+plateforme multi-cœur hétérogène\\-}
+\author{BELPOIS Vincent}
+
+\begin{document}
+    \date{2023}
+    \maketitle
+    \thispagestyle{empty}
+    
+    \vspace{10mm}
+    
+    \begin{center}
+        \includegraphics[width = 6cm]{Images/logo_ensma.png}
+    \end{center}
+    \vspace{2cm}
+    \begin{center}
+        \includegraphics[width = 6cm]{Images/logo_LIAS.png}
+    \end{center}
+    \newpage
+    \tableofcontents
+
+    
+    \AddToShipoutPictureBG{%
+     \put(5,5){\includegraphics[scale = 0.02]{Images/logo_ensma.png}}
+     \put(90,5){\includegraphics[scale = 0.08]{Images/logo_LIAS.png}}
+
+    }
+    \newpage
+    
+    
+\section*{Présentation du stage}
+\addcontentsline{toc}{section}{Présentation du stage}
+\subsection{Le L.I.A.S.}
+\subsection{Le sujet du stage}
+
+\section{LITMUS\textsuperscript{RT}}
+
+\subsection{Présentation de LITMUST\textsuperscript{RT}}
+
+\subsection{Présentation de \textit{feather-trace}}
+
+\subsection{Implémentation d'un ordonanceur EDF partitioné}
+
+\input{LITMUS-RT/implementation-P-EDF}
+\newpage
+
+
+\printnoidxglossaries
+
+\end{document}

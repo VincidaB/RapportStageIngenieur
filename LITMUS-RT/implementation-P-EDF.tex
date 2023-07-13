@@ -1,0 +1,140 @@
+\subsubsection{Algorithme considéré}
+
+On cherche alors pour commencer a implémenter un algorithme d'ordonancement simple afin de se familiariser avec les méthodes et fonctions fourni par LITMUS\textsuperscript{RT}. J'ai donc choisi un algorithme partitioné pour la simplicité d'ordonancement par \gls{processeur} que cela offre. Un algorithme EDF (\textit{Earliest Deadline First}) est alors choisi pour la simplicité du choix de la tache a exécuter. Comme son nom l'indique, on choisi à chaque instant la tache ayant l'échéance la plus proche. On nomera par la suite cet algorithme P-EDF (\textit{Partitionned Earliest Deadline First}).
+
+Pour montrer le fonctionnement de cet algorithme, si l'on se place sur un même processeur, on peut visualiser l'éxécution de deux tache periodiques : 
+\begin{figure}[H]
+    \center
+    \begin{tikzpicture}[xscale=0.5, yscale=0.6]
+
+        \newcommand\duration{15}
+        \newcommand\TaskNum{2}
+
+        % Define task properties
+
+        \newcommand{\rectangles}[5]{
+            \expandafter\def\csname rect#1ROW\endcsname{#2}
+            \expandafter\def\csname rect#1START\endcsname{#3}
+            \expandafter\def\csname rect#1END\endcsname{#4}
+            \expandafter\def\csname rect#1COLOR\endcsname{#5}
+        }
+
+        \newcommand{\wakeup}[3]{
+            \expandafter\def\csname wakeup#1ROW\endcsname{#2}
+            \expandafter\def\csname wakeup#1TIME\endcsname{#3}
+        }
+
+        \newcommand{\deadline}[3]{
+            \expandafter\def\csname deadline#1ROW\endcsname{#2}
+            \expandafter\def\csname deadline#1TIME\endcsname{#3}
+        }
+
+        \newcommand{\execEnd}[3]{
+            \expandafter\def\csname execEnd#1ROW\endcsname{#2}
+            \expandafter\def\csname execEnd#1TIME\endcsname{#3}
+        }
+        
+        
+        
+        \rectangles{0}{0}{0}{2}{"red"}
+        \rectangles{1}{0}{5}{7}{"red"}
+        \rectangles{2}{0}{10}{12}{"red"}
+        
+        \rectangles{3}{1}{2}{5}{"red"}
+        \rectangles{4}{1}{7}{8}{"red"}
+        
+        
+        
+        \wakeup{0}{0}{0}
+        \wakeup{1}{1}{0}
+        \wakeup{4}{0}{5}
+
+        \wakeup{5}{0}{5}
+        \wakeup{2}{0}{5}
+        \wakeup{3}{0}{10}
+
+        \deadline{0}{0}{5}
+        \deadline{1}{0}{5}
+        \deadline{2}{0}{5}
+        \deadline{3}{0}{10}
+        \deadline{4}{0}{15}
+        \deadline{5}{1}{15}
+
+        \execEnd{0}{0}{2}
+        \execEnd{1}{0}{7}
+        \execEnd{2}{0}{12}
+        \execEnd{3}{1}{8}        
+        
+        
+        \foreach \rect in {0,...,4}{
+            \pgfmathsetmacro{\row}{\csname rect\rect ROW\endcsname}
+            \pgfmathsetmacro{\start}{\csname rect\rect START\endcsname}
+            \pgfmathsetmacro{\end}{\csname rect\rect END\endcsname}
+            \pgfmathsetmacro{\color}{\csname rect\rect COLOR\endcsname}
+
+            \draw[fill=\color!30] (\start,1.5*\TaskNum - 0.5 - 1.5*\row) rectangle (\end,1.5*\TaskNum -1.5 - 1.5*\row) node[midway] {};
+        }
+
+        \foreach \wake in {0,...,5}{
+            \pgfmathsetmacro{\row}{\csname wakeup\wake ROW\endcsname}
+            \pgfmathsetmacro{\time}{\csname wakeup\wake TIME\endcsname}
+            
+            \draw[stealth-, thick] (\time,1.5*\TaskNum - 0.5 - 1.5*\row + 0.15) -- (\time,1.5*\TaskNum -1.5 - 1.5*\row) node[midway, left] {};
+        }
+
+        \foreach \dead in {0,...,5}{
+            \pgfmathsetmacro{\row}{\csname deadline\dead ROW\endcsname}
+            \pgfmathsetmacro{\time}{\csname deadline\dead TIME\endcsname}
+            
+            \draw[-stealth, thick] (\time,1.5*\TaskNum - 0.5 - 1.5*\row) -- (\time,1.5*\TaskNum -1.5 - 1.5*\row-0.15) node[midway, left] {};
+        }
+
+        \foreach \end in {0,...,3}{
+            \pgfmathsetmacro{\row}{\csname execEnd\end ROW\endcsname}
+            \pgfmathsetmacro{\time}{\csname execEnd\end TIME\endcsname}
+            
+            \draw[|-, thick] (\time,1.5*\TaskNum - 0.5 - 1.5*\row + 0.15) -- (\time,1.5*\TaskNum -1.5 - 1.5*\row) node[midway, left] {};
+        }
+        
+        
+        % Axes
+        \draw[->] (0,0) -- (\duration + 1,0) node[right] {Temps};
+        \draw[->] (0,0) -- (0,\TaskNum*1.5) node[above] {Taches};
+        
+        % Time ticks
+        \foreach \x in {0,1,...,\duration}
+            \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+        
+            \node[left] at (-0.5,2) {$\tau_1(WCET=2,T=5)$};
+            \node[left] at (-0.5,0.5) {$\tau_2(WCET=4,T=15)$};
+
+        \end{tikzpicture}   
+        
+
+
+    \caption{Exemple de EDF à 2 taches}
+\end{figure}
+
+On a ici une première tache $\tau_1$ avec un pire temps d'éxécution (\textit{Worst Case Execution Time}) de 2 et une période de 5, et une seconde tache $\tau_2$ avec un pire temps d'éxécution de 4 et une période de 15. On a alors préemption de la $\tau_2$ à $t=5$ afin d'éxécuter $\tau_1$. Cela est dû au réveil de la tâche $\tau_1$ (représenté par la flêche montante) et a la date d'échéance plus proche de cette dernière. 
+
+
+
+\subsubsection{Implémentation}
+
+Expliquer ce qu'est un module dans le noyau linux.
+
+    - Montrer ce qui est propre a la définition du module
+    
+    - Montrer l'emplacement des fichiers que l'on va créer dans le noyau
+
+    - Montrer les modification du make file
+
+\begin{lstlisting}[escapechar=\%]
+#include <stdio.h>
+    
+int main() {
+%\hilight%    printf("Hello, world!");
+    return 0;
+}
+\end{lstlisting}
+        
