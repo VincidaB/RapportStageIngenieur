@@ -1,6 +1,6 @@
 \subsubsection{Algorithme considéré}
 
-On cherche alors pour commencer a implémenter un algorithme d'ordonancement simple afin de se familiariser avec les méthodes et fonctions fourni par LITMUS\textsuperscript{RT}. J'ai donc choisi un algorithme partitioné pour la simplicité d'ordonancement par \gls{processeur} que cela offre. Un algorithme EDF (\textit{Earliest Deadline First}) est alors choisi pour la simplicité du choix de la tache a exécuter. Comme son nom l'indique, on choisi à chaque instant la tache ayant l'échéance la plus proche. On nomera par la suite cet algorithme P-EDF (\textit{Partitionned Earliest Deadline First}).
+On cherche alors pour commencer à implémenter un algorithme d’ordonnancement simple afin de se familiariser avec les méthodes et fonctions fourni par LITMUS\textsuperscript{RT}. J'ai donc choisi un algorithme partitioné pour la simplicité d’ordonnancement par \gls{processeur} que cela offre. Un algorithme EDF (\textit{Earliest Deadline First}) est alors choisi pour la simplicité du choix de la tache a exécuter. Comme son nom l'indique, on choisi à chaque instant la tache ayant l'échéance la plus proche. On nommera par la suite cet algorithme P-EDF (\textit{Partitionned Earliest Deadline First}).
 
 Pour montrer le fonctionnement de cet algorithme, si l'on se place sur un même processeur, on peut visualiser l'éxécution de deux tache periodiques : 
 \begin{figure}[H]
@@ -108,14 +108,12 @@ Pour montrer le fonctionnement de cet algorithme, si l'on se place sur un même 
             \node[left] at (-0.5,2) {$\tau_1(WCET=2,T=5)$};
             \node[left] at (-0.5,0.5) {$\tau_2(WCET=4,T=15)$};
 
-        \end{tikzpicture}   
+    \end{tikzpicture}   
         
-
-
     \caption{Exemple de EDF à 2 taches}
 \end{figure}
 
-On a ici une première tache $\tau_1$ avec un pire temps d'éxécution (\textit{Worst Case Execution Time}) de 2 et une période de 5, et une seconde tache $\tau_2$ avec un pire temps d'éxécution de 4 et une période de 15. On a alors préemption de la $\tau_2$ à $t=5$ afin d'éxécuter $\tau_1$. Cela est dû au réveil de la tâche $\tau_1$ (représenté par la flêche montante) et a la date d'échéance plus proche de cette dernière. 
+On a ici une première tache $\tau_1$ avec un pire temps d'éxécution (\textit{Worst Case Execution Time}) de 2 et une période de 5, et une seconde tache $\tau_2$ avec un pire temps d'éxécution de 4 et une période de 15. On a alors préemption de la $\tau_2$ à $t=5$ afin d'éxécuter $\tau_1$. Cela est dû au réveil de la tâche $\tau_1$ (représenté par la flêche montante) et à la date d'échéance plus proche de cette dernière. 
 
 
 
@@ -123,11 +121,13 @@ On a ici une première tache $\tau_1$ avec un pire temps d'éxécution (\textit{
 
 Expliquer ce qu'est un module dans le noyau linux.
 
-    - Montrer ce qui est propre a la définition du module
+    - Montrer ce qui est propre a la définition du module (sauf si je l'explique dans la partie sur le noyau Linux)
     
-    - Montrer l'emplacement des fichiers que l'on va créer dans le noyau
+    - Montrer l'emplacement des fichiers que l'on va créer dans le noyau (avec une hiérarchie des fichiers, un arbre)
 
     - Montrer les modification du make file
+
+    -
 
 \begin{lstlisting}[escapechar=\%]
 #include <stdio.h>
