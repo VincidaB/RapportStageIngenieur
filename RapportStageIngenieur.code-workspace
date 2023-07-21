@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**.glo": true,
+			"**.ist": true,
+			"**.out": true,
+			"**.toc": true
+		}
+	}
+}
