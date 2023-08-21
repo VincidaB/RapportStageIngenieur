@@ -1,6 +1,6 @@
 \subsubsection{Algorithme considéré}
 
-On cherche alors pour commencer à implémenter un algorithme d’ordonnancement simple afin de se familiariser avec les méthodes et fonctions fourni par LITMUS\textsuperscript{RT}. J'ai donc choisi un algorithme partitioné pour la simplicité d’ordonnancement par \gls{processeur} que cela offre. Un algorithme EDF (\textit{Earliest Deadline First}) est alors choisi pour la simplicité du choix de la tache a exécuter. Comme son nom l'indique, on choisi à chaque instant la tache ayant l'échéance la plus proche. On nommera par la suite cet algorithme P-EDF (\textit{Partitionned Earliest Deadline First}).
+On cherche alors pour commencer à implémenter un algorithme d’ordonnancement simple afin de se familiariser avec les méthodes et fonctions fourni par \litmus. J'ai donc choisi un algorithme partitioné pour la simplicité d’ordonnancement par \gls{processeur} que cela offre. Un algorithme EDF (\textit{Earliest Deadline First}) est alors choisi pour la simplicité du choix de la tache a exécuter. Comme son nom l'indique, on choisi à chaque instant la tache ayant l'échéance la plus proche. On nommera par la suite cet algorithme P-EDF (\textit{Partitionned Earliest Deadline First}).
 
 Pour montrer le fonctionnement de cet algorithme, si l'on se place sur un même processeur, on peut visualiser l'éxécution de deux tache periodiques : 
 \begin{figure}[H]
@@ -116,12 +116,70 @@ Pour montrer le fonctionnement de cet algorithme, si l'on se place sur un même 
 On a ici une première tache $\tau_1$ avec un pire temps d'éxécution (\textit{Worst Case Execution Time}) de 2 et une période de 5, et une seconde tache $\tau_2$ avec un pire temps d'éxécution de 4 et une période de 15. On a alors préemption de la $\tau_2$ à $t=5$ afin d'éxécuter $\tau_1$. Cela est dû au réveil de la tâche $\tau_1$ (représenté par la flêche montante) et à la date d'échéance plus proche de cette dernière. 
 
 
-
 \subsubsection{Implémentation}
 
-Expliquer ce qu'est un module dans le noyau linux.
+La construction d'un plugin d'ordonnancement nécessite la déclaration d'un module au sens de Linux. Pour Linux un module est un élément de code qui peut être chargé dynamiquement lors de l’exécution du système d'exploitation. Un module permet alors d'étendre les fonctionnalités du noyau, il a donc ont accès aux fonctions du noyau, à ses resources et peut aussi réaliser des appels systèmes.
 
-    - Montrer ce qui est propre a la définition du module (sauf si je l'explique dans la partie sur le noyau Linux)
+Pour que notre nouvel ordonnanceur soit reconnu par le noyau Linux modifié (\litmus); il faut alors déclarer une fonction d'initialisation :
+\begin{lstlisting}[style=cstyle]
+#include <linux/module.h> // used for calling module_init()
+
+static int __init init_p_edf(void)
+{
+    return 0; // indicates a successful initialisation
+}
+
+module_init(init_p_edf); // specify the entry point of the module 
+\end{lstlisting} 
+
+On peut alors enregistrer ce fichier sous le nom \lstinline{sched_p_edf.c} pour suivre la nomenclature des autres ordonnanceurs fournis avec avec \litmus. Ce fichier est enregistré dans le dossier \lstinline{llinux/litmus}. On peut alors modifier le fichier \lstinline{Makefile} de ce dossier afin de l'ajouter au fichier à compiler :
+
+\begin{lstlisting}[style=makefilestyle, escapechar=\%]
+#
+# Makefile for LITMUS^RT
+#
+
+obj-y = sched_plugin.o litmus.o \
+        preempt.o \
+        litmus_proc.o \
+        budget.o \
+        clustered.o \
+        jobs.o \
+        sync.o \
+        rt_domain.o \
+        edf_common.o \
+        fp_common.o \
+        fdso.o \
+        locking.o \
+        srp.o \
+        bheap.o \
+        binheap.o \
+        ctrldev.o \
+        uncachedev.o \
+        sched_gsn_edf.o \
+        sched_psn_edf.o \
+        sched_pfp.o \
+%\hilight%        sched_p_edf.o
+
+obj-$(CONFIG_PLUGIN_CEDF) += sched_cedf.o
+obj-$(CONFIG_PLUGIN_PFAIR) += sched_pfair.o
+
+obj-$(CONFIG_FEATHER_TRACE) += ft_event.o ftdev.o
+obj-$(CONFIG_SCHED_TASK_TRACE) += sched_task_trace.o
+obj-$(CONFIG_SCHED_DEBUG_TRACE) += sched_trace.o
+obj-$(CONFIG_SCHED_OVERHEAD_TRACE) += trace.o
+
+obj-y += sched_pres.o
+
+obj-y += reservations/
+\end{lstlisting}
+
+On place notre fichier à compiler sous mot clé \texttt{obj-y} pour signifier que l'on veut ce module compilé et inclus lors de la compilation du noyau Linux.
+
+
+
+\vspace{100pt}
+- Montrer ce qui est propre a la définition du module (sauf si je l'explique dans la partie sur le noyau Linux)
     
     - Montrer l'emplacement des fichiers que l'on va créer dans le noyau (avec une hiérarchie des fichiers, un arbre)
 

@@ -46,30 +46,43 @@
 
 \usepackage{tikz}
 
-
-
-\lstset{
+\lstdefinestyle{cstyle}{
     language=C,
-    basicstyle=\ttfamily\small,
-    keywordstyle=\color{blue}\bfseries,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{blue},
     commentstyle=\color{green!40!black},
-    stringstyle=\color{orange},
-    showstringspaces=false,
-    breaklines=true,
+    stringstyle=\color{red},
+    identifierstyle=\color{black},
     numbers=left,
-    numberstyle=\tiny,
-    numbersep=5pt,
-    frame=tb,
-    framexleftmargin=16pt,
-    framexrightmargin=0pt,
-    xleftmargin=16pt,
-    backgroundcolor=\color{gray!10},
-    tabsize=2
-    }
+    numberstyle=\tiny\color{gray},
+    frame=single,
+    breaklines=true,
+    showstringspaces=false,
+    tabsize=4,
+    morekeywords={int, char, void, if, else, while, for, return, typedef, struct, include},
+    columns=flexible
+}
+
+\lstdefinestyle{makefilestyle}{
+    language=make,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!40!black},
+    stringstyle=\color{red},
+    identifierstyle=\color{black},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    frame=single,
+    breaklines=true,
+    showstringspaces=false,
+    tabsize=4,
+    morekeywords={ifeq, endif, else, ifdef, ifndef, define, endef, export, unexport, obj},
+    columns=flexible
+}
 
 \bibliographystyle{plain} % We choose the "plain" reference style
 
-
+\newcommand{\litmus}{LITMUS\textsuperscript{RT}}
 \renewcommand{\epsilon}{\varepsilon} 
 \renewcommand{\phi}{\varphi} 
 \title{Rapport de stage Ingénieur \\-\\Implémentation d'un ordonnanceur temps réel sur
@@ -127,9 +140,9 @@ plateforme multi-cœur hétérogène\\-}
 
     
     \newpage
-    \section{LITMUS\textsuperscript{RT}}
+    \section{\litmus}
     
-    \subsection{Présentation de LITMUST\textsuperscript{RT}}
+    \subsection{Présentation de \litmus}
     
     \subsection{Présentation de \textit{feather-trace}}
     
@@ -144,5 +157,5 @@ plateforme multi-cœur hétérogène\\-}
     \listoffigures
     
     \printnoidxglossaries
-    \end{document}
+\end{document}
     
