@@ -67,6 +67,8 @@
     tabsize=2
     }
 
+\bibliographystyle{plain} % We choose the "plain" reference style
+
 
 \renewcommand{\epsilon}{\varepsilon} 
 \renewcommand{\phi}{\varphi} 
@@ -75,14 +77,15 @@ plateforme multi-cœur hétérogène\\-}
 \author{BELPOIS Vincent}
 
 \begin{document}
-    \date{2023}
-    \maketitle
-    \thispagestyle{empty}
-    
-    \vspace{10mm}
-    
-    \begin{center}
-        \includegraphics[width = 6cm]{Images/logo_ensma.png}
+
+\date{2023}
+\maketitle
+\thispagestyle{empty}
+
+\vspace{10mm}
+
+\begin{center}
+    \includegraphics[width = 6cm]{Images/logo_ensma.png}
     \end{center}
     \vspace{2cm}
     \begin{center}
@@ -90,36 +93,56 @@ plateforme multi-cœur hétérogène\\-}
     \end{center}
     \newpage
     \tableofcontents
-
+    
     
     \AddToShipoutPictureBG{%
-     \put(5,5){\includegraphics[scale = 0.02]{Images/logo_ensma.png}}
-     \put(90,5){\includegraphics[scale = 0.08]{Images/logo_LIAS.png}}
-
+    \put(5,5){\includegraphics[scale = 0.02]{Images/logo_ensma.png}}
+    \put(90,5){\includegraphics[scale = 0.08]{Images/logo_LIAS.png}}
+    
     }
     \newpage
     
     
-\section*{Présentation du stage}
-\addcontentsline{toc}{section}{Présentation du stage}
-\subsection{Le L.I.A.S.}
-\subsection{Le sujet du stage}
-\newpage
+    \section*{Présentation du stage}
+    \addcontentsline{toc}{section}{Présentation du stage}
+    
+    
+    \subsection{Le L.I.A.S.}
+    \subsection{Le sujet du stage}
+    
+    Mon stage s'intéresse à l'implémentation d'un ordonanceur sur \gls{plateforme heterogene}\cite{bertout2020workload}
 
-\section{Le noyau Linux}
+    \newpage
+    \section{Systèmes d'exploitation compatibles avec la carte ROCK960}
+    \subsection{Présentation de la carte de développement}
 
-\newpage
-\section{LITMUS\textsuperscript{RT}}
-\subsection{Présentation de LITMUST\textsuperscript{RT}}
+    \subsection{Installation d'un système d'exploitation}
+    \input{Carte/installation-systeme-exploitation.tex}
 
-\subsection{Présentation de \textit{feather-trace}}
+    \subsection{Etude des versions de Linux compatibles}
+    \input{Carte/versions-linux-compatible.tex}
 
-\subsection{Implémentation d'un ordonanceur EDF partitioné}
-
-\input{LITMUS-RT/implementation-P-EDF}
-\newpage
+    
 
 
-\printnoidxglossaries
-
-\end{document}
+    
+    \newpage
+    \section{LITMUS\textsuperscript{RT}}
+    
+    \subsection{Présentation de LITMUST\textsuperscript{RT}}
+    
+    \subsection{Présentation de \textit{feather-trace}}
+    
+    \subsection{Implémentation d'un ordonanceur EDF partitioné}
+    
+    \input{LITMUS-RT/implementation-P-EDF}
+    \newpage
+    
+    
+    \bibliography{refs} % Entries are in the refs.bib file
+    \newpage
+    \listoffigures
+    
+    \printnoidxglossaries
+    \end{document}
+    
