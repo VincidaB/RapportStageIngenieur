@@ -115,7 +115,6 @@ plateforme multi-cœur hétérogène\\-}
     }
     \newpage
     
-    
     \section*{Présentation du stage}
     \addcontentsline{toc}{section}{Présentation du stage}
     
@@ -128,6 +127,7 @@ plateforme multi-cœur hétérogène\\-}
     \newpage
     \section{Systèmes d'exploitation compatibles avec la carte ROCK960}
     \subsection{Présentation de la carte de développement}
+    \input{Carte/presentation-carte.tex}
 
     \subsection{Installation d'un système d'exploitation}
     \input{Carte/installation-systeme-exploitation.tex}
@@ -149,9 +149,15 @@ plateforme multi-cœur hétérogène\\-}
     \subsection{Implémentation d'un ordonanceur EDF partitioné}
     
     \input{LITMUS-RT/implementation-P-EDF}
+    
+    
+    
     \newpage
-    
-    
+    \section*{Annexe}
+    \addcontentsline{toc}{part}{Annexe}
+    \input{annexe}
+
+    \newpage
     \bibliography{refs} % Entries are in the refs.bib file
     \newpage
     \listoffigures
