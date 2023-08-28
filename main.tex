@@ -46,6 +46,28 @@
 
 \usepackage{tikz}
 
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\lstdefinestyle{command}{
+  backgroundcolor=\color{white},
+  basicstyle=\ttfamily\color{black},
+  keywordstyle=\color{blue},
+  commentstyle=\color{mygray},
+  stringstyle=\color{red},
+  showstringspaces=false,
+  upquote=true,
+  morekeywords={sudo, ls, cd, mv, cp, rm, mkdir, chmod, chown, grep, find},
+  captionpos=b,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny\color{mygray},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2,
+  keepspaces=true,
+  caption={Linux Command},
+  label=command,
+}
+
 \lstdefinestyle{cstyle}{
     language=C,
     basicstyle=\ttfamily,
@@ -125,7 +147,7 @@ plateforme multi-cœur hétérogène\\-}
     Mon stage s'intéresse à l'implémentation d'un ordonanceur sur \gls{plateforme heterogene}\cite{bertout2020workload}
 
     \newpage
-    \section{Systèmes d'exploitation compatibles avec la carte ROCK960}
+    \section[OS compatibles avec la carte]{Systèmes d'exploitation compatibles avec la carte ROCK960}
     \subsection{Présentation de la carte de développement}
     \input{Carte/presentation-carte.tex}
 
