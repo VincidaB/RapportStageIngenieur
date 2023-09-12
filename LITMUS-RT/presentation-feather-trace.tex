@@ -2,4 +2,10 @@
 
 Cela a été très utile lorsque j'ai développé des nouveaux ordonnanceur sous \litmus afin de corriger des erreurs. Mais cet outil m'a aussi été essentiel afin de comprendre comment fonctionnait les algorithmes d’ordonnancement fournis avec \litmus. J'ai aussi pu comprendre comment le noyau Linux communiquait avec les ordonnanceur en activant des sorties de debug additionnels dans la configuration du noyau.
 
-Enfin, des outils permettant d'extraire, de synthétiser ou de tracer des graphique de certaines données de ces fichiers de logs sont mis à notre disposition sur un dépôt de code 
+Enfin, des outils permettant d'extraire, de synthétiser ou de tracer des graphique de certaines données de ces fichiers de logs sont mis à notre disposition sur un dépôt de code présent sur github nommé \textit{feather-trace-tools}. Voici un exemple du tracé de l'ordonancement réel de \color{red} INSERER ORDONANCEUR \color{black} :
+
+\begin{center}
+     \color{red} METTRE UNE IMAGE D'UN DES TRACES
+\end{center}
+
+Pour cela, les temps d'exécution, les débuts et les fins de chaque jobs s'exécutant sur chaque processeur ont été enregistrés sur la carte de développement avec l'outil \texttt{st-trace-schedule} du dépôt de code mentionnée précédemment. Cet outil générer autant de fichiers que de processeurs sont présents. On peut alors tracer l’exécution réel avec cette fois ci l'outil \texttt{st-draw} en lui fournissant les fichiers générés au préalable. Ici une durée de \color{red} XXXXX \color{black} a aussi été donnée en argument afin de limiter la durée du tracé.
