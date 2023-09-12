@@ -102,7 +102,7 @@ static void p_edf_setup_domain_proc(void)
 }
 
 /* This helper is called when task `prev` exhausted its budget or when
-    * it signaled a job completion. */
+* it signaled a job completion. */
 static void p_edf_job_completion(struct task_struct *prev, int budget_exhausted)
 {
         sched_trace_task_completion(prev, budget_exhausted);
@@ -110,12 +110,12 @@ static void p_edf_job_completion(struct task_struct *prev, int budget_exhausted)
 
     tsk_rt(prev)->completed = 0;
         /* Call common helper code to compute the next release time, deadline,
-            * etc. */
+        * etc. */
         prepare_for_next_period(prev);
 }
 
 /* Add the task `tsk` to the appropriate queue. Assumes the caller holds the ready lock.
-    */
+*/
 static void p_edf_requeue(struct task_struct *tsk, struct p_edf_cpu_state *cpu_state)
 {
         if (is_released(tsk, litmus_clock())) {
@@ -132,7 +132,8 @@ static void p_edf_requeue(struct task_struct *tsk, struct p_edf_cpu_state *cpu_s
 
 static int p_edf_check_for_preemption_on_release(rt_domain_t *local_queues)
 {
-        struct p_edf_cpu_state *state = container_of(local_queues, struct p_edf_cpu_state,
+        struct p_edf_cpu_state *state = container_of(local_queues, 
+                                                struct p_edf_cpu_state,
                                                     local_queues);
 
         /* Because this is a callback from rt_domain_t we already hold
@@ -192,7 +193,7 @@ static struct task_struct* p_edf_schedule(struct task_struct * prev)
         job_completed = exists && is_completed(prev);
 
         /* preempt is true if task `prev` has lower priority than something on
-            * the ready queue. */
+        * the ready queue. */
         preempt = edf_preemption_needed(&local_state->local_queues, prev);
 
         /* check all conditions that make us reschedule */
@@ -211,8 +212,8 @@ static struct task_struct* p_edf_schedule(struct task_struct * prev)
 
         if (resched) {
                 /* First check if the previous task goes back onto the ready
-                    * queue, which it does if it did not self_suspend.
-                    */
+                * queue, which it does if it did not self_suspend.
+                */
                 if (exists && !self_suspends) {
                         p_edf_requeue(prev, local_state);
                 }
@@ -231,9 +232,9 @@ static struct task_struct* p_edf_schedule(struct task_struct * prev)
         }
 
         /* This mandatory. It triggers a transition in the LITMUS^RT remote
-            * preemption state machine. Call this AFTER the plugin has made a local
-            * scheduling decision.
-            */
+        * preemption state machine. Call this AFTER the plugin has made a
+        * local scheduling decision.
+        */
         sched_state_task_picked();
 
         raw_spin_unlock(&local_state->local_queues.ready_lock);
@@ -365,4 +366,52 @@ static int __init init_p_edf(void)
 }
 
 module_init(init_p_edf);     
+\end{lstlisting}
+
+\begin{lstlisting}[style=config, caption=Partie du fichier .config liée a \litmus]
+# LITMUS^RT
+#
+
+#
+# Scheduling
+#
+CONFIG_PLUGIN_PFAIR=y
+# CONFIG_RELEASE_MASTER is not set
+CONFIG_PREFER_LOCAL_LINKING=y
+CONFIG_LITMUS_QUANTUM_LENGTH_US=1000
+CONFIG_BUG_ON_MIGRATION_DEADLOCK=y
+# end of Scheduling
+
+#
+# Real-Time Synchronization
+#
+CONFIG_NP_SECTION=y
+CONFIG_LITMUS_LOCKING=y
+# end of Real-Time Synchronization
+
+#
+# Performance Enhancements
+#
+CONFIG_ALLOW_EARLY_RELEASE=y
+# CONFIG_EDF_TIE_BREAK_LATENESS is not set
+CONFIG_EDF_TIE_BREAK_LATENESS_NORM=y
+# CONFIG_EDF_TIE_BREAK_HASH is not set
+# CONFIG_EDF_PID_TIE_BREAK is not set
+# end of Performance Enhancements
+
+#
+# Tracing
+#
+CONFIG_FEATHER_TRACE=y
+CONFIG_SCHED_TASK_TRACE=y
+CONFIG_SCHED_TASK_TRACE_SHIFT=9
+CONFIG_SCHED_OVERHEAD_TRACE=y
+CONFIG_SCHED_OVERHEAD_TRACE_SHIFT=22
+CONFIG_SCHED_DEBUG_TRACE=y
+CONFIG_SCHED_DEBUG_TRACE_SHIFT=18
+CONFIG_SCHED_DEBUG_TRACE_CALLER=y
+# CONFIG_PREEMPT_STATE_TRACE is not set
+# CONFIG_REPORT_TIMER_LATENCY is not set
+# end of Tracing
+# end of LITMUS^RT
 \end{lstlisting}

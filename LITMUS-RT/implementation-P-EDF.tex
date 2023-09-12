@@ -1,8 +1,11 @@
+Le but du stage étant l'implémentation d'algorithmes d'ordonnancement sur platforme hétérogène avec migration de taches et de jobs entre les différent \gls{processeur}, il faudra être capable de réalise des \glspl{preemption} de jobs (une exécution de tache), les migrer, assurer le traitement d'égalités et bien d'autre problèmes.
+
+
 \subsubsection{Algorithme considéré}
 
-On cherche alors pour commencer à implémenter un algorithme d’ordonnancement simple afin de se familiariser avec les méthodes et fonctions fourni par \litmus. J'ai donc choisi un algorithme partitioné pour la simplicité d’ordonnancement par \gls{processeur} que cela offre. Un algorithme EDF (\textit{Earliest Deadline First}) est alors choisi pour la simplicité du choix de la tache a exécuter. Comme son nom l'indique, on choisi à chaque instant la tache ayant l'échéance la plus proche. On nommera par la suite cet algorithme P-EDF (\textit{Partitionned Earliest Deadline First}).
+On cherche alors, pour commencer, à implémenter un algorithme d’ordonnancement simple afin de se familiariser avec les méthodes et fonctions fourni par \litmus. J'ai donc choisi un algorithme partitionné pour la simplicité d’ordonnancement par \gls{processeur} que cela offre. Un algorithme EDF (\textit{Earliest Deadline First}) est alors choisi pour la simplicité du choix de la tache a exécuter. Comme son nom l'indique, on choisi à chaque instant la tache ayant l'échéance la plus proche. On nommera par la suite cet algorithme P-EDF (\textit{Partitionned Earliest Deadline First}).
 
-Pour montrer le fonctionnement de cet algorithme, si l'on se place sur un même processeur, on peut visualiser l'éxécution de deux tache periodiques : 
+Pour montrer le fonctionnement de cet algorithme, si l'on se place sur un même \gls{processeur}, on peut visualiser l’exécution de deux tache periodiques : 
 \begin{figure}[H]
     \center
     \begin{tikzpicture}[xscale=0.5, yscale=0.6]

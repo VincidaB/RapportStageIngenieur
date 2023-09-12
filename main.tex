@@ -101,6 +101,22 @@
     morekeywords={ifeq, endif, else, ifdef, ifndef, define, endef, export, unexport, obj},
     columns=flexible
 }
+\lstdefinestyle{config}{
+    language=make,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!40!black},
+    stringstyle=\color{red},
+    identifierstyle=\color{black},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    frame=single,
+    breaklines=true,
+    showstringspaces=false,
+    tabsize=4,
+    morekeywords={ifeq, endif, else, ifdef, ifndef, define, endef, export, unexport, obj},
+    columns=flexible
+}
 
 \bibliographystyle{plain} % We choose the "plain" reference style
 
@@ -148,7 +164,7 @@ plateforme multi-cœur hétérogène\\-}
     Dans quelle équipe je suis ?
     \subsection{Le sujet du stage}
     
-    Mon stage s'intéresse à l'implémentation d'un ordonanceur sur \gls{plateforme heterogene}\cite{bertout2020workload}
+    Mon stage s'intéresse à l'implémentation d'un ordonnanceur sur \gls{plateforme heterogene}\cite{bertout2020workload}
 
     Parler du projet SHRIMP. % en vrai faut que je me renseigne.
 
@@ -175,11 +191,14 @@ plateforme multi-cœur hétérogène\\-}
     
     
     \subsection{Présentation de \textit{feather-trace}}
-    
-    \subsection{Implémentation d'un ordonanceur EDF partitioné}
+    \input{LITMUS-RT/presentation-feather-trace.tex}
+
+
+    \subsection{Implémentation d'un ordonnanceur EDF partitionné}
     
     \input{LITMUS-RT/implementation-P-EDF}
     
+    \subsection{Implémentation d'un ordonnanceur RM partitionné}
     
     
     \newpage
@@ -192,6 +211,6 @@ plateforme multi-cœur hétérogène\\-}
     \newpage
     \listoffigures
     
-    \printnoidxglossaries
+    \printnoidxglossaries %glossaire, dans le fichier lexique.tex
 \end{document}
     
