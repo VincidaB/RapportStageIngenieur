@@ -151,6 +151,9 @@ plateforme multi-cœur hétérogène\\-}
     \put(90,5){\includegraphics[scale = 0.08]{Images/logo_LIAS.png}}
     
     }
+
+
+    \addcontentsline{toc}{section}{Table des figures}
     \newpage
     
     \section*{Présentation du stage}
@@ -200,17 +203,23 @@ plateforme multi-cœur hétérogène\\-}
     
     \subsection{Implémentation d'un ordonnanceur RM partitionné}
     
+    \newpage
+    \section*{Conclusion}
+    \addcontentsline{toc}{section}{Conclusion}
     
     \newpage
     \section*{Annexe}
-    \addcontentsline{toc}{part}{Annexe}
+    \addcontentsline{toc}{section}{Annexe}
     \input{annexe}
 
     \newpage
-    \bibliography{refs} % Entries are in the refs.bib file
-    \newpage
     \listoffigures
-    
+
+    \newpage
+    \bibliography{refs} % Entries are in the refs.bib file
+    \addcontentsline{toc}{section}{Bibiliographie}
+
+    \addcontentsline{toc}{section}{Glossaire}
     \printnoidxglossaries %glossaire, dans le fichier lexique.tex
 \end{document}
     
