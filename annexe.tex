@@ -415,3 +415,124 @@ CONFIG_SCHED_DEBUG_TRACE_CALLER=y
 # end of Tracing
 # end of LITMUS^RT
 \end{lstlisting}
+
+
+\begin{lstlisting}[style=cstyle, escapechar=\%, caption=Modifications apportées au fichier \texttt{rk3399.dtsi}, label=annexe:cache]
+cpus {
+        #address-cells = <2>;
+        #size-cells = <0>;
+
+        cpu-map {
+                cluster0 {
+                        core0 {
+                                cpu = <&cpu_l0>;
+                        };
+                        core1 {
+                                cpu = <&cpu_l1>;
+                        };
+                        core2 {
+                                cpu = <&cpu_l2>;
+                        };
+                        core3 {
+                                cpu = <&cpu_l3>;
+                        };
+                };
+
+                cluster1 {
+                        core0 {
+                                cpu = <&cpu_b0>;
+                        };
+                        core1 {
+                                cpu = <&cpu_b1>;
+                        };
+                };
+        };
+
+        cpu_l0: cpu@0 {
+                device_type = "cpu";
+                compatible = "arm,cortex-a53";
+                reg = <0x0 0x0>;
+                enable-method = "psci";
+%\hilight%                next-level-cache = <&l2_0>;
+                capacity-dmips-mhz = <485>;
+                clocks = <&cru ARMCLKL>;
+                #cooling-cells = <2>; /* min followed by max */
+                dynamic-power-coefficient = <100>;
+                cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
+
+%\hilight%                l2_0: l2-cache {
+%\hilight%                compatible = "cache,arm,arch-cache";
+%\hilight%        };
+        };
+
+        cpu_l1: cpu@1 {
+                device_type = "cpu";
+                compatible = "arm,cortex-a53";
+                reg = <0x0 0x1>;
+                enable-method = "psci";
+%\hilight%                next-level-cache = <&l2_0>;
+                capacity-dmips-mhz = <485>;
+                clocks = <&cru ARMCLKL>;
+                #cooling-cells = <2>; /* min followed by max */
+                dynamic-power-coefficient = <100>;
+                cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
+        };
+
+        cpu_l2: cpu@2 {
+                device_type = "cpu";
+                compatible = "arm,cortex-a53";
+                reg = <0x0 0x2>;
+                enable-method = "psci";
+%\hilight%                next-level-cache = <&l2_0>;
+                capacity-dmips-mhz = <485>;
+                clocks = <&cru ARMCLKL>;
+                #cooling-cells = <2>; /* min followed by max */
+                dynamic-power-coefficient = <100>;
+                cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
+        };
+
+        cpu_l3: cpu@3 {
+                device_type = "cpu";
+                compatible = "arm,cortex-a53";
+                reg = <0x0 0x3>;
+                enable-method = "psci";
+%\hilight%                next-level-cache = <&l2_0>;
+                capacity-dmips-mhz = <485>;
+                clocks = <&cru ARMCLKL>;
+                #cooling-cells = <2>; /* min followed by max */
+                dynamic-power-coefficient = <100>;
+                cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
+        };
+
+        cpu_b0: cpu@100 {
+                device_type = "cpu";
+                compatible = "arm,cortex-a72";
+                reg = <0x0 0x100>;
+                enable-method = "psci";
+                next-level-cache = <&l2_1>;
+                capacity-dmips-mhz = <1024>;
+                clocks = <&cru ARMCLKB>;
+                #cooling-cells = <2>; /* min followed by max */
+                dynamic-power-coefficient = <436>;
+                cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
+                
+%\hilight%                l2_1: l2-cache {
+%\hilight%                compatible = "cache,arm,arch-cache";
+%\hilight%        };
+        };
+
+        cpu_b1: cpu@101 {
+                device_type = "cpu";
+                compatible = "arm,cortex-a72";
+                reg = <0x0 0x101>;
+                enable-method = "psci";
+%\hilight%                next-level-cache = <&l2_1>;
+                capacity-dmips-mhz = <1024>;
+                clocks = <&cru ARMCLKB>;
+                #cooling-cells = <2>; /* min followed by max */
+                dynamic-power-coefficient = <436>;
+                cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
+        };
+        ...
+}
+\end{lstlisting}

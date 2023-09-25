@@ -1,10 +1,23 @@
 \subsubsection{Comment Linux gère le suport d'un processeur}
+
+Pour gérer la compatibilité avec un processeur, le \textit{bootloader} charge au démarrage de Linux le fichier \textit{Device Tree} qui contient les informations sur le matériel présent sur la carte. Ce fichier est ensuite utilisé par le noyau Linux pour initialiser le matériel. Dans notre cas, le fichier \texttt{rock960-rk3399.dts} charge le fichier \texttt{rk3399.dtsi} qui contient les informations sur le processeur. On peut y trouver les informations sur la connectique, les périphériques, les contrôleurs, les bus, etc.
+La partie nous intéressant est celle sur la structure des processeurs qui se trouve dans le fichier \texttt{rk3399.dtsi}. On y trouve les informations sur les différents cœurs du processeur, leur fréquence, leur cache. C'est vers la fin de mon stage que j'ai pu me rendre compte d'un oubli dans le fichier décrivant ce processeur : les caches ne sont pas décrits. Cela a des conséquences sur les algorithmes d'ordonnancement utilisant cette information pour concevoir les clusters de processeurs les plus adaptés. En effet, les caches sont utilisés pour déterminer les coûts de migration d'une tâche d'un cœur à un autre. Sans cette information, les algorithmes d'ordonnancement ne peuvent pas déterminer les coûts de migration et ne peuvent donc pas déterminer les clusters les plus adaptés. 
+
+Dans le listing \ref{annexe:cache} de l'annexe, on peut voir les modifications que j'ai apporté au fichier \texttt{rk3399.dtsi} pour ajouter les informations sur les caches. Je me suis appuyés sur les informations du \textit{datasheet} du processeur pour ajouter ces informations. La manière d'ajouter ces informations n'étais pas documentée mais j'ai pu trouver des exemples d'autres processeurs pour m'aider à ajouter ces informations.
+
+Ces modifications ne sont toujours pas présentes dans la version actuelle du noyau Linux, il y a alors ici une possibilité de soumettre une \textit{pull request} pour ajouter ces informations au noyau Linux. Je me suis renseigné sur la procédure à suivre pour soumettre une \textit{pull request} au noyau Linux et j'ai pu trouver un guide\cite{kernel-contribute} expliquant la procédure à suivre. Cependant, je n'ai pas eu le temps de soumettre cette \textit{pull request} avant la fin de mon stage. De plus, ces informations ne sont pas indispensables pour le fonctionnement de Linux sur ce processeur et ne sont donc pas une priorité pour les développeurs du noyau Linux. Il est donc possible que cette \textit{pull request} ne soit pas acceptée : j'ai pu trouver une pull request similaire datant de plusieurs année qui a mis du temsp à être acceptée\footnote{\href{https://github.com/torvalds/linux/commit/618682b350990f8f1bee718949c4b3858711eb58}{https://github.com/torvalds/linux/commit/618682b350990f8f1bee718949c4b3858711eb58}} alors qu'elle s'intéresse à un processeur plus répandu que le RK3399.
+
+
+
+
+\color{red}
 fichier de configuration de la carte ? du processeur ?
 
 Problème rencontré avec le wifi
-
+\color{black}
 
 
 \subsubsection{Essais de différentes versions}
-
+\color{red}
 Expliquer quels versions de linux sont compatibles avec la carte. Quelles versions de LITMUS sont disponibles.
+\color{black}

@@ -37,11 +37,12 @@
 
 \usepackage{eso-pic}
 \usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning}
 \usepackage{float}
 
 \usepackage{soul}
 \usepackage{listings}
-\newcommand{\hilight}{\makebox[0pt][s]{\color{green!50}\rule[-3.5pt]{1.0\linewidth}{11pt}}}
+\newcommand{\hilight}{\makebox[0pt][s]{\color{green!50}\rule[-3.6pt]{1.0\linewidth}{12pt}}}
 
 \usepackage{tikz}
 
@@ -168,7 +169,7 @@ plateforme multi-cœur hétérogène\vspace{10pt} \\****************************
     \newpage
     \section[OS compatibles avec la carte]{Systèmes d'exploitation compatibles avec la carte ROCK960}
 
-    Affin d'étudier les systèmes d'exploitations temps réel compatibles avec la carte de développement qui m'a été fourni, je me suis d'abord familiariser avec celle-ci avant d'en étudier la compatibilité avec des systèmes très complexes.
+    Affin d'étudier les systèmes d'exploitations temps réel compatibles avec la carte de développement qui m'a été fourni, je me suis d'abord familiariser avec celle-ci en installant des OS fournis par le fabriquant avant d'étudier la compatibilité avec des systèmes plus complexes. 
 
 
     \subsection{Présentation de la carte de développement}
@@ -205,7 +206,12 @@ plateforme multi-cœur hétérogène\vspace{10pt} \\****************************
     \newpage
     \section*{Conclusion}
     \addcontentsline{toc}{section}{Conclusion}
-    
+
+
+
+    \input{conclusion}
+
+
     \newpage
     \section*{Annexe}
     \addcontentsline{toc}{section}{Annexe}
