@@ -122,8 +122,8 @@
 \newcommand{\litmus}{LITMUS\textsuperscript{RT}}
 \renewcommand{\epsilon}{\varepsilon} 
 \renewcommand{\phi}{\varphi} 
-\title{Rapport de stage Ingénieur \\-\\Implémentation d'un ordonnanceur temps réel sur
-plateforme multi-cœur hétérogène\\-}
+\title{Rapport de stage Ingénieur\vspace{10pt}\\**************************************************\\Implémentation d'un ordonnanceur temps réel sur
+plateforme multi-cœur hétérogène\vspace{10pt} \\**************************************************}
 \author{BELPOIS Vincent}
 
 \begin{document}
@@ -155,23 +155,22 @@ plateforme multi-cœur hétérogène\\-}
     \addcontentsline{toc}{section}{Table des figures}
     \newpage
     
-    \section*{Présentation du stage}
-    \addcontentsline{toc}{section}{Présentation du stage}
-    
-    
-    \subsection{Le L.I.A.S.}
-    %Le LIAS c'est cool
+    \section{Introduction}
 
-    Parler des différentes équipes.
-    Dans quelle équipe je suis ?
-    \subsection{Le sujet du stage}
     
-    Mon stage s'intéresse à l'implémentation d'un ordonnanceur sur \gls{plateforme heterogene}\cite{bertout2020workload}
+    J'ai pu réaliser mon stage ingénieur, durant ma deuxième année d'étude à l'ISAE-ENSMA, au laboratoire du LIAS de Chasseneuil-du-Poitou. Le LIAS, ou Laboratoire d'Informatique et d'Automatique pour les Systèmes, regroupe plusieurs dizaines d'enseignants chercheurs dans les domaines de l'automatique, le génie électrique et l'informatique. Le site de Chasseneuil-du-Poitou regroupe deux équipes, l'équipe Ingénierie des Données et des moDèles (IDD) et l'équipe Systèmes Embarqués Temps Réel (SETR). 
 
-    Parler du projet SHRIMP. % en vrai faut que je me renseigne.
+    J'ai été accueilli au sein de cette dernière afin de travailler avec \color{red} Antoine BERTOUT et Thomas GASPARD \color{black} sur le projet \gls{SHRIMP}. Mon stage s'intéresse à l'implémentation d'un ordonnanceur sur \gls{plateforme heterogene}\cite{bertout2020workload}, tandis que le reste du projet s'intéresse entre autre à la conception d'un ordonnanceur temps réel global et dynamique pour des plateformes \textit{unrelated}.
+
+    Mon stage aura donc pour objectif d'identifier une solution permettant de programmer un ordonnanceur temps réel sur une carte de développement particulière. Il me faudra ensuite étudier les mécanismes les plus adaptés pour la migration tâches sur cette plateforme. L'objectif final sera alors d'implémenter une politique d'ordonnancement temps réel globale hétérogène naïve, voir plus évoluée en fonction de l'avancement des travaux de thèse.
+    
 
     \newpage
     \section[OS compatibles avec la carte]{Systèmes d'exploitation compatibles avec la carte ROCK960}
+
+    Affin d'étudier les systèmes d'exploitations temps réel compatibles avec la carte de développement qui m'a été fourni, je me suis d'abord familiariser avec celle-ci avant d'en étudier la compatibilité avec des systèmes très complexes.
+
+
     \subsection{Présentation de la carte de développement}
     \input{Carte/presentation-carte.tex}
 

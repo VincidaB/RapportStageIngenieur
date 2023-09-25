@@ -10,6 +10,9 @@
 			"**.ist": true,
 			"**.out": true,
 			"**.toc": true
-		}
+		},
+		"cSpell.words": [
+			"l'ISAE"
+		]
 	}
 }
