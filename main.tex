@@ -219,6 +219,13 @@ plateforme multi-cœur hétérogène\vspace{10pt} \\****************************
     
     \subsection{Implémentation d'un ordonnanceur RM partitionné}
     
+    Comme le montre le listing de code \ref{annexe:p-edf}, je me suis appuyé sur la librairie \texttt{litmus/edf\_common.h} fournie dans \litmus. J'ai donc ensuite décidé d'implémenter un algorithme d'ordonnancement qui ne l'utilisait pas. J'ai donc choisi d'implémenter un algorithme RM (Rate Monotonic) partitionné. Cet algorithme est plus simple que P-EDF car il ne prend pas en compte les échéances des taches. Il suffit alors de trier les taches par période croissante et de les ordonnancer en fonction de leur période. Cependant, cet algorithme ne permet pas de garantir l'ordonnançabilité des taches. En effet, il existe des ensembles de taches qui ne sont pas ordonnançables par cet algorithme alors qu'ils le sont par P-EDF. Cependant, cet algorithme est plus simple à implémenter et permet de se familiariser avec les fonctions de \litmus.
+
+    On peut alors 
+
+    \subsection{Résultats et essais}
+
+    \input{LITMUS-RT/resultats-p-edf.tex}
 
     \newpage
     \section*{Conclusion}

@@ -123,7 +123,7 @@ On a ici une première tache $\tau_1$ avec un pire temps d'éxécution (\textit{
 
 La construction d'un plugin d'ordonnancement nécessite la déclaration d'un module au sens de Linux. Pour Linux un module est un élément de code qui peut être chargé dynamiquement lors de l’exécution du système d'exploitation. Un module permet alors d'étendre les fonctionnalités du noyau, il a donc ont accès aux fonctions du noyau, à ses resources et peut aussi réaliser des appels systèmes.
 
-Pour que notre nouvel ordonnanceur soit reconnu par le noyau Linux modifié (\litmus); il faut alors déclarer une fonction d'initialisation :
+Pour que notre nouvel ordonnanceur soit reconnu par le noyau Linux modifié (\litmus), il faut déclarer une fonction d'initialisation :
 \begin{lstlisting}[style=cstyle]
 #include <linux/module.h> // used for calling module_init()
 
@@ -144,5 +144,10 @@ On peut alors enregistrer ce fichier sous le nom \lstinline{sched_p_edf.c} pour 
 On place notre fichier à compiler sous le mot clé \texttt{obj-y} pour signifier que l'on veut ce module compilé et inclus lors de la compilation du noyau Linux.
 
 Une fois le makefile modifié, la compilation de notre module sera exécutée lors de la compilation du noyau Linux à l'aide de make. La compilation du noyau est discuté dans la partie \ref{sec:compilation-linux-source}.
+
+\begin{center}
+    \color{red}
+    AU MOINS MENTIONNER LES AUTRES FONCTIONS NECESSAIRES
+\end{center}
 
     
