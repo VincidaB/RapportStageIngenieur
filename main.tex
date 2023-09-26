@@ -187,7 +187,24 @@ plateforme multi-cœur hétérogène\vspace{10pt} \\****************************
     
     \newpage
     \section{\litmus}
+    \label{section:litmus}
     
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\paperwidth]{Images/litmusrtarchitecture.png}
+    \caption{Architecture de \litmus}
+    \label{fig:litmusrtarchitecture}
+\end{figure}
+
+    \litmus est un patch au noyau Linux constitué de quatre parties : 
+    \begin{itemize}
+        \item \textbf{LITMUS\textsuperscript{RT} Core} : le patch au noyau Linux qui permet d'ajouter les fonctionnalités temps réel à Linux
+        \item plusieurs ordonnanceur
+        \item une interface dans l'espace utilisateur
+        \item des outils dans l'espace utilisateur tel que \textit{feather-trace} et \textit{liblitmus}
+    \end{itemize}
+
+
     \subsection{Présentation de \litmus}
     \input{LITMUS-RT/presentation-LITMUS.tex}
     
