@@ -643,3 +643,5 @@ int rm_preemption_needed(rt_domain_t* rt, struct task_struct *t)
         return !is_realtime(t) || rm_higher_prio(__next_ready(rt), t);
 }
 \end{lstlisting}
+
+\lstinputlisting[language=bash, style=bashstyle, label=annexe:precisiontime]{code/precision-time}

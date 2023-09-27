@@ -1,0 +1,6 @@
+#!/bin/bash
+start="$(date +'%s.%N')"
+$@
+end="$(date +'%s.%N')"
+diff=$(awk "BEGIN { print $end - $start }")
+echo "$diff" >&2

@@ -1,0 +1,14 @@
+Lors de tout mes tests sur la carte de développement, j'ai utilisé l'outil \textit{rtspin} de \textit{liblitmus} afin de générer des tâches temps réel. Cet outil permet de générer des tâches avec des paramètres spécifiques, comme le pire temps d'exécution, la période, le processeur sur lequel la tâche doit s'exécuter, etc. Cependant, il ne permet pas de généré des tâches ayant des temps d'exécution différents sur différents processeurs. Cela est un problème car cela ne permet pas de mettre en valeur la nature hétérogène de la plateforme sur laquelle nous travaillons. C'est pourquoi je me suis intéressé durant une partie de mon stage a créer de telles tâches.
+
+\subsection{Mesure de temps d'exécution}
+Il est important de pouvoir mesurer de manière suffisamment précise le temps d'exécution d'une tâche. Pour cela, ma première idée était d'utilisé le module \texttt{time} de Linux. Cependant, ce module ne permet pas de mesurer des temps d'exécution inférieur à la milliseconde. Cela est dû au fait que le module \texttt{time} utilise le timer du noyau Linux qui a une précision de 1ms. Cela est bien trop imprécis pour mesurer des temps d'exécution de tâches temps réel. J'ai donc d'abord créée un script \texttt{bash} utilisant un autre temps Linux. Ce script est présent dans le listing \ref{annexe:precisiontime} et fut utilisé pour tout mes essais préliminaires. Cependant, ce script, malgré sa plus grande précision, mesurait toujours un temps minimum : environ 6ms. Je n'ai pas pu le montrer, mais ce temps semble venir du démarrage du script, puis du démarrage du programme appelé. Il a donc été utile pour comparer des tâches entre elles, mais n'était pas assez précis pour connaître le temps d'exécution d'une tâche.
+
+
+\subsection{Génération de tâches répétables}
+\label{section:generation-taches-repetables}
+
+Mon objectif était alors de généré des tâches qui s'exécute a des vitesse différentes sur les différent processeur, tout en ayant un temps d'exécution qui ne varie qu'un minimum entre deux exécution sur un même processeur.
+
+\subsubsection{Première idée : \textit{checksum} d'un fichier}
+
+Ma première idée était de calculer la checksum d'un fichier de petite taille. La taille du fichier permettrait alors de faire varier le temps d’exécution. Cette opération était principalement calculatoire, j'avais espoir que le temps d'exécution ne varie pas trop entre deux exécutions sur un même processeur. Cependant, cette opération semblait possédé trop d’accès a la mémoire et au stockage : deux choses que je ne voulais pas prendre en compte dans mon temps d'exécution. Comme on peut le voir sur l'exécution d'une telle tâche, sur laquelle je réalise la \gls{checksum md5} sur un fichier de code de 95KiB, J'ai donc abandonné cette idée.

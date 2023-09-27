@@ -68,6 +68,26 @@
   caption={Linux Command},
   label=command,
 }
+\lstdefinestyle{bashstyle}{
+  backgroundcolor=\color{white},
+  basicstyle=\ttfamily\color{black},
+  keywordstyle=\color{blue},
+  commentstyle=\color{mygray},
+  stringstyle=\color{red},
+  showstringspaces=false,
+  upquote=true,
+  morekeywords={sudo, ls, cd, mv, cp, rm, mkdir, chmod, chown, grep, find},
+  captionpos=b,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny\color{mygray},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2,
+  keepspaces=true,
+  caption={Script bash},
+  label=command,
+}
 
 \lstdefinestyle{cstyle}{
     language=C,
@@ -76,6 +96,7 @@
     commentstyle=\color{green!40!black},
     stringstyle=\color{red},
     identifierstyle=\color{black},
+    captionpos=b,
     numbers=left,
     numberstyle=\tiny\color{gray},
     frame=single,
@@ -91,6 +112,7 @@
     basicstyle=\ttfamily,
     keywordstyle=\color{blue},
     commentstyle=\color{green!40!black},
+    captionpos=b,
     stringstyle=\color{red},
     identifierstyle=\color{black},
     numbers=left,
@@ -107,6 +129,7 @@
     basicstyle=\ttfamily,
     keywordstyle=\color{blue},
     commentstyle=\color{green!40!black},
+    captionpos=b,
     stringstyle=\color{red},
     identifierstyle=\color{black},
     numbers=left,
@@ -162,9 +185,9 @@ plateforme multi-cœur hétérogène\vspace{10pt} \\****************************
     
     J'ai pu réaliser mon stage ingénieur, durant ma deuxième année d'étude à l'ISAE-ENSMA, au laboratoire du LIAS de Chasseneuil-du-Poitou. Le LIAS, ou Laboratoire d'Informatique et d'Automatique pour les Systèmes, regroupe plusieurs dizaines d'enseignants chercheurs dans les domaines de l'automatique, le génie électrique et l'informatique. Le site de Chasseneuil-du-Poitou regroupe deux équipes, l'équipe Ingénierie des Données et des moDèles (IDD) et l'équipe Systèmes Embarqués Temps Réel (SETR). 
 
-    J'ai été accueilli au sein de cette dernière afin de travailler avec \color{red} Antoine BERTOUT et Thomas GASPARD \color{black} sur le projet \gls{SHRIMP}. Mon stage s'intéresse à l'implémentation d'un ordonnanceur sur \gls{plateforme heterogene}\cite{bertout2020workload}, tandis que le reste du projet s'intéresse entre autre à la conception d'un ordonnanceur temps réel global et dynamique pour des plateformes \textit{unrelated}.
+    J'ai été accueilli au sein de cette dernière afin de travailler avec \color{red} Antoine BERTOUT et Thomas GASPARD \color{black} sur le projet \gls{SHRIMP}. Mon stage s'intéresse à l'implémentation d'un \gls{ordonnanceur} sur \gls{plateforme heterogene}\cite{bertout2020workload}, tandis que le reste du projet s'intéresse entre autre à la conception d'un \gls{ordonnanceur} temps réel global et dynamique pour des plateformes \textit{unrelated}.
 
-    Mon stage aura donc pour objectif d'identifier une solution permettant de programmer un ordonnanceur temps réel sur une carte de développement particulière. Il me faudra ensuite étudier les mécanismes les plus adaptés pour la migration tâches sur cette plateforme. L'objectif final sera alors d'implémenter une politique d'ordonnancement temps réel globale hétérogène naïve, voir plus évoluée en fonction de l'avancement des travaux de thèse.
+    Mon stage aura donc pour objectif d'identifier une solution permettant de programmer un \gls{ordonnanceur} temps réel sur une carte de développement particulière. Il me faudra ensuite étudier les mécanismes les plus adaptés pour la migration tâches sur cette plateforme. L'objectif final sera alors d'implémenter une politique d'\gls{ordonnancement} temps réel globale hétérogène naïve, voir plus évoluée en fonction de l'avancement des travaux de thèse.
     
 
     \newpage
@@ -200,7 +223,7 @@ plateforme multi-cœur hétérogène\vspace{10pt} \\****************************
     \litmus est un patch au noyau Linux constitué de quatre parties : 
     \begin{itemize}
         \item \textbf{LITMUS\textsuperscript{RT} Core} : le patch au noyau Linux qui permet d'ajouter les fonctionnalités temps réel à Linux
-        \item plusieurs ordonnanceur
+        \item plusieurs \gls{ordonnanceur}
         \item une interface dans l'espace utilisateur
         \item des outils dans l'espace utilisateur tel que \textit{feather-trace} et \textit{liblitmus}
     \end{itemize}
@@ -224,10 +247,10 @@ plateforme multi-cœur hétérogène\vspace{10pt} \\****************************
     
     
     \newpage
-    \section{Génération et étude de tâches sur plateforme hétérogène}
+    \section[Génération de tâches]{Génération et étude de tâches sur plateforme hétérogène}
 
-    Lors de tout mes tests sur la carte de développement, j'ai utilisé l'outil \textit{rtspin} de \textit{liblitmus} afin de générer des tâches temps réel. Cet outil permet de générer des tâches avec des paramètres spécifiques, comme le pire temps d'exécution, la période, le processeur sur lequel la tâche doit s'exécuter, etc. Il permet aussi de générer des tâches avec des paramètres aléatoires. Cela m'a permis de générer des tâches avec des paramètres aléatoires afin de tester la robustesse de mon ordonnanceur.
-    \subsection{Mesure de temps d'éxécution}
+    \input{tasks.tex}
+
 
     \newpage
     \section*{Conclusion}
