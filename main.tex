@@ -11,6 +11,7 @@
 \usepackage{graphicx}
 
 \usepackage{fancyhdr}
+\setlength{\headheight}{15pt}
 \pagestyle{fancy}
 
 \usepackage{hyperref}
@@ -218,14 +219,15 @@ plateforme multi-cœur hétérogène\vspace{10pt} \\****************************
     \input{LITMUS-RT/implementation-P-EDF}
     
     \subsection{Implémentation d'un ordonnanceur RM partitionné}
+
+    \input{LITMUS-RT/implementation-RM.tex}
     
-    Comme le montre le listing de code \ref{annexe:p-edf}, je me suis appuyé sur la librairie \texttt{litmus/edf\_common.h} fournie dans \litmus. J'ai donc ensuite décidé d'implémenter un algorithme d'ordonnancement qui ne l'utilisait pas. J'ai donc choisi d'implémenter un algorithme RM (Rate Monotonic) partitionné. Cet algorithme est plus simple que P-EDF car il ne prend pas en compte les échéances des taches. Il suffit alors de trier les taches par période croissante et de les ordonnancer en fonction de leur période. Cependant, cet algorithme ne permet pas de garantir l'ordonnançabilité des taches. En effet, il existe des ensembles de taches qui ne sont pas ordonnançables par cet algorithme alors qu'ils le sont par P-EDF. Cependant, cet algorithme est plus simple à implémenter et permet de se familiariser avec les fonctions de \litmus.
+    
+    \newpage
+    \section{Génération et étude de tâches sur plateforme hétérogène}
 
-    On peut alors 
-
-    \subsection{Résultats et essais}
-
-    \input{LITMUS-RT/resultats-p-edf.tex}
+    Lors de tout mes tests sur la carte de développement, j'ai utilisé l'outil \textit{rtspin} de \textit{liblitmus} afin de générer des tâches temps réel. Cet outil permet de générer des tâches avec des paramètres spécifiques, comme le pire temps d'exécution, la période, le processeur sur lequel la tâche doit s'exécuter, etc. Il permet aussi de générer des tâches avec des paramètres aléatoires. Cela m'a permis de générer des tâches avec des paramètres aléatoires afin de tester la robustesse de mon ordonnanceur.
+    \subsection{Mesure de temps d'éxécution}
 
     \newpage
     \section*{Conclusion}
