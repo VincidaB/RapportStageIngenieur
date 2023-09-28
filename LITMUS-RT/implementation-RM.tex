@@ -1,4 +1,4 @@
-Comme le montre le listing de code \ref{annexe:p-edf}, je me suis appuyé sur la librairie \texttt{litmus/edf\_common.h} fournie dans \litmus. J'ai donc ensuite décidé d'implémenter un algorithme d'ordonnancement qui ne l'utilisait pas. J'ai donc choisi d'implémenter un algorithme RM (Rate Monotonic) partitionné. Cet algorithme est plus simple que P-EDF car il ne prend pas en compte les échéances des taches. Il suffit alors de trier les taches par période croissante et de les ordonnancer en fonction de leur période. Cependant, cet algorithme ne permet pas de garantir l'ordonnançabilité des taches. En effet, il existe des ensembles de taches qui ne sont pas ordonnançables par cet algorithme alors qu'ils le sont par P-EDF. Cependant, cet algorithme est plus simple à implémenter et permet de se familiariser avec les fonctions de \litmus.
+Comme le montre le listing de code \ref{annexe:p-edf}, je me suis appuyé sur la librairie \texttt{litmus/edf\_common.h} fournie dans \litmus. J'ai donc ensuite décidé d'implémenter un algorithme d'ordonnancement qui ne l'utilisait pas. J'ai donc choisi d'implémenter un algorithme RM (Rate Monotonic) partitionné. Cet algorithme est plus simple que P-EDF car il ne prend pas en compte les échéances destâches. Il suffit alors de trier lestâches par période croissante et de les ordonnancer en fonction de leur période. Cependant, cet algorithme ne permet pas de garantir l'ordonnançabilité destâches. En effet, il existe des ensembles detâches qui ne sont pas ordonnançables par cet algorithme alors qu'ils le sont par P-EDF. Cependant, cet algorithme est plus simple à implémenter et permet de se familiariser avec les fonctions de \litmus.
 
 
 \subsubsection{Implémentation}
@@ -34,7 +34,7 @@ En raison de la grande quantité de nouveau code, faire fonctionner cet algorith
 \end{figure}
 
 Premièrement, l’ordonnanceur ne stipule pas a \textit{feather-trace} la fin d'exécution d'une tâches. Cela peut être corrigé en  appelant \texttt{sched\_trace\_task\_completion(prev, budget\_exhausted);} lors de la fin d'un job.
-Secondement, on peut voir que la deuxième tâche se fait préempter en $t=5ms$ par la première tâche, plus prioritaire. Cependant, l'exécution de cette deuxième tâche ne continue pas lorsque le processeur est libre. Cet erreur était alors du à une erreur de logique dans la fonctions principale d’ordonnancement dans laquelle je ne replaçait pas les taches préemptés dans la \texttt{ready\_queue}.
+Secondement, on peut voir que la deuxième tâche se fait préempter en $t=5ms$ par la première tâche, plus prioritaire. Cependant, l'exécution de cette deuxième tâche ne continue pas lorsque le processeur est libre. Cet erreur était alors du à une erreur de logique dans la fonctions principale d’ordonnancement dans laquelle je ne replaçait pas lestâches préemptés dans la \texttt{ready\_queue}.
 
 Après ces erreurs corrigées voici la résulatat de l'ordonancement de \color{red}XXX \color{black} tâches par RM toutes deux lancées sur le même processeur:
 
@@ -43,7 +43,7 @@ Après ces erreurs corrigées voici la résulatat de l'ordonancement de \color{r
     \color{red} AJOUTER IMAGE DE L'ORDONANCEMENT DE RM
 \end{center}
 
-On peut aussi lancer les taches avec un \textit{offset} afin de voir si l'ordonnancement est correcte. Ce décalage est donné en tant que paramètre a la commande \texttt{rt-spin} de \textit{liblitmus} (paramètre -o). Voici un exemple d'ordonnancement avec un \textit{offset} de XXms pour la deuxième tâche.
+On peut aussi lancer lestâches avec un \textit{offset} afin de voir si l'ordonnancement est correcte. Ce décalage est donné en tant que paramètre a la commande \texttt{rt-spin} de \textit{liblitmus} (paramètre -o). Voici un exemple d'ordonnancement avec un \textit{offset} de XXms pour la deuxième tâche.
 \begin{center}
     \color{red} AJOUTER IMAGE DE L'ORDONANCEMENT DE RM AVEC OFFSET
 \end{center}
