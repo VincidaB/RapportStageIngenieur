@@ -22,7 +22,7 @@ void rm_domain_init(rt_domain_t* rt, check_resched_needed_t resched,
 }
 \end{lstlisting}
 
-La complexitude de cette fonction se cache derière la nouvelle fonction d'ordre implémenté sous le nom de \texttt{rm\_ready\_order}. Cette fonction est passé en paramètre à \texttt{rt\_domain\_init} et permet d'initialiser le domaine temps réel avec l'ordre qui régit la priorité des tâches sous RM. Comme le montre le listing de code \ref{annexe:rm_common}, cette fonction est simple et permet de trier les tâches par période croissante. En cas, d'égalité, la priorité est départagée par PID croissant (la tâche avec le PID le plus petit est la plus prioritaire). On effectue aussi d'autres vérifications sur les tâches comme leur nature (tâche temps réel ou non), si deux fois la même tâche est passée en argument, ou encore si une des tâche est \texttt{NULL} (cas ou qu'une seul tâche n'est présente).
+La complexité de cette fonction se cache derrière la nouvelle fonction d'ordre implémenté sous le nom de \texttt{rm\_ready\_order}. Cette fonction est passé en paramètre à \texttt{rt\_domain\_init} et permet d'initialiser le domaine temps réel avec l'ordre qui régit la priorité des tâches sous RM. Comme le montre le listing de code \ref{annexe:rm_common}, cette fonction est simple et permet de trier les tâches par période croissante. En cas, d'égalité, la priorité est départagée par PID croissant (la tâche avec le PID le plus petit est la plus prioritaire). On effectue aussi d'autres vérifications sur les tâches comme leur nature (tâche temps réel ou non), si deux fois la même tâche est passée en argument, ou encore si une des tâche est \texttt{NULL} (cas ou qu'une seul tâche n'est présente).
 
 \subsubsection{Résultats et essais}
 
@@ -34,19 +34,24 @@ En raison de la grande quantité de nouveau code, faire fonctionner cet algorith
 \end{figure}
 
 Premièrement, l’ordonnanceur ne stipule pas a \textit{feather-trace} la fin d'exécution d'une tâches. Cela peut être corrigé en  appelant \texttt{sched\_trace\_task\_completion(prev, budget\_exhausted);} lors de la fin d'un job.
-Secondement, on peut voir que la deuxième tâche se fait préempter en $t=5ms$ par la première tâche, plus prioritaire. Cependant, l'exécution de cette deuxième tâche ne continue pas lorsque le processeur est libre. Cet erreur était alors du à une erreur de logique dans la fonctions principale d’ordonnancement dans laquelle je ne replaçait pas lestâches préemptés dans la \texttt{ready\_queue}.
+Secondement, on peut voir que la deuxième tâche se fait préempter en $t=5ms$ par la première tâche, plus prioritaire. Cependant, l'exécution de cette deuxième tâche ne continue pas lorsque le processeur est libre. Cet erreur était alors du à une erreur de logique dans la fonctions principale d’ordonnancement dans laquelle je ne replaçait pas les tâches préemptés dans la \texttt{ready\_queue}.
 
-Après ces erreurs corrigées voici la résulatat de l'ordonancement de \color{red}XXX \color{black} tâches par RM toutes deux lancées sur le même processeur:
+Après ces erreurs corrigées voici le résultat de l’ordonnancement de \color{red}XXX \color{black} tâches par RM toutes deux lancées sur le même processeur:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Images/RM-No-Offset.png}
+    \caption{Exemple d'ordonnancement de deux tâches par RM}
+    \label{fig:rm-schedualibility-demo}
+\end{figure}
 
 
-\begin{center}
-    \color{red} AJOUTER IMAGE DE L'ORDONANCEMENT DE RM
-\end{center}
-
-On peut aussi lancer lestâches avec un \textit{offset} afin de voir si l'ordonnancement est correcte. Ce décalage est donné en tant que paramètre a la commande \texttt{rt-spin} de \textit{liblitmus} (paramètre -o). Voici un exemple d'ordonnancement avec un \textit{offset} de XXms pour la deuxième tâche.
-\begin{center}
-    \color{red} AJOUTER IMAGE DE L'ORDONANCEMENT DE RM AVEC OFFSET
-\end{center}
+On peut aussi lancer les tâches avec un \textit{offset} afin de voir si l'ordonnancement est correct. Ce décalage est donné en tant que paramètre a la commande \texttt{rt-spin} de \textit{liblitmus} (paramètre \texttt{-o}). Voici un exemple d'ordonnancement avec un \textit{offset} de 1ms pour la première tâche. Les tâches ont les mêmes pires temps d'exécution et les mêmes périodes que les tâches de la figure \ref{fig:rm-schedualibility-demo}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Images/RM_OFFSET_SCHED.png}
+    \caption{Exemple d'ordonnancement via RM avec un offset sur une tâche}
+\end{figure}
 
 On peut aussi lancer un plus grand nombre de tâches sur une multitude de processeurs (la carte de développement en ayant 6), et on obtient le tracé de tâches suivantes : 
 \begin{center}
