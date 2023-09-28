@@ -12,3 +12,34 @@ Mon objectif était alors de généré des tâches qui s'exécute a des vitesse 
 \subsubsection{Première idée : \textit{checksum} d'un fichier}
 
 Ma première idée était de calculer la checksum d'un fichier de petite taille. La taille du fichier permettrait alors de faire varier le temps d’exécution. Cette opération était principalement calculatoire, j'avais espoir que le temps d'exécution ne varie pas trop entre deux exécutions sur un même processeur. Cependant, cette opération semblait possédé trop d’accès a la mémoire et au stockage : deux choses que je ne voulais pas prendre en compte dans mon temps d'exécution. Comme on peut le voir sur l'exécution d'une telle tâche, sur laquelle je réalise la \gls{checksum md5} sur un fichier de code de 95KiB, J'ai donc abandonné cette idée.
+
+\subsubsection{Deuxièle idée : somme sur un grand nombre d'entiers}
+
+Ma deuxième idée était de faire une somme sur un grand nombre d'entiers. Cette opération est aussi calculatoire, mais ne possède pas d'accès mémoire. J'ai donc créé un programme qui réalise une somme sur un grand nombre d'entiers. Ce programme est présent en annexe au listing \ref{annexe:sum-int}. Il contient aussi d'autres essais, et le choix de l'essai se fait lors de l'appel du programme. On notera par exemple que la variable sur laquelle on réalise la somme est déclarée en tant que \texttt{volatile} afin d'éviter que le compilateur optimise le code.
+
+J'ai ensuite utilisé ce programme pour générer des tâches avec des temps d'exécution différents. Après beaucoup d'essais, et en désactivant les optimisations de compilation, j'ai réussi a obtenir des tâches avec des temps d'exécution différents. On peut alors voir le temps d'exécution en fonction de l'entier sur lequel on réalise la somme. J'ai ici réaliser le test sur deux processeurs : CPU0 qui est un processeur A53 et CPU5 qui est un des deux A72. On peut coir sur la figure \ref{fig:sum_int} que le temps d'exécution est bien différent entre les deux processeurs. Cependant, on peut voir que le temps d'exécution est légèrement variable sur un même processeur. Cela est dû au fait que le processeur est partagé entre plusieurs tâches, et que le temps d'exécution d'une tâche dépend de la charge du processeur. Cela est donc un problème pour mesurer le temps d'exécution d'une tâche. Cependant, cela ne pose pas de problème pour générer des tâches avec des temps d'exécution différents. En effet, si l'on prend un entier $n$ et que l'on réalise la somme sur les $n$ premiers entiers, on obtient un temps d'exécution différent pour chaque valeur de $n$. On peut donc générer des tâches avec des temps d'exécution différents en choisissant un entier $n$ différent pour chaque tâche. Cela est donc une solution pour générer des tâches avec des temps d'exécution différents sur différents processeurs.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Images/graphSum0and5.png}
+    \caption{Temps d'exécution en fonction de l'entier sur lequel on réalise la somme}
+    \label{fig:sum_int}    
+\end{figure}
+
+
+On remarque aussi que le temps d'exécution semble être linéaire avec l'entier sur lequel on somme. Il m'a alors été recommandé, lors d'un séminaire où j'ai pu présenter les travaux de mon stage au laboratoire, d'étudier si cette différence de temps d'exécution pouvait être corrélé avec les différentes fréquences des processeurs. En réutilisant les données qui ont permis de tracer le graph de la figure \ref{fig:sum_int}, j'ai pu obtenir les régressions linéaires suivantes pour les deux processeurs :
+% CPU0(n) =  3.0652132638329e-08 n +  0.012679295825389528
+% CPU5(n) =  1.3932465779161102e-08 n +  0.006507234980479443
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Images/linear_regression.png}
+    \caption{Régression linéaire du temps d'exécution en fonction de l'entier sur lequel on réalise la somme}
+\end{figure}
+\[
+    CPU0(n) =  3.065 \times 10^{-8} n +  0.0127 
+\] 
+\[
+    CPU5(n) =  1.393 \times 10^{-8} n +  0.0065
+\]
+
