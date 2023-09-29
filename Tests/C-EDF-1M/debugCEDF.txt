@@ -1,0 +1,854 @@
+84 P5 [alloc_ctrl_page@litmus/ctrldev.c:28]: (release_ts/424:0) alloc_ctrl_page ctrl_page = 00000000ffcb6aa1
+85 P5 [map_ctrl_page@litmus/ctrldev.c:42]: (release_ts/424:0) litmus/ctrl: mapping 00000000ffcb6aa1 (pfn:36007) to 0xffffa7548000 (prot:68000000000fd3)
+86 P5 [litmus_ctrl_mmap@litmus/ctrldev.c:116]: (release_ts/424:0) litmus_ctrl_mmap flags=0x10160073 prot=0x68000000000fd3
+87 P5 [do_release_ts@litmus/sync.c:98]: <<<<<< synchronous task system release >>>>>>
+88 P5 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/374:1) try_to_wake_up() state:1
+89 P5 [cedf_task_wake_up@litmus/sched_cedf.c:583]: (testrttask/374:1) wake_up at 176730894998
+90 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/374 (2000000, 5000000, 4000000) rel=176730901414 to ready queue at 176730904331
+91 P5 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/374:2) linking to local CPU 5 to avoid IPI
+92 P5 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/374:2) try_to_wake_up() done state:0 success:1
+93 P5 [cedf_schedule@litmus/sched_cedf.c:449]: (release_ts/424:0) will be preempted by testrttask/374
+94 P5 [litmus_schedule@kernel/sched/litmus.c:59]: (testrttask/374:2) migrate from 4
+95 P5 [litmus_schedule@kernel/sched/litmus.c:72]: (testrttask/374:2) stack_in_use=-1
+96 P5 [complete_job@litmus/jobs.c:104]: (testrttask/374:2) job completion indicated at 176730956831
+97 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:2) charged 15458 exec time (total:15458, rem:1984542)
+98 P5 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/374:2) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+99 P5 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/374:2) job_completion(forced=0).
+100 P5 [prepare_for_next_period@litmus/jobs.c:45]: (testrttask/374:2) sporadic release at 178000000000
+101 P5 [__add_release@litmus/rt_domain.c:346]: (testrttask/374:3) add_release(), rel=178000000000
+102 P5 [cedf_schedule@litmus/sched_cedf.c:493]: (testrttask/374:3) scheduled_on = NO_CPU
+103 P5 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/373:1) try_to_wake_up() state:1
+104 P5 [cedf_task_wake_up@litmus/sched_cedf.c:583]: (testrttask/373:1) wake_up at 176731019831
+105 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/373 (2000000, 5000000, 4000000) rel=176731024789 to ready queue at 176731026539
+106 P5 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/373:2) linking to local CPU 5 to avoid IPI
+107 P5 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/373:2) try_to_wake_up() done state:0 success:1
+108 P5 [cedf_schedule@litmus/sched_cedf.c:449]: (release_ts/424:0) will be preempted by testrttask/373
+109 P5 [litmus_schedule@kernel/sched/litmus.c:59]: (testrttask/373:2) migrate from 4
+110 P5 [litmus_schedule@kernel/sched/litmus.c:72]: (testrttask/373:2) stack_in_use=-1
+111 P5 [complete_job@litmus/jobs.c:104]: (testrttask/373:2) job completion indicated at 176731067081
+112 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:2) charged 10792 exec time (total:10792, rem:1989208)
+113 P5 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/373:2) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+114 P5 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/373:2) job_completion(forced=0).
+115 P5 [prepare_for_next_period@litmus/jobs.c:45]: (testrttask/373:2) sporadic release at 178000000000
+116 P5 [__add_release@litmus/rt_domain.c:346]: (testrttask/373:3) add_release(), rel=178000000000
+117 P5 [cedf_schedule@litmus/sched_cedf.c:493]: (testrttask/373:3) scheduled_on = NO_CPU
+118 P5 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/372:1) try_to_wake_up() state:1
+119 P5 [cedf_task_wake_up@litmus/sched_cedf.c:583]: (testrttask/372:1) wake_up at 176731117248
+120 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/372 (2000000, 5000000, 4000000) rel=176731121914 to ready queue at 176731123373
+121 P5 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/372:2) linking to local CPU 5 to avoid IPI
+122 P5 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/372:2) try_to_wake_up() done state:0 success:1
+123 P5 [cedf_schedule@litmus/sched_cedf.c:449]: (release_ts/424:0) will be preempted by testrttask/372
+124 P5 [litmus_schedule@kernel/sched/litmus.c:59]: (testrttask/372:2) migrate from 4
+125 P5 [litmus_schedule@kernel/sched/litmus.c:72]: (testrttask/372:2) stack_in_use=-1
+126 P5 [complete_job@litmus/jobs.c:104]: (testrttask/372:2) job completion indicated at 176731160706
+127 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:2) charged 10500 exec time (total:10500, rem:1989500)
+128 P5 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/372:2) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+129 P5 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/372:2) job_completion(forced=0).
+130 P5 [prepare_for_next_period@litmus/jobs.c:45]: (testrttask/372:2) sporadic release at 178000000000
+131 P5 [__add_release@litmus/rt_domain.c:346]: (testrttask/372:3) add_release(), rel=178000000000
+132 P5 [cedf_schedule@litmus/sched_cedf.c:493]: (testrttask/372:3) scheduled_on = NO_CPU
+133 P5 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:1) try_to_wake_up() state:1
+134 P5 [cedf_task_wake_up@litmus/sched_cedf.c:583]: (testrttask/371:1) wake_up at 176731208539
+135 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/371 (2000000, 5000000, 4000000) rel=176731212914 to ready queue at 176731214373
+136 P5 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/371:2) linking to local CPU 5 to avoid IPI
+137 P5 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:2) try_to_wake_up() done state:0 success:1
+138 P5 [cedf_schedule@litmus/sched_cedf.c:449]: (release_ts/424:0) will be preempted by testrttask/371
+139 P5 [litmus_schedule@kernel/sched/litmus.c:59]: (testrttask/371:2) migrate from 4
+140 P5 [litmus_schedule@kernel/sched/litmus.c:72]: (testrttask/371:2) stack_in_use=-1
+141 P5 [complete_job@litmus/jobs.c:104]: (testrttask/371:2) job completion indicated at 176731250831
+142 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:2) charged 9917 exec time (total:9917, rem:1990083)
+143 P5 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/371:2) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+144 P5 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/371:2) job_completion(forced=0).
+145 P5 [prepare_for_next_period@litmus/jobs.c:45]: (testrttask/371:2) sporadic release at 178000000000
+146 P5 [__add_release@litmus/rt_domain.c:346]: (testrttask/371:3) add_release(), rel=178000000000
+147 P5 [cedf_schedule@litmus/sched_cedf.c:493]: (testrttask/371:3) scheduled_on = NO_CPU
+148 P5 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/370:1) try_to_wake_up() state:1
+149 P5 [cedf_task_wake_up@litmus/sched_cedf.c:583]: (testrttask/370:1) wake_up at 176731298081
+150 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/370 (2000000, 5000000, 4000000) rel=176731302748 to ready queue at 176731304206
+151 P5 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/370:2) linking to local CPU 5 to avoid IPI
+152 P5 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/370:2) try_to_wake_up() done state:0 success:1
+153 P5 [cedf_schedule@litmus/sched_cedf.c:449]: (release_ts/424:0) will be preempted by testrttask/370
+154 P5 [litmus_schedule@kernel/sched/litmus.c:59]: (testrttask/370:2) migrate from 4
+155 P5 [litmus_schedule@kernel/sched/litmus.c:72]: (testrttask/370:2) stack_in_use=-1
+156 P5 [complete_job@litmus/jobs.c:104]: (testrttask/370:2) job completion indicated at 176731361956
+157 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:2) charged 10209 exec time (total:10209, rem:1989791)
+158 P5 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/370:2) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+159 P5 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/370:2) job_completion(forced=0).
+160 P5 [prepare_for_next_period@litmus/jobs.c:45]: (testrttask/370:2) sporadic release at 178000000000
+161 P5 [__add_release@litmus/rt_domain.c:346]: (testrttask/370:3) add_release(), rel=178000000000
+162 P5 [cedf_schedule@litmus/sched_cedf.c:493]: (testrttask/370:3) scheduled_on = NO_CPU
+163 P5 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/369:1) try_to_wake_up() state:1
+164 P5 [cedf_task_wake_up@litmus/sched_cedf.c:583]: (testrttask/369:1) wake_up at 176731412706
+165 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/369 (2000000, 5000000, 4000000) rel=176731417081 to ready queue at 176731418539
+166 P5 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/369:2) linking to local CPU 5 to avoid IPI
+167 P5 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/369:2) try_to_wake_up() done state:0 success:1
+168 P5 [cedf_schedule@litmus/sched_cedf.c:449]: (release_ts/424:0) will be preempted by testrttask/369
+169 P5 [litmus_schedule@kernel/sched/litmus.c:59]: (testrttask/369:2) migrate from 4
+170 P5 [litmus_schedule@kernel/sched/litmus.c:72]: (testrttask/369:2) stack_in_use=-1
+171 P5 [complete_job@litmus/jobs.c:104]: (testrttask/369:2) job completion indicated at 176731457914
+172 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:2) charged 10208 exec time (total:10208, rem:1989792)
+173 P5 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/369:2) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+174 P5 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/369:2) job_completion(forced=0).
+175 P5 [prepare_for_next_period@litmus/jobs.c:45]: (testrttask/369:2) sporadic release at 178000000000
+176 P5 [__add_release@litmus/rt_domain.c:346]: (testrttask/369:3) add_release(), rel=178000000000
+177 P5 [cedf_schedule@litmus/sched_cedf.c:493]: (testrttask/369:3) scheduled_on = NO_CPU
+178 P5 [litmus_ctrl_vm_close@litmus/ctrldev.c:56]: (release_ts/424:0) litmus_ctrl_vm_close flags=0x10160073 prot=0xfd3
+179 P5 [litmus_ctrl_vm_close@litmus/ctrldev.c:61]: (release_ts/424:0) litmus/ctrl: 000000006a0103d1:00000000085be6d3 vma:000000006bf59acc vma->vm_private_data:0000000000000000 closed.
+180 P4 [exit_litmus@litmus/litmus.c:601]: (release_ts/424:0) freeing ctrl_page 00000000ffcb6aa1
+181 P5 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/370:3) linking to local CPU 5 to avoid IPI
+182 P5 [check_for_preemptions@litmus/sched_cedf.c:317]: check_for_preemptions: attempting to link task 374 to 2
+183 P5 [check_for_preemptions@litmus/sched_cedf.c:317]: check_for_preemptions: attempting to link task 369 to 4
+184 P5 [check_for_preemptions@litmus/sched_cedf.c:317]: check_for_preemptions: attempting to link task 373 to 0
+185 P5 [check_for_preemptions@litmus/sched_cedf.c:317]: check_for_preemptions: attempting to link task 371 to 1
+186 P5 [check_for_preemptions@litmus/sched_cedf.c:317]: check_for_preemptions: attempting to link task 372 to 3
+187 P5 [cedf_schedule@litmus/sched_cedf.c:449]: (swapper/5/0:0) will be preempted by testrttask/370
+188 P1 [cedf_schedule@litmus/sched_cedf.c:449]: (swapper/1/0:0) will be preempted by testrttask/371
+190 P1 [litmus_schedule@kernel/sched/litmus.c:59]: (testrttask/371:3) migrate from 5
+191 P5 [complete_job@litmus/jobs.c:104]: (testrttask/370:3) job completion indicated at 178000374623
+189 P0 [cedf_schedule@litmus/sched_cedf.c:449]: (swapper/0/0:0) will be preempted by testrttask/373
+192 P1 [litmus_schedule@kernel/sched/litmus.c:72]: (testrttask/371:3) stack_in_use=-1
+193 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:3) charged 72333 exec time (total:72333, rem:1927667)
+195 P4 [cedf_schedule@litmus/sched_cedf.c:449]: (swapper/4/0:0) will be preempted by testrttask/369
+194 P0 [litmus_schedule@kernel/sched/litmus.c:59]: (testrttask/373:3) migrate from 5
+196 P4 [litmus_schedule@kernel/sched/litmus.c:59]: (testrttask/369:3) migrate from 5
+199 P4 [litmus_schedule@kernel/sched/litmus.c:72]: (testrttask/369:3) stack_in_use=-1
+198 P0 [litmus_schedule@kernel/sched/litmus.c:72]: (testrttask/373:3) stack_in_use=-1
+197 P2 [cedf_schedule@litmus/sched_cedf.c:449]: (swapper/2/0:0) will be preempted by testrttask/374
+200 P2 [litmus_schedule@kernel/sched/litmus.c:59]: (testrttask/374:3) migrate from 5
+201 P3 [cedf_schedule@litmus/sched_cedf.c:449]: (swapper/3/0:0) will be preempted by testrttask/372
+202 P2 [litmus_schedule@kernel/sched/litmus.c:72]: (testrttask/374:3) stack_in_use=-1
+204 P5 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/370:3) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+203 P3 [litmus_schedule@kernel/sched/litmus.c:59]: (testrttask/372:3) migrate from 5
+205 P5 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/370:3) job_completion(forced=0).
+206 P3 [litmus_schedule@kernel/sched/litmus.c:72]: (testrttask/372:3) stack_in_use=-1
+207 P5 [__add_release@litmus/rt_domain.c:346]: (testrttask/370:4) add_release(), rel=178005000000
+208 P5 [cedf_schedule@litmus/sched_cedf.c:493]: (testrttask/370:4) scheduled_on = NO_CPU
+209 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/369:3) try_to_wake_up() state:0
+210 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/369:3) try_to_wake_up() done state:0 success:0
+211 P4 [complete_job@litmus/jobs.c:104]: (testrttask/369:3) job completion indicated at 178000566540
+212 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:3) charged 99750 exec time (total:99750, rem:1900250)
+213 P4 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/369:3) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+214 P4 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/369:3) job_completion(forced=0).
+216 P4 [__add_release@litmus/rt_domain.c:346]: (testrttask/369:4) add_release(), rel=178005000000
+215 P3 [complete_job@litmus/jobs.c:104]: (testrttask/372:3) job completion indicated at 178000596915
+218 P4 [cedf_schedule@litmus/sched_cedf.c:493]: (testrttask/369:4) scheduled_on = NO_CPU
+217 P2 [complete_job@litmus/jobs.c:104]: (testrttask/374:3) job completion indicated at 178000605956
+219 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:3) charged 137375 exec time (total:137375, rem:1862625)
+220 P1 [complete_job@litmus/jobs.c:104]: (testrttask/371:3) job completion indicated at 178000618790
+221 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:3) charged 144959 exec time (total:144959, rem:1855041)
+222 P0 [complete_job@litmus/jobs.c:104]: (testrttask/373:3) job completion indicated at 178000629581
+223 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:3) charged 161000 exec time (total:161000, rem:1839000)
+224 P3 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/372:3) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+225 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:3) charged 168583 exec time (total:168583, rem:1831417)
+226 P3 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/372:3) job_completion(forced=0).
+227 P3 [__add_release@litmus/rt_domain.c:346]: (testrttask/372:4) add_release(), rel=178005000000
+228 P3 [cedf_schedule@litmus/sched_cedf.c:493]: (testrttask/372:4) scheduled_on = NO_CPU
+229 P2 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/374:3) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+230 P2 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/374:3) job_completion(forced=0).
+231 P2 [__add_release@litmus/rt_domain.c:346]: (testrttask/374:4) add_release(), rel=178005000000
+232 P2 [cedf_schedule@litmus/sched_cedf.c:493]: (testrttask/374:4) scheduled_on = NO_CPU
+233 P1 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/371:3) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+234 P1 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/371:3) job_completion(forced=0).
+235 P1 [__add_release@litmus/rt_domain.c:346]: (testrttask/371:4) add_release(), rel=178005000000
+236 P1 [cedf_schedule@litmus/sched_cedf.c:493]: (testrttask/371:4) scheduled_on = NO_CPU
+237 P0 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/373:3) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+238 P0 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/373:3) job_completion(forced=0).
+239 P0 [__add_release@litmus/rt_domain.c:346]: (testrttask/373:4) add_release(), rel=178005000000
+240 P0 [cedf_schedule@litmus/sched_cedf.c:493]: (testrttask/373:4) scheduled_on = NO_CPU
+241 P5 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/373:4) linking to local CPU 5 to avoid IPI
+242 P5 [check_for_preemptions@litmus/sched_cedf.c:317]: check_for_preemptions: attempting to link task 371 to 0
+243 P5 [check_for_preemptions@litmus/sched_cedf.c:317]: check_for_preemptions: attempting to link task 374 to 4
+244 P5 [check_for_preemptions@litmus/sched_cedf.c:317]: check_for_preemptions: attempting to link task 372 to 2
+245 P5 [check_for_preemptions@litmus/sched_cedf.c:317]: check_for_preemptions: attempting to link task 369 to 1
+246 P5 [check_for_preemptions@litmus/sched_cedf.c:317]: check_for_preemptions: attempting to link task 370 to 3
+247 P5 [cedf_schedule@litmus/sched_cedf.c:449]: (swapper/5/0:0) will be preempted by testrttask/373
+248 P5 [litmus_schedule@kernel/sched/litmus.c:59]: (testrttask/373:4) migrate from 0
+249 P5 [litmus_schedule@kernel/sched/litmus.c:72]: (testrttask/373:4) stack_in_use=-1
+250 P4 [cedf_schedule@litmus/sched_cedf.c:449]: (swapper/4/0:0) will be preempted by testrttask/374
+251 P4 [litmus_schedule@kernel/sched/litmus.c:59]: (testrttask/374:4) migrate from 2
+252 P4 [litmus_schedule@kernel/sched/litmus.c:72]: (testrttask/374:4) stack_in_use=-1
+253 P2 [cedf_schedule@litmus/sched_cedf.c:449]: (swapper/2/0:0) will be preempted by testrttask/372
+255 P2 [litmus_schedule@kernel/sched/litmus.c:59]: (testrttask/372:4) migrate from 3
+254 P0 [cedf_schedule@litmus/sched_cedf.c:449]: (swapper/0/0:0) will be preempted by testrttask/371
+256 P2 [litmus_schedule@kernel/sched/litmus.c:72]: (testrttask/372:4) stack_in_use=-1
+257 P0 [litmus_schedule@kernel/sched/litmus.c:59]: (testrttask/371:4) migrate from 1
+258 P1 [cedf_schedule@litmus/sched_cedf.c:449]: (swapper/1/0:0) will be preempted by testrttask/369
+259 P0 [litmus_schedule@kernel/sched/litmus.c:72]: (testrttask/371:4) stack_in_use=-1
+260 P1 [litmus_schedule@kernel/sched/litmus.c:59]: (testrttask/369:4) migrate from 4
+261 P3 [cedf_schedule@litmus/sched_cedf.c:449]: (swapper/3/0:0) will be preempted by testrttask/370
+262 P1 [litmus_schedule@kernel/sched/litmus.c:72]: (testrttask/369:4) stack_in_use=-1
+263 P3 [litmus_schedule@kernel/sched/litmus.c:59]: (testrttask/370:4) migrate from 5
+264 P3 [litmus_schedule@kernel/sched/litmus.c:72]: (testrttask/370:4) stack_in_use=-1
+266 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:4) charged 2734375 exec time (total:2734375, rem:0)
+265 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:4) charged 2779000 exec time (total:2779000, rem:0)
+269 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:4) charged 2611000 exec time (total:2611000, rem:0)
+268 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:4) charged 2629084 exec time (total:2629084, rem:0)
+267 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:4) charged 2612750 exec time (total:2612750, rem:0)
+270 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:4) charged 2637250 exec time (total:2637250, rem:0)
+271 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:4) charged 3987958 exec time (total:6722333, rem:0)
+272 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:4) charged 3988250 exec time (total:6767250, rem:0)
+274 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:4) charged 3976000 exec time (total:6587000, rem:0)
+273 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:4) charged 3975416 exec time (total:6588166, rem:0)
+275 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:4) charged 3976000 exec time (total:6605084, rem:0)
+276 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:4) charged 3972792 exec time (total:6610042, rem:0)
+278 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:4) charged 3999625 exec time (total:10721958, rem:0)
+277 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:4) charged 3999625 exec time (total:10766875, rem:0)
+279 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:4) charged 3999333 exec time (total:10604417, rem:0)
+280 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:4) charged 4000209 exec time (total:10588375, rem:0)
+281 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:4) charged 3999041 exec time (total:10586041, rem:0)
+282 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:4) charged 3998750 exec time (total:10608792, rem:0)
+283 P3 [complete_job@litmus/jobs.c:104]: (testrttask/370:4) job completion indicated at 178019006373
+285 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:4) charged 3017875 exec time (total:13603916, rem:0)
+284 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:4) try_to_wake_up() state:0
+286 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:4) try_to_wake_up() done state:0 success:0
+287 P3 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/370:4) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+288 P3 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/370:4) job_completion(forced=0).
+289 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:4) try_to_wake_up() state:0
+290 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:4) try_to_wake_up() done state:0 success:0
+291 P3 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/370 (2000000, 5000000, 4000000) rel=178010000000 to ready queue at 178019079873
+292 P3 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/370:5) linking to local CPU 3 to avoid IPI
+293 P0 [complete_job@litmus/jobs.c:104]: (testrttask/371:4) job completion indicated at 178019121873
+294 P1 [complete_job@litmus/jobs.c:104]: (testrttask/369:4) job completion indicated at 178019122165
+295 P2 [complete_job@litmus/jobs.c:104]: (testrttask/372:4) job completion indicated at 178019133540
+296 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:4) charged 3131625 exec time (total:13736042, rem:0)
+297 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:4) charged 3136000 exec time (total:13744792, rem:0)
+298 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:4) charged 3142708 exec time (total:13731083, rem:0)
+299 P1 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/369:4) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+300 P1 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/369:4) job_completion(forced=0).
+301 P1 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/369 (2000000, 5000000, 4000000) rel=178010000000 to ready queue at 178019186332
+302 P5 [complete_job@litmus/jobs.c:104]: (testrttask/373:4) job completion indicated at 178019195540
+303 P1 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/369:5) linking to local CPU 1 to avoid IPI
+304 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:4) charged 3202500 exec time (total:13969375, rem:0)
+305 P0 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/371:4) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+306 P0 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/371:4) job_completion(forced=0).
+307 P0 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/371 (2000000, 5000000, 4000000) rel=178010000000 to ready queue at 178019251373
+308 P0 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/371:5) linking to local CPU 0 to avoid IPI
+309 P2 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/372:4) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+310 P2 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/372:4) job_completion(forced=0).
+311 P2 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/372 (2000000, 5000000, 4000000) rel=178010000000 to ready queue at 178019313790
+312 P2 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/372:5) linking to local CPU 2 to avoid IPI
+313 P5 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/373:4) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+314 P5 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/373:4) job_completion(forced=0).
+315 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/373 (2000000, 5000000, 4000000) rel=178010000000 to ready queue at 178019360623
+316 P5 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/373:5) linking to local CPU 5 to avoid IPI
+317 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:4) charged 4000500 exec time (total:14722458, rem:0)
+318 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:5) charged 631458 exec time (total:631458, rem:1368542)
+320 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:5) charged 898917 exec time (total:898917, rem:1101083)
+319 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:5) charged 669084 exec time (total:669084, rem:1330916)
+321 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:5) charged 795666 exec time (total:795666, rem:1204334)
+322 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:5) charged 735875 exec time (total:735875, rem:1264125)
+323 P4 [complete_job@litmus/jobs.c:104]: (testrttask/374:4) job completion indicated at 178020447957
+324 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:4) charged 454417 exec time (total:15176875, rem:0)
+325 P4 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/374:4) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+326 P4 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/374:4) job_completion(forced=0).
+327 P4 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/374 (2000000, 5000000, 4000000) rel=178010000000 to ready queue at 178020481498
+328 P4 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/374:5) linking to local CPU 4 to avoid IPI
+329 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:5) charged 3997292 exec time (total:4628750, rem:0)
+330 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:5) charged 3510500 exec time (total:3510500, rem:0)
+331 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:5) charged 3994084 exec time (total:4789750, rem:0)
+332 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:5) charged 3995833 exec time (total:4664917, rem:0)
+333 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:5) charged 3994958 exec time (total:4893875, rem:0)
+334 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:5) charged 3994959 exec time (total:4730834, rem:0)
+336 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:5) charged 3999625 exec time (total:8628375, rem:0)
+335 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:5) charged 3997000 exec time (total:7507500, rem:0)
+337 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:5) charged 3999042 exec time (total:8663959, rem:0)
+338 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:5) charged 3999917 exec time (total:8893792, rem:0)
+339 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:5) charged 4000208 exec time (total:8789958, rem:0)
+340 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:5) charged 3999625 exec time (total:8730459, rem:0)
+341 P3 [complete_job@litmus/jobs.c:104]: (testrttask/370:5) job completion indicated at 178031737623
+342 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:5) charged 3744708 exec time (total:12638500, rem:0)
+343 P3 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/370:5) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+344 P3 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/370:5) job_completion(forced=0).
+345 P3 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/370 (2000000, 5000000, 4000000) rel=178015000000 to ready queue at 178031797707
+346 P3 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/370:6) linking to local CPU 3 to avoid IPI
+347 P1 [complete_job@litmus/jobs.c:104]: (testrttask/369:5) job completion indicated at 178031841457
+348 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:5) charged 3848542 exec time (total:12638500, rem:0)
+349 P1 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/369:5) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+350 P1 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/369:5) job_completion(forced=0).
+351 P1 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/369 (2000000, 5000000, 4000000) rel=178015000000 to ready queue at 178031902415
+352 P1 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/369:6) linking to local CPU 1 to avoid IPI
+353 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:5) try_to_wake_up() state:0
+354 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:5) try_to_wake_up() done state:0 success:0
+355 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:5) try_to_wake_up() state:0
+356 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:5) charged 3999625 exec time (total:12628000, rem:0)
+357 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:5) charged 3999917 exec time (total:11507417, rem:0)
+358 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:5) try_to_wake_up() done state:0 success:0
+359 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:5) charged 4001375 exec time (total:12665334, rem:0)
+360 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:6) charged 182875 exec time (total:182875, rem:1817125)
+361 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:6) charged 79041 exec time (total:79041, rem:1920959)
+362 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:5) charged 4020625 exec time (total:12751084, rem:0)
+363 P0 [complete_job@litmus/jobs.c:104]: (testrttask/371:5) job completion indicated at 178032071873
+364 P2 [complete_job@litmus/jobs.c:104]: (testrttask/372:5) job completion indicated at 178032082082
+365 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:5) charged 64166 exec time (total:12815250, rem:0)
+366 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:5) charged 88958 exec time (total:12754292, rem:0)
+367 P0 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/371:5) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+368 P0 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/371:5) job_completion(forced=0).
+369 P0 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/371 (2000000, 5000000, 4000000) rel=178015000000 to ready queue at 178032142457
+370 P0 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/371:6) linking to local CPU 0 to avoid IPI
+371 P2 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/372:5) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+372 P2 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/372:5) job_completion(forced=0).
+373 P2 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/372 (2000000, 5000000, 4000000) rel=178015000000 to ready queue at 178032202248
+374 P2 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/372:6) linking to local CPU 2 to avoid IPI
+375 P5 [complete_job@litmus/jobs.c:104]: (testrttask/373:5) job completion indicated at 178033731915
+376 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:5) charged 1736000 exec time (total:14364000, rem:0)
+377 P5 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/373:5) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+378 P5 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/373:5) job_completion(forced=0).
+379 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/373 (2000000, 5000000, 4000000) rel=178015000000 to ready queue at 178033759915
+380 P5 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/373:6) linking to local CPU 5 to avoid IPI
+381 P4 [complete_job@litmus/jobs.c:104]: (testrttask/374:5) job completion indicated at 178035115582
+382 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:5) charged 3119666 exec time (total:14627083, rem:0)
+383 P4 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/374:5) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+384 P4 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/374:5) job_completion(forced=0).
+385 P4 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/374 (2000000, 5000000, 4000000) rel=178015000000 to ready queue at 178035142998
+386 P4 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/374:6) linking to local CPU 4 to avoid IPI
+387 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:6) charged 849334 exec time (total:849334, rem:1150666)
+388 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:6) charged 2232708 exec time (total:2232708, rem:0)
+389 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:6) charged 3997292 exec time (total:4076333, rem:0)
+390 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:6) charged 3997875 exec time (total:4180750, rem:0)
+391 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:6) charged 3778542 exec time (total:3778542, rem:0)
+392 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:6) charged 3840667 exec time (total:3840667, rem:0)
+394 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:6) charged 3997875 exec time (total:4847209, rem:0)
+393 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:6) charged 3997875 exec time (total:6230583, rem:0)
+395 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:6) charged 4000500 exec time (total:8181250, rem:0)
+396 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:6) charged 4000500 exec time (total:8076833, rem:0)
+397 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:6) charged 3998167 exec time (total:7776709, rem:0)
+398 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:6) charged 3999625 exec time (total:7840292, rem:0)
+399 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:6) charged 3999916 exec time (total:8847125, rem:0)
+400 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:6) charged 3999625 exec time (total:10230208, rem:0)
+402 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:6) charged 3999333 exec time (total:11776042, rem:0)
+401 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:6) charged 3999041 exec time (total:12180291, rem:0)
+403 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:6) charged 4000208 exec time (total:12077041, rem:0)
+404 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:6) charged 3999333 exec time (total:11839625, rem:0)
+405 P3 [complete_job@litmus/jobs.c:104]: (testrttask/370:6) job completion indicated at 178044468582
+406 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:6) charged 476292 exec time (total:12656583, rem:0)
+407 P3 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/370:6) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+408 P3 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/370:6) job_completion(forced=0).
+409 P3 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/370 (2000000, 5000000, 4000000) rel=178020000000 to ready queue at 178044527207
+410 P3 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/370:7) linking to local CPU 3 to avoid IPI
+411 P1 [complete_job@litmus/jobs.c:104]: (testrttask/369:6) job completion indicated at 178044573290
+412 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:6) charged 580417 exec time (total:12657458, rem:0)
+413 P1 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/369:6) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+414 P1 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/369:6) job_completion(forced=0).
+415 P1 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/369 (2000000, 5000000, 4000000) rel=178020000000 to ready queue at 178044632498
+416 P1 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/369:7) linking to local CPU 1 to avoid IPI
+417 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:6) try_to_wake_up() state:0
+418 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:6) try_to_wake_up() done state:0 success:0
+419 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:6) try_to_wake_up() state:0
+420 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:6) try_to_wake_up() done state:0 success:0
+421 P2 [complete_job@litmus/jobs.c:104]: (testrttask/372:6) job completion indicated at 178044920957
+422 P0 [complete_job@litmus/jobs.c:104]: (testrttask/371:6) job completion indicated at 178044922415
+423 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:6) charged 928375 exec time (total:12704417, rem:0)
+424 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:6) charged 925459 exec time (total:12765084, rem:0)
+425 P2 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/372:6) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+426 P2 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/372:6) job_completion(forced=0).
+427 P2 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/372 (2000000, 5000000, 4000000) rel=178020000000 to ready queue at 178044980165
+428 P2 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/372:7) linking to local CPU 2 to avoid IPI
+429 P0 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/371:6) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+430 P0 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/371:6) job_completion(forced=0).
+431 P0 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/371 (2000000, 5000000, 4000000) rel=178020000000 to ready queue at 178045038790
+432 P0 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/371:7) linking to local CPU 0 to avoid IPI
+433 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:6) charged 4000500 exec time (total:14230708, rem:0)
+434 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:6) charged 4000500 exec time (total:12847625, rem:0)
+437 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:7) charged 3452750 exec time (total:3452750, rem:0)
+435 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:7) charged 3000959 exec time (total:3000959, rem:0)
+436 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:7) charged 3348625 exec time (total:3348625, rem:0)
+438 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:7) charged 2947583 exec time (total:2947583, rem:0)
+439 P5 [complete_job@litmus/jobs.c:104]: (testrttask/373:6) job completion indicated at 178048841415
+440 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:6) charged 844959 exec time (total:15075667, rem:0)
+441 P5 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/373:6) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+442 P5 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/373:6) job_completion(forced=0).
+443 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/373 (2000000, 5000000, 4000000) rel=178020000000 to ready queue at 178048868540
+444 P5 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/373:7) linking to local CPU 5 to avoid IPI
+445 P4 [complete_job@litmus/jobs.c:104]: (testrttask/374:6) job completion indicated at 178050222748
+446 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:6) charged 2226292 exec time (total:15073917, rem:0)
+447 P4 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/374:6) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+448 P4 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/374:6) job_completion(forced=0).
+449 P4 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/374 (2000000, 5000000, 4000000) rel=178020000000 to ready queue at 178050249290
+450 P4 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/374:7) linking to local CPU 4 to avoid IPI
+451 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:7) charged 1743583 exec time (total:1743583, rem:256417)
+452 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:7) charged 3124333 exec time (total:3124333, rem:0)
+453 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:7) charged 3997583 exec time (total:7450333, rem:0)
+455 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:7) charged 3997583 exec time (total:6998542, rem:0)
+454 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:7) charged 3997292 exec time (total:7345917, rem:0)
+456 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:7) charged 3996125 exec time (total:6943708, rem:0)
+457 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:7) charged 3998166 exec time (total:5741749, rem:0)
+458 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:7) charged 3998166 exec time (total:7122499, rem:0)
+461 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:7) charged 4000500 exec time (total:10999042, rem:0)
+460 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:7) charged 4000500 exec time (total:11346417, rem:0)
+459 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:7) charged 4000792 exec time (total:11451125, rem:0)
+462 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:7) charged 4000791 exec time (total:10944499, rem:0)
+463 P3 [complete_job@litmus/jobs.c:104]: (testrttask/370:7) job completion indicated at 178057173873
+464 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:7) charged 1180958 exec time (total:12632083, rem:0)
+465 P3 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/370:7) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+466 P3 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/370:7) job_completion(forced=0).
+467 P3 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/370 (2000000, 5000000, 4000000) rel=178025000000 to ready queue at 178057233082
+468 P3 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/370:8) linking to local CPU 3 to avoid IPI
+469 P1 [complete_job@litmus/jobs.c:104]: (testrttask/369:7) job completion indicated at 178057278582
+470 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:7) charged 1285666 exec time (total:12632083, rem:0)
+471 P1 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/369:7) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+472 P1 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/369:7) job_completion(forced=0).
+473 P1 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/369 (2000000, 5000000, 4000000) rel=178025000000 to ready queue at 178057338082
+474 P1 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/369:8) linking to local CPU 1 to avoid IPI
+475 P2 [complete_job@litmus/jobs.c:104]: (testrttask/372:7) job completion indicated at 178057625082
+476 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:7) charged 1632166 exec time (total:12631208, rem:0)
+477 P2 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/372:7) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+478 P2 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/372:7) job_completion(forced=0).
+479 P2 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/372 (2000000, 5000000, 4000000) rel=178025000000 to ready queue at 178057684582
+480 P2 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/372:8) linking to local CPU 2 to avoid IPI
+481 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:7) try_to_wake_up() state:0
+482 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:7) try_to_wake_up() done state:0 success:0
+483 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:7) try_to_wake_up() state:0
+484 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:7) try_to_wake_up() done state:0 success:0
+485 P0 [complete_job@litmus/jobs.c:104]: (testrttask/371:7) job completion indicated at 178057818457
+486 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:7) charged 1821459 exec time (total:12765958, rem:0)
+487 P0 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/371:7) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+488 P0 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/371:7) job_completion(forced=0).
+489 P0 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/371 (2000000, 5000000, 4000000) rel=178025000000 to ready queue at 178057877665
+490 P0 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/371:8) linking to local CPU 0 to avoid IPI
+491 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:7) charged 3999625 exec time (total:11122124, rem:0)
+492 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:7) charged 3999625 exec time (total:9741374, rem:0)
+494 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:8) charged 2642792 exec time (total:2642792, rem:0)
+495 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:8) charged 2296583 exec time (total:2296583, rem:0)
+493 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:8) charged 2747209 exec time (total:2747209, rem:0)
+496 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:8) charged 2107292 exec time (total:2107292, rem:0)
+497 P5 [complete_job@litmus/jobs.c:104]: (testrttask/373:7) job completion indicated at 178063935165
+498 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:7) charged 3939542 exec time (total:15061666, rem:0)
+499 P5 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/373:7) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+500 P5 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/373:7) job_completion(forced=0).
+501 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/373 (2000000, 5000000, 4000000) rel=178025000000 to ready queue at 178063962290
+502 P5 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/373:8) linking to local CPU 5 to avoid IPI
+503 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:7) charged 4000500 exec time (total:13741874, rem:0)
+504 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:8) charged 31208 exec time (total:31208, rem:1968792)
+505 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:8) charged 3998458 exec time (total:6641250, rem:0)
+506 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:8) charged 3997875 exec time (total:6745084, rem:0)
+507 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:8) charged 3997875 exec time (total:6294458, rem:0)
+508 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:8) charged 3997875 exec time (total:6105167, rem:0)
+509 P4 [complete_job@litmus/jobs.c:104]: (testrttask/374:7) job completion indicated at 178064330082
+510 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:7) charged 333375 exec time (total:14075249, rem:0)
+511 P4 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/374:7) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+512 P4 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/374:7) job_completion(forced=0).
+513 P4 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/374 (2000000, 5000000, 4000000) rel=178025000000 to ready queue at 178064356332
+514 P4 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/374:8) linking to local CPU 4 to avoid IPI
+515 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:8) charged 3997875 exec time (total:4029083, rem:0)
+516 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:8) charged 3636500 exec time (total:3636500, rem:0)
+519 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:8) charged 3999625 exec time (total:10640875, rem:0)
+518 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:8) charged 4000208 exec time (total:10745292, rem:0)
+517 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:8) charged 3999917 exec time (total:10294375, rem:0)
+520 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:8) charged 3999916 exec time (total:10105083, rem:0)
+521 P3 [complete_job@litmus/jobs.c:104]: (testrttask/370:8) job completion indicated at 178069877998
+522 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:8) charged 1885333 exec time (total:12630625, rem:0)
+523 P3 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/370:8) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+524 P3 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/370:8) job_completion(forced=0).
+525 P3 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/370 (2000000, 5000000, 4000000) rel=178030000000 to ready queue at 178069936332
+526 P3 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/370:9) linking to local CPU 3 to avoid IPI
+527 P1 [complete_job@litmus/jobs.c:104]: (testrttask/369:8) job completion indicated at 178069977457
+528 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:8) charged 1984792 exec time (total:12625667, rem:0)
+529 P1 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/369:8) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+530 P1 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/369:8) job_completion(forced=0).
+531 P1 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/369 (2000000, 5000000, 4000000) rel=178030000000 to ready queue at 178070036665
+532 P1 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/369:9) linking to local CPU 1 to avoid IPI
+533 P2 [complete_job@litmus/jobs.c:104]: (testrttask/372:8) job completion indicated at 178070328623
+534 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:8) charged 2335958 exec time (total:12630333, rem:0)
+535 P2 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/372:8) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+536 P2 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/372:8) job_completion(forced=0).
+537 P2 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/372 (2000000, 5000000, 4000000) rel=178030000000 to ready queue at 178070387540
+538 P2 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/372:9) linking to local CPU 2 to avoid IPI
+539 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:8) try_to_wake_up() state:0
+540 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:8) try_to_wake_up() done state:0 success:0
+541 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:8) try_to_wake_up() state:0
+542 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:8) try_to_wake_up() done state:0 success:0
+543 P0 [complete_job@litmus/jobs.c:104]: (testrttask/371:8) job completion indicated at 178070658207
+544 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:8) charged 2661167 exec time (total:12766250, rem:0)
+545 P0 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/371:8) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+546 P0 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/371:8) job_completion(forced=0).
+547 P0 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/371 (2000000, 5000000, 4000000) rel=178030000000 to ready queue at 178070717123
+548 P0 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/371:9) linking to local CPU 0 to avoid IPI
+549 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:8) charged 3998458 exec time (total:7634958, rem:0)
+550 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:8) charged 3999917 exec time (total:8029000, rem:0)
+553 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:9) charged 1593959 exec time (total:1593959, rem:406041)
+551 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:9) charged 2044292 exec time (total:2044292, rem:0)
+552 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:9) charged 1945125 exec time (total:1945125, rem:54875)
+554 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:9) charged 1268167 exec time (total:1268167, rem:731833)
+555 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:8) charged 4000208 exec time (total:12029208, rem:0)
+556 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:8) charged 4000792 exec time (total:11635750, rem:0)
+557 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:9) charged 3997291 exec time (total:5591250, rem:0)
+558 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:9) charged 3997875 exec time (total:6042167, rem:0)
+559 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:9) charged 3997875 exec time (total:5943000, rem:0)
+560 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:9) charged 3997875 exec time (total:5266042, rem:0)
+561 P4 [complete_job@litmus/jobs.c:104]: (testrttask/374:8) job completion indicated at 178078921873
+562 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:8) charged 2925125 exec time (total:14560875, rem:0)
+563 P4 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/374:8) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+564 P4 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/374:8) job_completion(forced=0).
+565 P4 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/374 (2000000, 5000000, 4000000) rel=178030000000 to ready queue at 178078948707
+566 P4 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/374:9) linking to local CPU 4 to avoid IPI
+567 P5 [complete_job@litmus/jobs.c:104]: (testrttask/373:8) job completion indicated at 178079037957
+568 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:8) charged 3041208 exec time (total:15070416, rem:0)
+569 P5 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/373:8) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+570 P5 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/373:8) job_completion(forced=0).
+571 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/373 (2000000, 5000000, 4000000) rel=178030000000 to ready queue at 178079064498
+572 P5 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/373:9) linking to local CPU 5 to avoid IPI
+573 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:9) charged 1044167 exec time (total:1044167, rem:955833)
+574 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:9) charged 928667 exec time (total:928667, rem:1071333)
+575 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:9) charged 3999625 exec time (total:9942625, rem:0)
+577 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:9) charged 4000208 exec time (total:10042375, rem:0)
+576 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:9) charged 4000500 exec time (total:9591750, rem:0)
+578 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:9) charged 3999333 exec time (total:9265375, rem:0)
+579 P3 [complete_job@litmus/jobs.c:104]: (testrttask/370:9) job completion indicated at 178082580373
+580 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:9) charged 2587375 exec time (total:12629750, rem:0)
+581 P3 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/370:9) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+582 P3 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/370:9) job_completion(forced=0).
+583 P3 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/370 (2000000, 5000000, 4000000) rel=178035000000 to ready queue at 178082638415
+584 P3 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/370:10) linking to local CPU 3 to avoid IPI
+585 P1 [complete_job@litmus/jobs.c:104]: (testrttask/369:9) job completion indicated at 178082678665
+586 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:9) charged 2686250 exec time (total:12628875, rem:0)
+587 P1 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/369:9) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+588 P1 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/369:9) job_completion(forced=0).
+589 P1 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/369 (2000000, 5000000, 4000000) rel=178035000000 to ready queue at 178082738165
+590 P1 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/369:10) linking to local CPU 1 to avoid IPI
+591 P2 [complete_job@litmus/jobs.c:104]: (testrttask/372:9) job completion indicated at 178083028665
+592 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:9) charged 3035667 exec time (total:12627417, rem:0)
+593 P2 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/372:9) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+594 P2 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/372:9) job_completion(forced=0).
+595 P2 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/372 (2000000, 5000000, 4000000) rel=178035000000 to ready queue at 178083087582
+596 P2 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/372:10) linking to local CPU 2 to avoid IPI
+597 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:9) try_to_wake_up() state:0
+598 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:9) try_to_wake_up() done state:0 success:0
+599 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:9) try_to_wake_up() state:0
+600 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:9) try_to_wake_up() done state:0 success:0
+601 P0 [complete_job@litmus/jobs.c:104]: (testrttask/371:9) job completion indicated at 178083497082
+602 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:9) charged 3500000 exec time (total:12765375, rem:0)
+603 P0 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/371:9) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+604 P0 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/371:9) job_completion(forced=0).
+605 P0 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/371 (2000000, 5000000, 4000000) rel=178035000000 to ready queue at 178083555707
+606 P0 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/371:10) linking to local CPU 0 to avoid IPI
+607 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:9) charged 3997875 exec time (total:4926542, rem:0)
+608 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:9) charged 3998458 exec time (total:5042625, rem:0)
+610 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:10) charged 893375 exec time (total:893375, rem:1106625)
+609 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:10) charged 1341667 exec time (total:1341667, rem:658333)
+611 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:10) charged 1242792 exec time (total:1242792, rem:757208)
+612 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:10) charged 430500 exec time (total:430500, rem:1569500)
+613 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:9) charged 4000208 exec time (total:8926750, rem:0)
+614 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:9) charged 3999625 exec time (total:9042250, rem:0)
+616 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:10) charged 3998166 exec time (total:5339833, rem:0)
+615 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:10) charged 3997875 exec time (total:4891250, rem:0)
+617 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:10) charged 3997875 exec time (total:5240667, rem:0)
+618 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:10) charged 3997584 exec time (total:4428084, rem:0)
+619 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:9) charged 4000209 exec time (total:13042459, rem:0)
+620 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:9) charged 3999917 exec time (total:12926667, rem:0)
+621 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:10) charged 3999333 exec time (total:9240000, rem:0)
+622 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:10) charged 3999625 exec time (total:9339458, rem:0)
+623 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:10) charged 4000208 exec time (total:8891458, rem:0)
+624 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:10) charged 3999625 exec time (total:8427709, rem:0)
+625 P4 [complete_job@litmus/jobs.c:104]: (testrttask/374:9) job completion indicated at 178094027582
+626 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:9) charged 2031458 exec time (total:15073917, rem:0)
+627 P4 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/374:9) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+628 P4 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/374:9) job_completion(forced=0).
+629 P4 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/374 (2000000, 5000000, 4000000) rel=178035000000 to ready queue at 178094054415
+630 P4 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/374:10) linking to local CPU 4 to avoid IPI
+631 P5 [complete_job@litmus/jobs.c:104]: (testrttask/373:9) job completion indicated at 178094142498
+632 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:9) charged 2146083 exec time (total:15072750, rem:0)
+633 P5 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/373:9) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+634 P5 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/373:9) job_completion(forced=0).
+635 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/373 (2000000, 5000000, 4000000) rel=178035000000 to ready queue at 178094168457
+636 P5 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/373:10) linking to local CPU 5 to avoid IPI
+637 P3 [complete_job@litmus/jobs.c:104]: (testrttask/370:10) job completion indicated at 178095283623
+638 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:10) charged 3291459 exec time (total:12630917, rem:0)
+639 P3 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/370:10) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+640 P3 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/370:10) job_completion(forced=0).
+641 P3 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/370 (2000000, 5000000, 4000000) rel=178040000000 to ready queue at 178095342832
+642 P3 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/370:11) linking to local CPU 3 to avoid IPI
+643 P1 [complete_job@litmus/jobs.c:104]: (testrttask/369:10) job completion indicated at 178095382207
+644 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:10) charged 3390042 exec time (total:12630042, rem:0)
+645 P1 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/369:10) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+646 P1 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/369:10) job_completion(forced=0).
+647 P1 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/369 (2000000, 5000000, 4000000) rel=178040000000 to ready queue at 178095441707
+648 P1 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/369:11) linking to local CPU 1 to avoid IPI
+649 P2 [complete_job@litmus/jobs.c:104]: (testrttask/372:10) job completion indicated at 178095731623
+650 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:10) charged 3738584 exec time (total:12630042, rem:0)
+651 P2 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/372:10) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+652 P2 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/372:10) job_completion(forced=0).
+653 P2 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/372 (2000000, 5000000, 4000000) rel=178040000000 to ready queue at 178095791123
+654 P2 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/372:11) linking to local CPU 2 to avoid IPI
+655 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:10) charged 1938416 exec time (total:1938416, rem:61584)
+656 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:10) charged 1824667 exec time (total:1824667, rem:175333)
+658 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:11) charged 190750 exec time (total:190750, rem:1809250)
+657 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:11) charged 637000 exec time (total:637000, rem:1363000)
+659 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:11) charged 539875 exec time (total:539875, rem:1460125)
+660 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:10) charged 4000500 exec time (total:12428209, rem:0)
+661 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:10) try_to_wake_up() state:0
+662 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:10) try_to_wake_up() done state:0 success:0
+663 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:10) try_to_wake_up() state:0
+664 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:10) try_to_wake_up() done state:0 success:0
+665 P0 [complete_job@litmus/jobs.c:104]: (testrttask/371:10) job completion indicated at 178096366873
+666 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:10) charged 368666 exec time (total:12796875, rem:0)
+667 P0 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/371:10) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+668 P0 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/371:10) job_completion(forced=0).
+669 P0 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/371 (2000000, 5000000, 4000000) rel=178040000000 to ready queue at 178096425207
+670 P0 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/371:11) linking to local CPU 0 to avoid IPI
+672 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:10) charged 3998459 exec time (total:5936875, rem:0)
+671 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:10) charged 3998167 exec time (total:5822834, rem:0)
+673 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:11) charged 3997292 exec time (total:4537167, rem:0)
+675 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:11) charged 3997875 exec time (total:4188625, rem:0)
+674 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:11) charged 3998750 exec time (total:4635750, rem:0)
+676 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:11) charged 3560375 exec time (total:3560375, rem:0)
+678 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:10) charged 3999916 exec time (total:9936791, rem:0)
+677 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:10) charged 4000208 exec time (total:9823042, rem:0)
+681 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:11) charged 3999625 exec time (total:8188250, rem:0)
+679 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:11) charged 3999333 exec time (total:8635083, rem:0)
+680 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:11) charged 4000208 exec time (total:8537375, rem:0)
+682 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:11) charged 3997000 exec time (total:7557375, rem:0)
+683 P3 [complete_job@litmus/jobs.c:104]: (testrttask/370:11) job completion indicated at 178107985415
+685 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:10) charged 4000209 exec time (total:13937000, rem:0)
+686 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:10) charged 3999625 exec time (total:13822667, rem:0)
+684 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:11) charged 3992625 exec time (total:12627708, rem:0)
+688 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:11) charged 3999625 exec time (total:12537000, rem:0)
+687 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:11) charged 3999333 exec time (total:12187583, rem:0)
+689 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:11) charged 3999625 exec time (total:11557000, rem:0)
+690 P3 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/370:11) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+691 P3 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/370:11) job_completion(forced=0).
+692 P3 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/370 (2000000, 5000000, 4000000) rel=178045000000 to ready queue at 178108044332
+693 P3 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/370:12) linking to local CPU 3 to avoid IPI
+694 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:12) charged 9333 exec time (total:9333, rem:1990667)
+695 P1 [complete_job@litmus/jobs.c:104]: (testrttask/369:11) job completion indicated at 178108110248
+696 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:11) charged 117833 exec time (total:12654833, rem:0)
+697 P1 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/369:11) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+698 P1 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/369:11) job_completion(forced=0).
+699 P1 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/369 (2000000, 5000000, 4000000) rel=178045000000 to ready queue at 178108169165
+700 P1 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/369:12) linking to local CPU 1 to avoid IPI
+701 P5 [complete_job@litmus/jobs.c:104]: (testrttask/373:10) job completion indicated at 178108251873
+702 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:10) charged 255792 exec time (total:14078459, rem:0)
+703 P5 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/373:10) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+704 P5 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/373:10) job_completion(forced=0).
+705 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/373 (2000000, 5000000, 4000000) rel=178040000000 to ready queue at 178108279873
+706 P5 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/373:11) linking to local CPU 5 to avoid IPI
+707 P2 [complete_job@litmus/jobs.c:104]: (testrttask/372:11) job completion indicated at 178108461707
+708 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:11) charged 469875 exec time (total:12657458, rem:0)
+709 P2 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/372:11) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+710 P2 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/372:11) job_completion(forced=0).
+711 P2 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/372 (2000000, 5000000, 4000000) rel=178045000000 to ready queue at 178108523540
+712 P2 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/372:12) linking to local CPU 2 to avoid IPI
+713 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:11) try_to_wake_up() state:0
+714 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:11) try_to_wake_up() done state:0 success:0
+715 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:11) try_to_wake_up() state:0
+716 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:11) try_to_wake_up() done state:0 success:0
+717 P4 [complete_job@litmus/jobs.c:104]: (testrttask/374:10) job completion indicated at 178109200082
+719 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:10) charged 1203708 exec time (total:15140708, rem:0)
+718 P0 [complete_job@litmus/jobs.c:104]: (testrttask/371:11) job completion indicated at 178109208082
+720 P4 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/374:10) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+721 P4 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/374:10) job_completion(forced=0).
+723 P4 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/374 (2000000, 5000000, 4000000) rel=178040000000 to ready queue at 178109229540
+722 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:11) charged 1212167 exec time (total:12769167, rem:0)
+724 P4 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/374:11) linking to local CPU 4 to avoid IPI
+725 P0 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/371:11) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+726 P0 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/371:11) job_completion(forced=0).
+727 P0 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/371 (2000000, 5000000, 4000000) rel=178045000000 to ready queue at 178109275165
+728 P0 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/371:12) linking to local CPU 0 to avoid IPI
+729 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:11) charged 2762958 exec time (total:2762958, rem:0)
+730 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:11) charged 3712333 exec time (total:3712333, rem:0)
+731 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:12) charged 3926125 exec time (total:3935458, rem:0)
+732 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:12) charged 3457417 exec time (total:3457417, rem:0)
+733 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:12) charged 3812083 exec time (total:3812083, rem:0)
+734 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:12) charged 2709583 exec time (total:2709583, rem:0)
+735 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:11) charged 3998459 exec time (total:6761417, rem:0)
+736 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:11) charged 3998459 exec time (total:7710792, rem:0)
+737 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:12) charged 3999042 exec time (total:7934500, rem:0)
+738 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:12) charged 3998166 exec time (total:7455583, rem:0)
+739 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:12) charged 3997875 exec time (total:7809958, rem:0)
+740 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:12) charged 3997875 exec time (total:6707458, rem:0)
+742 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:11) charged 3999625 exec time (total:10761042, rem:0)
+741 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:11) charged 3999916 exec time (total:11710708, rem:0)
+743 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:12) charged 3999917 exec time (total:11934417, rem:0)
+744 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:12) charged 3999625 exec time (total:11455208, rem:0)
+745 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:12) charged 3999625 exec time (total:11809583, rem:0)
+746 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:12) charged 3999917 exec time (total:10707375, rem:0)
+747 P3 [complete_job@litmus/jobs.c:104]: (testrttask/370:12) job completion indicated at 178120711415
+748 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:12) charged 719250 exec time (total:12653667, rem:0)
+749 P3 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/370:12) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+750 P3 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/370:12) job_completion(forced=0).
+751 P3 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/370 (2000000, 5000000, 4000000) rel=178050000000 to ready queue at 178120769457
+752 P3 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/370:13) linking to local CPU 3 to avoid IPI
+753 P1 [complete_job@litmus/jobs.c:104]: (testrttask/369:12) job completion indicated at 178120810873
+754 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:12) charged 818125 exec time (total:12627708, rem:0)
+755 P1 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/369:12) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+756 P1 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/369:12) job_completion(forced=0).
+757 P1 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/369 (2000000, 5000000, 4000000) rel=178050000000 to ready queue at 178120870373
+758 P1 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/369:13) linking to local CPU 1 to avoid IPI
+759 P2 [complete_job@litmus/jobs.c:104]: (testrttask/372:12) job completion indicated at 178121163498
+760 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:12) charged 1170750 exec time (total:12625958, rem:0)
+761 P2 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/372:12) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+762 P2 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/372:12) job_completion(forced=0).
+763 P2 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/372 (2000000, 5000000, 4000000) rel=178050000000 to ready queue at 178121222123
+764 P2 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/372:13) linking to local CPU 2 to avoid IPI
+765 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:12) try_to_wake_up() state:0
+766 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:12) try_to_wake_up() done state:0 success:0
+767 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:12) try_to_wake_up() state:0
+768 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:12) try_to_wake_up() done state:0 success:0
+769 P0 [complete_job@litmus/jobs.c:104]: (testrttask/371:12) job completion indicated at 178122029457
+770 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:12) charged 2032917 exec time (total:12740292, rem:0)
+771 P0 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/371:12) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+772 P0 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/371:12) job_completion(forced=0).
+773 P0 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/371 (2000000, 5000000, 4000000) rel=178050000000 to ready queue at 178122088957
+774 P0 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/371:13) linking to local CPU 0 to avoid IPI
+775 P5 [complete_job@litmus/jobs.c:104]: (testrttask/373:11) job completion indicated at 178123346790
+776 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:11) charged 3350084 exec time (total:15060792, rem:0)
+777 P5 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/373:11) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+778 P5 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/373:11) job_completion(forced=0).
+779 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/373 (2000000, 5000000, 4000000) rel=178045000000 to ready queue at 178123373915
+780 P5 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/373:12) linking to local CPU 5 to avoid IPI
+781 P4 [complete_job@litmus/jobs.c:104]: (testrttask/374:11) job completion indicated at 178123820165
+782 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:11) charged 3824041 exec time (total:14585083, rem:0)
+783 P4 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/374:11) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+784 P4 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/374:11) job_completion(forced=0).
+785 P4 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/374 (2000000, 5000000, 4000000) rel=178045000000 to ready queue at 178123846707
+786 P4 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/374:12) linking to local CPU 4 to avoid IPI
+788 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:12) charged 146708 exec time (total:146708, rem:1853292)
+787 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:12) charged 619208 exec time (total:619208, rem:1380792)
+789 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:13) charged 3212125 exec time (total:3212125, rem:0)
+791 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:13) charged 2760042 exec time (total:2760042, rem:0)
+790 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:13) charged 3110625 exec time (total:3110625, rem:0)
+792 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:13) charged 1896417 exec time (total:1896417, rem:103583)
+793 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:12) charged 3998167 exec time (total:4144875, rem:0)
+794 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:12) charged 3998167 exec time (total:4617375, rem:0)
+795 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:13) charged 3997875 exec time (total:7210000, rem:0)
+796 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:13) charged 3997583 exec time (total:7108208, rem:0)
+797 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:13) charged 3997291 exec time (total:6757333, rem:0)
+798 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:13) charged 3998458 exec time (total:5894875, rem:0)
+800 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:12) charged 3999916 exec time (total:8144791, rem:0)
+799 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:12) charged 3999916 exec time (total:8617291, rem:0)
+801 P3 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/370:13) charged 3999042 exec time (total:11209042, rem:0)
+802 P2 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/372:13) charged 3999625 exec time (total:10756958, rem:0)
+803 P1 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/369:13) charged 3999917 exec time (total:11108125, rem:0)
+804 P0 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/371:13) charged 3998750 exec time (total:9893625, rem:0)
+805 P3 [cedf_task_exit@litmus/sched_cedf.c:631]: (testrttask/370:13) RIP
+806 P3 [dequeue_task_litmus@kernel/sched/litmus.c:232]: (testrttask/370:13) ignoring a dequeue, not going to sleep.
+807 P3 [litmus_dealloc@litmus/litmus.c:623]: (testrttask/370:13) Deallocating real-time task data
+808 P1 [cedf_task_exit@litmus/sched_cedf.c:631]: (testrttask/369:13) RIP
+809 P1 [dequeue_task_litmus@kernel/sched/litmus.c:232]: (testrttask/369:13) ignoring a dequeue, not going to sleep.
+810 P1 [litmus_dealloc@litmus/litmus.c:623]: (testrttask/369:13) Deallocating real-time task data
+811 P2 [cedf_task_exit@litmus/sched_cedf.c:631]: (testrttask/372:13) RIP
+812 P2 [dequeue_task_litmus@kernel/sched/litmus.c:232]: (testrttask/372:13) ignoring a dequeue, not going to sleep.
+813 P2 [litmus_dealloc@litmus/litmus.c:623]: (testrttask/372:13) Deallocating real-time task data
+814 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:13) try_to_wake_up() state:0
+815 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:13) try_to_wake_up() done state:0 success:0
+816 P0 [try_to_wake_up@kernel/sched/core.c:2646]: (testrttask/371:13) try_to_wake_up() state:0
+817 P0 [try_to_wake_up@kernel/sched/core.c:2785]: (testrttask/371:13) try_to_wake_up() done state:0 success:0
+818 P0 [cedf_task_exit@litmus/sched_cedf.c:631]: (testrttask/371:13) RIP
+819 P0 [dequeue_task_litmus@kernel/sched/litmus.c:232]: (testrttask/371:13) ignoring a dequeue, not going to sleep.
+820 P0 [litmus_dealloc@litmus/litmus.c:623]: (testrttask/371:13) Deallocating real-time task data
+821 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:12) charged 4000209 exec time (total:12617500, rem:0)
+822 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:12) charged 3999917 exec time (total:12144708, rem:0)
+823 P3 [litmus_ctrl_vm_close@litmus/ctrldev.c:56]: (testrttask/370:0) litmus_ctrl_vm_close flags=0x10160073 prot=0xfd3
+824 P3 [litmus_ctrl_vm_close@litmus/ctrldev.c:61]: (testrttask/370:0) litmus/ctrl: 00000000b515a5eb:00000000c4321fcd vma:0000000037e631a8 vma->vm_private_data:0000000000000000 closed.
+825 P1 [litmus_ctrl_vm_close@litmus/ctrldev.c:56]: (testrttask/369:0) litmus_ctrl_vm_close flags=0x10160073 prot=0xfd3
+826 P1 [litmus_ctrl_vm_close@litmus/ctrldev.c:61]: (testrttask/369:0) litmus/ctrl: 0000000039ac1e7c:00000000cafc2bfb vma:00000000e046304f vma->vm_private_data:0000000000000000 closed.
+827 P2 [litmus_ctrl_vm_close@litmus/ctrldev.c:56]: (testrttask/372:0) litmus_ctrl_vm_close flags=0x10160073 prot=0xfd3
+828 P2 [litmus_ctrl_vm_close@litmus/ctrldev.c:61]: (testrttask/372:0) litmus/ctrl: 00000000babea76a:00000000bdf17271 vma:0000000068603c1e vma->vm_private_data:0000000000000000 closed.
+829 P5 [complete_job@litmus/jobs.c:104]: (testrttask/373:12) job completion indicated at 178138271665
+830 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:12) charged 2275291 exec time (total:14892791, rem:0)
+831 P5 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/373:12) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+832 P5 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/373:12) job_completion(forced=0).
+833 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/373 (2000000, 5000000, 4000000) rel=178050000000 to ready queue at 178138298207
+834 P5 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/373:13) linking to local CPU 5 to avoid IPI
+835 P4 [complete_job@litmus/jobs.c:104]: (testrttask/374:12) job completion indicated at 178138548748
+836 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:12) charged 2552958 exec time (total:14697666, rem:0)
+837 P4 [cedf_schedule@litmus/sched_cedf.c:446]: (testrttask/374:12) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+838 P4 [current_job_completion@litmus/sched_cedf.c:367]: (testrttask/374:12) job_completion(forced=0).
+839 P4 [__add_ready@litmus/rt_domain.c:310]: rt: adding testrttask/374 (2000000, 5000000, 4000000) rel=178050000000 to ready queue at 178138575290
+840 P4 [check_for_preemptions@litmus/sched_cedf.c:304]: (testrttask/374:13) linking to local CPU 4 to avoid IPI
+841 P0 [litmus_ctrl_vm_close@litmus/ctrldev.c:56]: (testrttask/371:0) litmus_ctrl_vm_close flags=0x10160073 prot=0xfd3
+842 P0 [litmus_ctrl_vm_close@litmus/ctrldev.c:61]: (testrttask/371:0) litmus/ctrl: 000000000931c7eb:0000000073845674 vma:0000000091a9937a vma->vm_private_data:0000000000000000 closed.
+843 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:13) charged 1418375 exec time (total:1418375, rem:581625)
+844 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:13) charged 1694583 exec time (total:1694583, rem:305417)
+845 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:13) charged 3999333 exec time (total:5693916, rem:0)
+846 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:13) charged 3999333 exec time (total:5417708, rem:0)
+847 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:13) charged 3999625 exec time (total:9417333, rem:0)
+848 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/373:13) charged 3999917 exec time (total:9693833, rem:0)
+849 P5 [cedf_task_exit@litmus/sched_cedf.c:631]: (testrttask/373:13) RIP
+850 P5 [dequeue_task_litmus@kernel/sched/litmus.c:232]: (testrttask/373:13) ignoring a dequeue, not going to sleep.
+851 P4 [update_time_litmus@kernel/sched/litmus.c:26]: (testrttask/374:13) charged 4000209 exec time (total:13417542, rem:0)
+852 P4 [cedf_task_exit@litmus/sched_cedf.c:631]: (testrttask/374:13) RIP
+853 P4 [dequeue_task_litmus@kernel/sched/litmus.c:232]: (testrttask/374:13) ignoring a dequeue, not going to sleep.
+854 P4 [litmus_dealloc@litmus/litmus.c:623]: (testrttask/374:13) Deallocating real-time task data
+855 P5 [litmus_dealloc@litmus/litmus.c:623]: (testrttask/373:13) Deallocating real-time task data
+856 P4 [litmus_ctrl_vm_close@litmus/ctrldev.c:56]: (testrttask/374:0) litmus_ctrl_vm_close flags=0x10160073 prot=0xfd3
+857 P4 [litmus_ctrl_vm_close@litmus/ctrldev.c:61]: (testrttask/374:0) litmus/ctrl: 00000000dc02f71f:000000000382f5d6 vma:00000000b91b32c1 vma->vm_private_data:0000000000000000 closed.
+858 P5 [litmus_ctrl_vm_close@litmus/ctrldev.c:56]: (testrttask/373:0) litmus_ctrl_vm_close flags=0x10160073 prot=0xfd3
+859 P5 [litmus_ctrl_vm_close@litmus/ctrldev.c:61]: (testrttask/373:0) litmus/ctrl: 000000008aa4a0b1:00000000ad057db0 vma:000000007c57198b vma->vm_private_data:0000000000000000 closed.
+860 P1 [exit_litmus@litmus/litmus.c:601]: (testrttask/369:0) freeing ctrl_page 000000002afe3a99
+861 P1 [exit_litmus@litmus/litmus.c:601]: (testrttask/370:0) freeing ctrl_page 000000001302db3c
+862 P1 [exit_litmus@litmus/litmus.c:601]: (testrttask/371:0) freeing ctrl_page 0000000038101e8e
+863 P1 [exit_litmus@litmus/litmus.c:601]: (testrttask/372:0) freeing ctrl_page 000000004b2b95b9
+864 P1 [exit_litmus@litmus/litmus.c:601]: (testrttask/373:0) freeing ctrl_page 00000000d8f4c432
+865 P1 [exit_litmus@litmus/litmus.c:601]: (testrttask/374:0) freeing ctrl_page 00000000dae6d354
+866 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 501.
+867 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 501.
+868 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 502.
+869 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 502.
+870 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 503.
+871 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 503.
+872 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 504.
+873 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 504.
+874 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 505.
+875 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 505.
+876 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 506.
+877 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 506.
+878 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 507.
+879 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 507.
+880 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 508.
+881 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 508.
+882 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 509.
+883 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 509.
+884 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 510.
+885 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 510.
+886 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 511.
+887 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 511.
+888 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 501.
+889 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 502.
+890 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 503.
+891 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 504.
+892 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 505.
+893 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 506.
+894 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 507.
+895 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 508.
+896 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 509.
+897 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 510.
+898 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 511.
+899 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 501.
+900 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 502.
+901 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 503.
+902 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 504.
+903 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 505.
+904 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 506.
+905 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 507.
+906 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 508.
+907 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 509.
+908 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 510.
+909 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 511.
+910 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 501.
+911 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 502.
+912 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 503.
+913 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 504.
+914 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 505.
+915 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 506.
+916 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 507.
+917 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 508.
+918 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 509.
+919 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 510.
+920 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 511.
+921 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 501.
+922 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 502.
+923 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 503.
+924 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 504.
+925 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 505.
+926 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 506.
+927 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 507.
+928 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 508.
+929 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 509.
+930 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 510.
+931 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 511.
+932 P4 [vprintk_store@kernel/printk/printk.c:1958]: 1Failed trace writes: 0
+933 P5 [vprintk_store@kernel/printk/printk.c:1958]: 1Failed trace writes: 0
+934 P4 [vprintk_store@kernel/printk/printk.c:1958]: 1Failed trace writes: 0
+935 P5 [vprintk_store@kernel/printk/printk.c:1958]: 1Failed trace writes: 0
+936 P4 [vprintk_store@kernel/printk/printk.c:1958]: 1Failed trace writes: 0
+937 P5 [vprintk_store@kernel/printk/printk.c:1958]: 1Failed trace writes: 0

@@ -1,0 +1,246 @@
+10 P5 [alloc_ctrl_page@litmus/ctrldev.c:28]: (rt_launch/412:0) alloc_ctrl_page ctrl_page = 0000000031017ace
+11 P5 [map_ctrl_page@litmus/ctrldev.c:42]: (rt_launch/412:0) litmus/ctrl: mapping 0000000031017ace (pfn:39afe) to 0xffffa1c54000 (prot:68000000000fd3)
+12 P5 [litmus_ctrl_mmap@litmus/ctrldev.c:116]: (rt_launch/412:0) litmus_ctrl_mmap flags=0x10160073 prot=0x68000000000fd3
+13 P5 [vprintk_store@kernel/printk/printk.c:1958]: Setting up rt task parameters for process 412.
+14 P5 [map_ctrl_page@litmus/ctrldev.c:42]: (rt_launch/412:0) litmus/ctrl: mapping 0000000031017ace (pfn:39afe) to 0xffffa1c53000 (prot:68000000000fd3)
+15 P5 [litmus_ctrl_mmap@litmus/ctrldev.c:116]: (rt_launch/412:0) litmus_ctrl_mmap flags=0x10162073 prot=0x68000000000fd3
+16 P5 [gsnedf_task_new@litmus/sched_gsn_edf.c:542]: gsn edf: task new 412
+17 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding rt_launch/412 (20000000, 40000000, 40000000) rel=212713386849 to ready queue at 212713388307
+18 P5 [check_for_preemptions@litmus/sched_gsn_edf.c:306]: (rt_launch/412:1) linking to local CPU 5 to avoid IPI
+19 P5 [enqueue_task_litmus@kernel/sched/litmus.c:214]: (rt_launch/412:1) ignoring an enqueue, not a wake up.
+20 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (rt_launch/412:1) charged 38792 exec time (total:38792, rem:19961208)
+21 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:447]: (rt_launch/412:1) blocks:0 out_of_time:0 np:0 sleep:0 preempt:0 state:0 sig:0
+22 P5 [arm_enforcement_timer@litmus/budget.c:69]: (rt_launch/412:1) arming enforcement timer.
+23 P5 [gsnedf_task_block@litmus/sched_gsn_edf.c:595]: (rt_launch/412:1) block at 212713444891
+24 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (rt_launch/412:1) charged 12833 exec time (total:51625, rem:19948375)
+25 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:447]: (rt_launch/412:1) blocks:1 out_of_time:0 np:0 sleep:0 preempt:1 state:1 sig:0
+26 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:495]: (rt_launch/412:1) scheduled_on = NO_CPU
+27 P5 [cancel_enforcement_timer@litmus/budget.c:47]: cancelling enforcement timer.
+28 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 501.
+29 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 502.
+30 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 503.
+31 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 504.
+32 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 505.
+33 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 506.
+34 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 507.
+35 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 508.
+36 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 509.
+37 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 510.
+38 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 511.
+39 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 501.
+40 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 502.
+41 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 503.
+42 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 504.
+43 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 505.
+44 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 506.
+45 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 507.
+46 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 508.
+47 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 509.
+48 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 510.
+49 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 511.
+50 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 501.
+51 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 502.
+52 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 503.
+53 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 504.
+54 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 505.
+55 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 506.
+56 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 507.
+57 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 508.
+58 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 509.
+59 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 510.
+60 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 511.
+61 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 501.
+62 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 502.
+63 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 503.
+64 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 504.
+65 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 505.
+66 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 506.
+67 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 507.
+68 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 508.
+69 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 509.
+70 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 510.
+71 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 511.
+72 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 501.
+73 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 502.
+74 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 503.
+75 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 504.
+76 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 505.
+77 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 506.
+78 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 507.
+79 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 508.
+80 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 509.
+81 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 510.
+82 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 511.
+83 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 501.
+84 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 502.
+85 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 503.
+86 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 504.
+87 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 505.
+88 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 506.
+89 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 507.
+90 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 508.
+91 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 509.
+92 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 510.
+93 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Enabling feather-trace event 511.
+94 P5 [alloc_ctrl_page@litmus/ctrldev.c:28]: (release_ts/443:0) alloc_ctrl_page ctrl_page = 000000005218649d
+95 P5 [map_ctrl_page@litmus/ctrldev.c:42]: (release_ts/443:0) litmus/ctrl: mapping 000000005218649d (pfn:3982b) to 0xffff97961000 (prot:68000000000fd3)
+96 P5 [litmus_ctrl_mmap@litmus/ctrldev.c:116]: (release_ts/443:0) litmus_ctrl_mmap flags=0x10160073 prot=0x68000000000fd3
+97 P5 [do_release_ts@litmus/sync.c:98]: <<<<<< synchronous task system release >>>>>>
+98 P5 [try_to_wake_up@kernel/sched/core.c:2646]: (rt_launch/412:1) try_to_wake_up() state:1
+99 P5 [gsnedf_task_wake_up@litmus/sched_gsn_edf.c:580]: (rt_launch/412:1) wake_up at 234900840151
+100 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding rt_launch/412 (20000000, 40000000, 40000000) rel=234900845985 to ready queue at 234900848901
+101 P5 [check_for_preemptions@litmus/sched_gsn_edf.c:306]: (rt_launch/412:2) linking to local CPU 5 to avoid IPI
+102 P5 [try_to_wake_up@kernel/sched/core.c:2785]: (rt_launch/412:2) try_to_wake_up() done state:0 success:1
+103 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:450]: (release_ts/443:0) will be preempted by rt_launch/412
+104 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:490]: (rt_launch/412:2) scheduled_on = P5
+105 P5 [arm_enforcement_timer@litmus/budget.c:69]: (rt_launch/412:2) arming enforcement timer.
+106 P5 [complete_job@litmus/jobs.c:104]: (rt_launch/412:2) job completion indicated at 234900899360
+107 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (rt_launch/412:2) charged 69417 exec time (total:69417, rem:19930583)
+108 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:447]: (rt_launch/412:2) blocks:0 out_of_time:0 np:0 sleep:1 preempt:0 state:0 sig:0
+109 P5 [curr_job_completion@litmus/sched_gsn_edf.c:369]: (rt_launch/412:2) job_completion(forced=0).
+110 P5 [prepare_for_next_period@litmus/jobs.c:45]: (rt_launch/412:2) sporadic release at 236000000000
+111 P5 [__add_release@litmus/rt_domain.c:346]: (rt_launch/412:3) add_release(), rel=236000000000
+112 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:495]: (rt_launch/412:3) scheduled_on = NO_CPU
+113 P5 [cancel_enforcement_timer@litmus/budget.c:47]: cancelling enforcement timer.
+114 P5 [litmus_ctrl_vm_close@litmus/ctrldev.c:56]: (release_ts/443:0) litmus_ctrl_vm_close flags=0x10160073 prot=0xfd3
+115 P5 [litmus_ctrl_vm_close@litmus/ctrldev.c:61]: (release_ts/443:0) litmus/ctrl: 00000000b7f7e010:00000000c4610bdd vma:00000000c6efcee9 vma->vm_private_data:0000000000000000 closed.
+116 P4 [exit_litmus@litmus/litmus.c:601]: (release_ts/443:0) freeing ctrl_page 000000005218649d
+117 P5 [check_for_preemptions@litmus/sched_gsn_edf.c:306]: (rt_launch/412:3) linking to local CPU 5 to avoid IPI
+118 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:450]: (swapper/5/0:0) will be preempted by rt_launch/412
+119 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:490]: (rt_launch/412:3) scheduled_on = P5
+120 P5 [arm_enforcement_timer@litmus/budget.c:69]: (rt_launch/412:3) arming enforcement timer.
+121 P5 [gsnedf_task_block@litmus/sched_gsn_edf.c:595]: (rt_launch/412:3) block at 236000696943
+122 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (rt_launch/412:3) charged 337166 exec time (total:337166, rem:19662834)
+123 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:447]: (rt_launch/412:3) blocks:1 out_of_time:0 np:0 sleep:0 preempt:1 state:258 sig:0
+124 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:495]: (rt_launch/412:3) scheduled_on = NO_CPU
+125 P5 [cancel_enforcement_timer@litmus/budget.c:47]: cancelling enforcement timer.
+126 P5 [try_to_wake_up@kernel/sched/core.c:2646]: (rt_launch/412:3) try_to_wake_up() state:258
+127 P5 [gsnedf_task_wake_up@litmus/sched_gsn_edf.c:580]: (rt_launch/412:3) wake_up at 236002770652
+128 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding rt_launch/412 (20000000, 40000000, 40000000) rel=236000000000 to ready queue at 236002779110
+129 P5 [check_for_preemptions@litmus/sched_gsn_edf.c:306]: (rt_launch/412:3) linking to local CPU 5 to avoid IPI
+130 P5 [try_to_wake_up@kernel/sched/core.c:2785]: (rt_launch/412:3) try_to_wake_up() done state:0 success:1
+131 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:450]: (swapper/5/0:0) will be preempted by rt_launch/412
+132 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:490]: (rt_launch/412:3) scheduled_on = P5
+133 P5 [arm_enforcement_timer@litmus/budget.c:69]: (rt_launch/412:3) arming enforcement timer.
+134 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (rt_launch/412:3) charged 1249792 exec time (total:1586958, rem:18413042)
+135 P5 [litmus_ctrl_vm_close@litmus/ctrldev.c:56]: (rt_launch/412:3) litmus_ctrl_vm_close flags=0x10160073 prot=0xfd3
+136 P5 [litmus_ctrl_vm_close@litmus/ctrldev.c:61]: (rt_launch/412:3) litmus/ctrl: 000000004a9eed30:0000000083ff0cdf vma:00000000e65cb095 vma->vm_private_data:0000000000000000 closed.
+137 P5 [litmus_ctrl_vm_close@litmus/ctrldev.c:56]: (rt_launch/412:3) litmus_ctrl_vm_close flags=0x10160073 prot=0xfd3
+138 P5 [litmus_ctrl_vm_close@litmus/ctrldev.c:61]: (rt_launch/412:3) litmus/ctrl: 0000000083ff0cdf:000000002eb00179 vma:00000000b2cf6717 vma->vm_private_data:0000000000000000 closed.
+139 P5 [gsnedf_task_block@litmus/sched_gsn_edf.c:595]: (md5sum/412:3) block at 236005402943
+140 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (md5sum/412:3) charged 1385125 exec time (total:2972083, rem:17027917)
+141 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:447]: (md5sum/412:3) blocks:1 out_of_time:0 np:0 sleep:0 preempt:1 state:258 sig:0
+142 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:495]: (md5sum/412:3) scheduled_on = NO_CPU
+143 P5 [cancel_enforcement_timer@litmus/budget.c:47]: cancelling enforcement timer.
+144 P5 [try_to_wake_up@kernel/sched/core.c:2646]: (md5sum/412:3) try_to_wake_up() state:258
+145 P5 [gsnedf_task_wake_up@litmus/sched_gsn_edf.c:580]: (md5sum/412:3) wake_up at 236006463902
+146 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding md5sum/412 (20000000, 40000000, 40000000) rel=236000000000 to ready queue at 236006472652
+147 P5 [check_for_preemptions@litmus/sched_gsn_edf.c:306]: (md5sum/412:3) linking to local CPU 5 to avoid IPI
+148 P5 [try_to_wake_up@kernel/sched/core.c:2785]: (md5sum/412:3) try_to_wake_up() done state:0 success:1
+149 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:450]: (swapper/5/0:0) will be preempted by md5sum/412
+150 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:490]: (md5sum/412:3) scheduled_on = P5
+151 P5 [arm_enforcement_timer@litmus/budget.c:69]: (md5sum/412:3) arming enforcement timer.
+152 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (md5sum/412:3) charged 1555750 exec time (total:4527833, rem:15472167)
+153 P5 [gsnedf_task_block@litmus/sched_gsn_edf.c:595]: (md5sum/412:3) block at 236008087318
+154 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (md5sum/412:3) charged 70292 exec time (total:4598125, rem:15401875)
+155 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:447]: (md5sum/412:3) blocks:1 out_of_time:0 np:0 sleep:0 preempt:1 state:258 sig:0
+156 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:495]: (md5sum/412:3) scheduled_on = NO_CPU
+157 P5 [cancel_enforcement_timer@litmus/budget.c:47]: cancelling enforcement timer.
+158 P5 [try_to_wake_up@kernel/sched/core.c:2646]: (md5sum/412:3) try_to_wake_up() state:258
+159 P5 [gsnedf_task_wake_up@litmus/sched_gsn_edf.c:580]: (md5sum/412:3) wake_up at 236009800568
+160 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding md5sum/412 (20000000, 40000000, 40000000) rel=236000000000 to ready queue at 236009807277
+161 P5 [check_for_preemptions@litmus/sched_gsn_edf.c:306]: (md5sum/412:3) linking to local CPU 5 to avoid IPI
+162 P5 [try_to_wake_up@kernel/sched/core.c:2785]: (md5sum/412:3) try_to_wake_up() done state:0 success:1
+163 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:450]: (swapper/5/0:0) will be preempted by md5sum/412
+164 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:490]: (md5sum/412:3) scheduled_on = P5
+165 P5 [arm_enforcement_timer@litmus/budget.c:69]: (md5sum/412:3) arming enforcement timer.
+166 P5 [gsnedf_task_block@litmus/sched_gsn_edf.c:595]: (md5sum/412:3) block at 236010763652
+167 P5 [update_time_litmus@kernel/sched/litmus.c:26]: (md5sum/412:3) charged 963958 exec time (total:5562083, rem:14437917)
+168 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:447]: (md5sum/412:3) blocks:1 out_of_time:0 np:0 sleep:0 preempt:1 state:258 sig:0
+169 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:495]: (md5sum/412:3) scheduled_on = NO_CPU
+170 P5 [cancel_enforcement_timer@litmus/budget.c:47]: cancelling enforcement timer.
+171 P5 [try_to_wake_up@kernel/sched/core.c:2646]: (md5sum/412:3) try_to_wake_up() state:258
+172 P5 [gsnedf_task_wake_up@litmus/sched_gsn_edf.c:580]: (md5sum/412:3) wake_up at 236012158985
+173 P5 [__add_ready@litmus/rt_domain.c:310]: rt: adding md5sum/412 (20000000, 40000000, 40000000) rel=236000000000 to ready queue at 236012166277
+174 P5 [check_for_preemptions@litmus/sched_gsn_edf.c:306]: (md5sum/412:3) linking to local CPU 5 to avoid IPI
+175 P5 [try_to_wake_up@kernel/sched/core.c:2785]: (md5sum/412:3) try_to_wake_up() done state:0 success:1
+176 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:450]: (swapper/5/0:0) will be preempted by md5sum/412
+177 P5 [gsnedf_schedule@litmus/sched_gsn_edf.c:490]: (md5sum/412:3) scheduled_on = P5
+178 P5 [arm_enforcement_timer@litmus/budget.c:69]: (md5sum/412:3) arming enforcement timer.
+179 P5 [litmus_do_exit@litmus/litmus.c:616]: (md5sum/412:3) exiting, demoted to SCHED_FIFO
+180 P5 [gsnedf_task_exit@litmus/sched_gsn_edf.c:620]: (md5sum/412:3) RIP
+181 P5 [dequeue_task_litmus@kernel/sched/litmus.c:232]: (md5sum/412:3) ignoring a dequeue, not going to sleep.
+182 P5 [cancel_enforcement_timer@litmus/budget.c:47]: cancelling enforcement timer.
+183 P5 [litmus_dealloc@litmus/litmus.c:623]: (md5sum/412:3) Deallocating real-time task data
+184 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 501.
+185 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 501.
+186 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 502.
+187 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 502.
+188 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 501.
+189 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 501.
+190 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 503.
+191 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 502.
+192 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 504.
+193 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 503.
+194 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 502.
+195 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 505.
+196 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 504.
+197 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 506.
+198 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 503.
+199 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 505.
+200 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 504.
+201 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 503.
+202 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 506.
+203 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 507.
+204 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 504.
+205 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 507.
+206 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 508.
+207 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 508.
+208 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 505.
+209 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 509.
+210 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 505.
+211 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 506.
+212 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 510.
+213 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 506.
+214 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 507.
+215 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 511.
+216 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 509.
+217 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 508.
+218 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 510.
+219 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 507.
+220 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 509.
+221 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 508.
+222 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 510.
+223 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 511.
+224 P1 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 511.
+225 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 509.
+226 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 501.
+227 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 502.
+228 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 503.
+229 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 510.
+230 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 504.
+231 P2 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 511.
+232 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 505.
+233 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 506.
+234 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 507.
+235 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 508.
+236 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 509.
+237 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 501.
+238 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 510.
+239 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 502.
+240 P5 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 511.
+241 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 503.
+242 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 504.
+243 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 505.
+244 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 506.
+245 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 507.
+246 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 508.
+247 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 509.
+248 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 510.
+249 P4 [vprintk_store@kernel/printk/printk.c:1958]: 6Disabling feather-trace event 511.
+250 P4 [vprintk_store@kernel/printk/printk.c:1958]: 1Failed trace writes: 0
+251 P5 [vprintk_store@kernel/printk/printk.c:1958]: 1Failed trace writes: 0
+252 P2 [vprintk_store@kernel/printk/printk.c:1958]: 1Failed trace writes: 0
+253 P5 [vprintk_store@kernel/printk/printk.c:1958]: 1Failed trace writes: 0
+254 P3 [vprintk_store@kernel/printk/printk.c:1958]: 1Failed trace writes: 0
+255 P1 [vprintk_store@kernel/printk/printk.c:1958]: 1Failed trace writes: 0
