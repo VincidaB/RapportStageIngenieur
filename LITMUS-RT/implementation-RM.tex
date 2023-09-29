@@ -29,7 +29,7 @@ La complexité de cette fonction se cache derrière la nouvelle fonction d'ordre
 En raison de la grande quantité de nouveau code, faire fonctionner cet algorithme à nécessité une plus grande phase de débogage. J'ai donc utilisé l'outil \textit{feather-trace} pour tracer l'ordonnancement réel de cet algorithme. De cela, j'ai pu déterminer les étapes qui ne fonctionnaient pas. Par exemple, voici un exemple d'un essai avec plusieurs problèmes : 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\paperwidth]{Images/schedule_host=rock960_scheduler=DEMO_trace=notstoped.png}
+    \includegraphics[width=0.9\textwidth]{Images/schedule_host=rock960_scheduler=DEMO_trace=notstoped.png}
     \caption{Exemple d'ordonnancement avec défauts}
 \end{figure}
 
@@ -63,6 +63,7 @@ Enfin, on peut aussi voir ce qu'il se passe lorsque l'on cherche a ordonnancer l
 
 \begin{center}
     \color{red}IL FAUT QUE JE FASSE L'ESSAI, MAIS NORMALEMENT C'EST PAS ORDONNANCABLE
+    IL faut aussi que je regarde si je peux extraire le nombre de dépassements et tout.
 \end{center}
 
 Cela montre bien que RM est moins performant que P-EDF car il ne permet pas d'ordonnancer toutes les tâches ordonnançables par P-EDF. Cependant, il est plus simple à implémenter et m'a permis de me familiariser avec les fonctions de \litmus.
