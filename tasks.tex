@@ -36,10 +36,26 @@ On remarque aussi que le temps d'exécution semble être linéaire avec l'entier
     \includegraphics[width=0.9\textwidth]{Images/linear_regression.png}
     \caption{Régression linéaire du temps d'exécution en fonction de l'entier sur lequel on réalise la somme}
 \end{figure}
+
+On obtient alors les régressions linéaires suivantes à l'aide d'un script \texttt{python} :
 \[
     CPU0(n) =  3.065 \times 10^{-8} n +  0.0127 
 \] 
 \[
     CPU5(n) =  1.393 \times 10^{-8} n +  0.0065
 \]
+
+Les processeurs A53 sont a une fréquence de 1.5GHz, et les A72 a une fréquence de 2GHz. On peut donc voir que la pente de la régression linéaire est plus grande pour les A53 que pour les A72. Cela est cohérent avec le fait que les A53 sont moins puissants que les A72. Cependant, on ne retrouve pas le rapport de puissance entre les deux processeurs. En effet $\frac{3.065}{1.393} = 2.200 \neq \frac{2}{1.5} = 1.333$ ce qui signifie que la différence de performance entre les deux processeurs n'est pas uniquement due a la différence de fréquence.
+
+
+Cela est dû au fait que les processeurs A72 ont d'autres avantages comme :
+\begin{itemize}
+    \item Un parallélisme des instructions qu'il peut exécuter (\textit{3 way super scalar}) contrairement aux 2 instructions en parallèle des A53
+    \item \textit{Out of order execution}, qui permet l’exécution dans le désordre de certaines instructions, ce qui permet de ne pas attendre qu'une instruction soit terminée pour en exécuter une autre
+\end{itemize}
+
+Ces deux avantages permettent aux A72 d'être plus performants que les A53, et donc d'avoir un temps d'exécution plus faible pour une même somme.
+
+Je n'ai cependant pas eu le temps d'étudier cela plus en profondeur, par exemple, en mesurant le temps d'une manière à ne pas prendre en compte le démarrage des tâches. 
+
 
