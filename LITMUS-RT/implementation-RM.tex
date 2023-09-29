@@ -36,7 +36,7 @@ En raison de la grande quantité de nouveau code, faire fonctionner cet algorith
 Premièrement, l’ordonnanceur ne stipule pas a \textit{feather-trace} la fin d'exécution d'une tâches. Cela peut être corrigé en  appelant \texttt{sched\_trace\_task\_completion(prev, budget\_exhausted);} lors de la fin d'un job.
 Secondement, on peut voir que la deuxième tâche se fait préempter en $t=5ms$ par la première tâche, plus prioritaire. Cependant, l'exécution de cette deuxième tâche ne continue pas lorsque le processeur est libre. Cet erreur était alors du à une erreur de logique dans la fonctions principale d’ordonnancement dans laquelle je ne replaçait pas les tâches préemptés dans la \texttt{ready\_queue}.
 
-Après ces erreurs corrigées voici le résultat de l’ordonnancement de \color{red}XXX \color{black} tâches par RM toutes deux lancées sur le même processeur:
+Après ces erreurs corrigées voici le résultat de l’ordonnancement de 2 tâches par RM toutes deux lancées sur le même processeur :
 
 \begin{figure}[H]
     \centering
@@ -54,18 +54,20 @@ On peut aussi lancer les tâches avec un \textit{offset} afin de voir si l'ordon
 \end{figure}
 
 On peut aussi lancer un plus grand nombre de tâches sur une multitude de processeurs (la carte de développement en ayant 6), et on obtient le tracé de tâches suivantes : 
-\begin{center}
-    \color{red} AJOUTER IMAGE DE L'ORDONANCEMENT DE RM PLEIN DE TACHES
-\end{center}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Images/RM-bcp.png}
+    \caption{Exemple d'ordonnancement d'un grand ensemble de tâches via RM}
+\end{figure}
 
 
-Enfin, on peut aussi voir ce qu'il se passe lorsque l'on cherche a ordonnancer les même tâches que celles que l'on à ordonnancé avec P-EDF et que l'on peut voir dans la figure \ref{fig:edf-schedualibility-demo}.
+Enfin, on peut aussi voir ce qu'il se passe lorsque l'on cherche a ordonnancer les même tâches que celles que l'on à ordonnancé avec P-EDF et que l'on peut voir dans la figure \ref{fig:edf-schedualibility-demo}. Ces tâches sont non-ordonancables par RM et on obtient le tracé suivant :
 
-\begin{center}
-    \color{red}IL FAUT QUE JE FASSE L'ESSAI, MAIS NORMALEMENT C'EST PAS ORDONNANCABLE
-    IL faut aussi que je regarde si je peux extraire le nombre de dépassements et tout.
-\end{center}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Images/RM_rMerde.png}
+    \caption{Exemple d'ordonnancement de tâches non-ordonnançables par RM}
+\end{figure}
 
-Cela montre bien que RM est moins performant que P-EDF car il ne permet pas d'ordonnancer toutes les tâches ordonnançables par P-EDF. Cependant, il est plus simple à implémenter et m'a permis de me familiariser avec les fonctions de \litmus.
-
-
+Les dépassement des échéances montrent bien que RM est moins performant que P-EDF car il ne permet pas d'ordonnancer toutes les tâches ordonnançables par P-EDF. Cependant, il est plus simple à implémenter et m'a permis de me familiariser avec les fonctions de \litmus. Mais, des résultats comme le pire temps de réponse d'une tâche est plus simple a obtenir analytiquement avec RM qu'avec P-EDF. Cela est du au fait que RM est plus simple à analyser que P-EDF et c'est pourquoi il est actuellement plus utilisé dans des domaines comme l'avionique.

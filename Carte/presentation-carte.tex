@@ -15,13 +15,14 @@ Le SOC RK3399 contient bien d'autres composants et peut interfacer avec de nombr
 
 \subsubsection{Interfacer avec la carte}
 
-Comme mentionné précédement, la carte possède une sortie HDMI, mais nous nous contenterons d'utiliser l'interface série TTL. Nous nous connecterons à cette dernière via un convertisseur USB vers TTL. Cela permettra d'interfacer via un terminal qui fonctionnera avec une liaison série. J'ai utilisé l'utiitaire en ligne de commande \textit{minicom} pour me connecter à la carte. Pour que cela fonctionne, il faut configurer le \textit{baudrate} à une vitesse de 1M bauds, 8 bits de données, 1 bit de parité et 1 bit de stop.
-La figure \ref{fig:terminal} montre le terminal de minicom connecté à la carte.
+Comme mentionné précédement, la carte possède une sortie HDMI, mais nous nous contenterons d'utiliser l'interface série TTL. Nous nous connecterons à cette dernière via un convertisseur USB vers TTL. Cela permettra d'interfacer via un terminal qui fonctionnera avec une liaison série. J'ai utilisé l'utiitaire en ligne de commande \textit{minicom} pour me connecter à la carte. Pour que cela fonctionne, il faut configurer le \textit{baudrate} à une vitesse de 1M bauds, 8 bits de données, 1 bit de parité et 1 bit de stop (8N1).
+La figure \ref{fig:terminal} montre le terminal série de \textit{minicom} connecté à la carte.
 
 
 \begin{figure}[H]
     \centering
-    \color{red} AJOUTER IMAGE DU TERMINAL DE LA CONFIG MINICOM OU DE LA CONNEXION AVEC LA CARTE
+    \includegraphics[width=0.75\textwidth]{Images/CaptureTerminalMinicom.png}
+    \caption{Terminal série via minicom connecté à la carte}
     \label{fig:terminal}
 \end{figure}
 
