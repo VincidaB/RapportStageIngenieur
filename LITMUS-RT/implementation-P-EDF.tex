@@ -145,11 +145,24 @@ On place notre fichier à compiler sous le mot clé \texttt{obj-y} pour signifie
 
 Une fois le makefile modifié, la compilation de notre module sera exécutée lors de la compilation du noyau Linux à l'aide de make. La compilation du noyau est discuté dans la partie \ref{sec:compilation-linux-source}.
 
-\begin{center}
-    \color{red}
-    AU MOINS MENTIONNER LES AUTRES FONCTIONS NECESSAIRES
-\end{center}
+Il faut aussi déclarer un ensemble de fonctions propres à l'ordonanncement, comme pour l'admissions de tâches, le réveil d'une tâche, la fin d'une tâche, le démarage de l'ordonnanceur, etc. Voici l'ensemble des fonctions que j'ai déclaré pour mon ordonnanceur :
 
+\begin{lstlisting}[style=cstyle, caption={Déclaration des fonctions de l'ordonnanceur}, label={lst:decl-func-sched}]
+static struct sched_plugin p_edf_plugin = {
+    .plugin_name            = "P-EDF",
+    .schedule               = p_edf_schedule,
+    .task_wake_up           = p_edf_task_resume,
+    .admit_task             = p_edf_admit_task,
+    .task_new               = p_edf_task_new,
+    .task_exit              = p_edf_task_exit,
+    .get_domain_proc_info   = p_edf_get_domain_proc_info,
+    .activate_plugin        = p_edf_activate_plugin,
+    .deactivate_plugin      = p_edf_deactivate_plugin,
+    .complete_job           = complete_job,
+};
+\end{lstlisting}
+
+\litmus met a notre disposition un système d'abstraction pour ces fonctions afin que chaque ordonnanceur soit compatible avec les fonctions de \litmus.
 
 
 \subsubsection{Résultats et essais}

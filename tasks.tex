@@ -62,3 +62,5 @@ Je n'ai cependant pas eu le temps d'étudier cela plus en profondeur, par exempl
 \subsubsection{Troisième idée : utilisation des instructions SIMD}
 
 Une dernière idée proposée par Antoine Bertout était l'utilisation des instructions SIMD. Ces instructions permettent de réaliser des opérations sur plusieurs entiers en même temps. Cela permet de réduire le temps d'exécution d'une opération. L'idée était alors d'utiliser ces instructions spécialisées, afin de mettre en valeur la différence de performance entre les deux processeurs. En-effet, on s'attendait à ce que les A72 soient plus performants que les A53 sur ce type d'opération selon la documentation de ARM.
+
+On peu voir le code correspondant à ces essais dans la fonction \texttt{simd\_test} du listing de code \ref{annexe:sum-int}. Cependant, je n'ai pas pu généré des tâches suffisamment longues avec cette méthode car je rencontrait un problème de mémoire avant d'avoir un temps d'éxécution suffisamment long. Je n'ai pas pu identifier pouquoi on rencontrait ce problème si tôt, et je n'ai donc pas pu utiliser cette méthode pour générer des tâches avec des temps d'exécution différents.
