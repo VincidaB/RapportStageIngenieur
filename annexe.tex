@@ -38,7 +38,7 @@ obj-y += sched_pres.o
 obj-y += reservations/
 \end{lstlisting}
 
-
+\newpage
 \begin{lstlisting}[style=cstyle, caption=linux/litmus/sched\_p\_edf.c, label=annexe:p-edf]
 #include <linux/module.h>
 #include <linux/percpu.h>
@@ -367,6 +367,8 @@ static int __init init_p_edf(void)
 
 module_init(init_p_edf);     
 \end{lstlisting}
+\newpage
+
 
 \begin{lstlisting}[style=config, caption=Partie du fichier .config liée a \litmus]
 # LITMUS^RT
@@ -416,6 +418,7 @@ CONFIG_SCHED_DEBUG_TRACE_CALLER=y
 # end of LITMUS^RT
 \end{lstlisting}
 
+\newpage
 
 \begin{lstlisting}[style=cstyle, escapechar=\%, caption=Modifications apportées au fichier \texttt{rk3399.dtsi}, label=annexe:cache]
 cpus {
@@ -537,6 +540,7 @@ cpus {
 }
 \end{lstlisting}
 
+\newpage
 
 \begin{lstlisting}[style=cstyle, caption=litmus/rm\_common.c, label=annexe:rm_common]
 /*
@@ -643,8 +647,10 @@ int rm_preemption_needed(rt_domain_t* rt, struct task_struct *t)
         return !is_realtime(t) || rm_higher_prio(__next_ready(rt), t);
 }
 \end{lstlisting}
+\newpage
 
 \lstinputlisting[language=bash, style=bashstyle, label=annexe:precisiontime, caption=Script de mesure du temps d'éxécution]{code/precision-time}
+\newpage
 
 \lstinputlisting[style=cstyle, caption=exec-time-tester.c,label=annexe:sum-int]{code/exec-time-tester.c}
 

@@ -1,11 +1,11 @@
-Le but du stage étant l'implémentation d'algorithmes d'ordonnancement sur platforme hétérogène avec migration detâches et de jobs entre les différent \gls{processeur}, il faudra être capable de réalise des \glspl{preemption} de jobs (une exécution detâche), les migrer, assurer le traitement d'égalités et bien d'autre problèmes.
+Le but du stage étant l'implémentation d'algorithmes d'ordonnancement sur plateforme hétérogène avec migration de tâches et de jobs entre les différent \gls{processeur}, il faudra être capable de réalise des \glspl{preemption} de jobs (une exécution de tâche), les migrer, assurer le traitement d'égalités et bien d'autre problèmes.
 
 
 \subsubsection{Algorithme considéré}
 
-On cherche alors, pour commencer, à implémenter un algorithme d’ordonnancement simple afin de se familiariser avec les méthodes et fonctions fourni par \litmus. J'ai donc choisi un algorithme partitionné pour la simplicité d’ordonnancement par \gls{processeur} que cela offre. Un algorithme EDF (\textit{Earliest Deadline First}) est alors choisi pour la simplicité du choix de latâche a exécuter. Comme son nom l'indique, on choisi à chaque instant latâche ayant l'échéance la plus proche. On nommera par la suite cet algorithme P-EDF (\textit{Partitionned Earliest Deadline First}).
+On cherche alors, pour commencer, à implémenter un algorithme d'ordonnancement simple afin de se familiariser avec les méthodes et fonctions fourni par \litmus. J'ai donc choisi un algorithme partitionné pour la simplicité d'ordonnancement par \gls{processeur} que cela offre. Un algorithme EDF (\textit{Earliest Deadline First}) est alors choisi pour la simplicité du choix de la tâche a exécuter. Comme son nom l'indique, on choisi à chaque instant la tâche ayant l'échéance la plus proche. On nommera par la suite cet algorithme P-EDF (\textit{Partitionned Earliest Deadline First}).
 
-Pour montrer le fonctionnement de cet algorithme, si l'on se place sur un même \gls{processeur}, on peut visualiser l’exécution de deuxtâche periodiques : 
+Pour montrer le fonctionnement de cet algorithme, si l'on se place sur un même \gls{processeur}, on peut visualiser l'exécution de deux tâche periodiques : 
 \begin{figure}[H]
     \center
     \begin{tikzpicture}[xscale=0.5, yscale=0.6]
@@ -116,12 +116,12 @@ Pour montrer le fonctionnement de cet algorithme, si l'on se place sur un même 
     \caption{Exemple de EDF à 2tâches}
 \end{figure}
 
-On a ici une premièretâche $\tau_1$ avec un pire temps d'éxécution (\textit{Worst Case Execution Time}) de 2 et une période de 5, et une secondetâche $\tau_2$ avec un pire temps d'éxécution de 4 et une période de 15. On a alors préemption de la $\tau_2$ à $t=5$ afin d'éxécuter $\tau_1$. Cela est dû au réveil de la tâche $\tau_1$ (représenté par la flêche montante) et à la date d'échéance plus proche de cette dernière. 
+On a ici une première tâche $\tau_1$ avec un pire temps d'exécution (\textit{Worst Case Execution Time}) de 2 et une période de 5, et une seconde tâche $\tau_2$ avec un pire temps d'exécution de 4 et une période de 15. On a alors préemption de la $\tau_2$ à $t=5$ afin d'exécuter $\tau_1$. Cela est dû au réveil de la tâche $\tau_1$ (représenté par la fleche montante) et à la date d'échéance plus proche de cette dernière. 
 
 
 \subsubsection{Implémentation}
 
-La construction d'un plugin d'ordonnancement nécessite la déclaration d'un module au sens de Linux. Pour Linux un module est un élément de code qui peut être chargé dynamiquement lors de l’exécution du système d'exploitation. Un module permet alors d'étendre les fonctionnalités du noyau, il a donc ont accès aux fonctions du noyau, à ses resources et peut aussi réaliser des appels systèmes.
+La construction d'un plugin d'ordonnancement nécessite la déclaration d'un module au sens de Linux. Pour Linux un module est un élément de code qui peut être chargé dynamiquement lors de l'exécution du système d'exploitation. Un module permet alors d'étendre les fonctionnalités du noyau, il a donc ont accès aux fonctions du noyau, à ses ressources et peut aussi réaliser des appels systèmes.
 
 Pour que notre nouvel ordonnanceur soit reconnu par le noyau Linux modifié (\litmus), il faut déclarer une fonction d'initialisation :
 \begin{lstlisting}[style=cstyle]
@@ -141,11 +141,11 @@ On peut alors enregistrer ce fichier sous le nom \lstinline{sched_p_edf.c} pour 
     obj-y = sched_p_edf.o
 \end{lstlisting}    
 
-On place notre fichier à compiler sous le mot clé \texttt{obj-y} pour signifier que l'on veut ce module compilé et inclus lors de la compilation du noyau Linux.
+On place notre fichier à compiler sous le mot-clé \texttt{obj-y} pour signifier que l'on veut ce module compilé et inclus lors de la compilation du noyau Linux.
 
-Une fois le makefile modifié, la compilation de notre module sera exécutée lors de la compilation du noyau Linux à l'aide de make. La compilation du noyau est discuté dans la partie \ref{sec:compilation-linux-source}.
+Une fois le makefile modifié, la compilation de notre module sera exécutée lors de la compilation du noyau Linux à l'aide de make. La compilation du noyau est discutée dans la partie \ref{sec:compilation-linux-source}.
 
-Il faut aussi déclarer un ensemble de fonctions propres à l'ordonanncement, comme pour l'admissions de tâches, le réveil d'une tâche, la fin d'une tâche, le démarage de l'ordonnanceur, etc. Voici l'ensemble des fonctions que j'ai déclaré pour mon ordonnanceur :
+Il faut aussi déclarer un ensemble de fonctions propres à l'ordonnancement, comme pour l'admission de tâches, le réveil d'une tâche, la fin d'une tâche, le démarrage de l'ordonnanceur, etc. Voici l'ensemble des fonctions que j'ai déclaré pour mon ordonnanceur :
 
 \begin{lstlisting}[style=cstyle, caption={Déclaration des fonctions de l'ordonnanceur}, label={lst:decl-func-sched}]
 static struct sched_plugin p_edf_plugin = {
@@ -162,18 +162,18 @@ static struct sched_plugin p_edf_plugin = {
 };
 \end{lstlisting}
 
-\litmus met a notre disposition un système d'abstraction pour ces fonctions afin que chaque ordonnanceur soit compatible avec les fonctions de \litmus.
+\litmus met à notre disposition un système d'abstraction pour ces fonctions afin que chaque ordonnanceur soit compatible avec les fonctions de \litmus.
 
 
 \subsubsection{Résultats et essais}
 
-Un algorithme partitionné nécessite le démarrage des tâches sur un processeur en particulier. Par exemple, j'ai ici démarré deuxtâches \texttt{rtspin} avec \textit{liblitmus} : l'une à un pire temps d’exécution de 2ms et une période de 5ms tandis que l'autre a un pire temps d’exécution de 4ms et une période de 7ms.
+Un algorithme partitionné nécessite le démarrage des tâches sur un processeur en particulier. Par exemple, j'ai ici démarré deux tâches \texttt{rtspin} avec \textit{liblitmus} : l'une à un pire temps d'exécution de 2ms et une période de 5ms tandis que l'autre a un pire temps d'exécution de 4ms et une période de 7ms.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\paperwidth]{Images/P-EDF-SCHEDUALIBILITY-DEMO.png}
-    \caption{Ordonnancement de deuxtâches avec P-EDF}
+    \includegraphics[width=0.95\textwidth]{Images/P-EDF-SCHEDUALIBILITY-DEMO.png}
+    \caption{Ordonnancement de deux tâches avec P-EDF}
     \label{fig:edf-schedualibility-demo}
 \end{figure}
 
-On peut voir que a $t=5ms$, il n'y a pas préemption de la première tâche et la seconde termine son éxécution. En effet, selon EDF, la deuxième tâche à une \textit{deadline} dans 2ms, tandis que la première a une \textit{deadline} dans 5ms : la seconde est donc a cet instant plus prioritaire que la première. Cependant, à $t=15ms$, la seconde tâche est préemptée par la première car cette dernière se réveil et a une \textit{deadline} dans 5ms tandis que la seconde a une \textit{deadline} dans 6ms. On peut alors voir que la seconde tâche est préemptée à $t=15ms$ et reprend son exécution à $t=17ms$. 
+On peut voir qu'à $t=5ms$, il n'y a pas préemption de la première tâche et la seconde termine son exécution. En effet, selon EDF, la deuxième tâche à une \textit{deadline} dans 2ms, tandis que la première a une \textit{deadline} dans 5ms : la seconde est donc à cet instant plus prioritaire que la première. Cependant, à $t=15ms$, la seconde tâche est préemptée par la première car cette dernière se réveil et a une \textit{deadline} dans 5ms tandis que la seconde a une \textit{deadline} dans 6ms. On peut alors voir que la seconde tâche est préemptée à $t=15ms$ et reprend son exécution à $t=17ms$. 

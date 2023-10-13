@@ -1,4 +1,4 @@
-Comme le montre le listing de code \ref{annexe:p-edf}, je me suis appuyé sur la librairie \texttt{litmus/edf\_common.h} fournie dans \litmus. J'ai donc ensuite décidé d'implémenter un algorithme d'ordonnancement qui ne l'utilisait pas. J'ai donc choisi d'implémenter un algorithme RM (Rate Monotonic) partitionné. Cet algorithme est plus simple que P-EDF car il ne prend pas en compte les échéances destâches. Il suffit alors de trier lestâches par période croissante et de les ordonnancer en fonction de leur période. Cependant, cet algorithme ne permet pas de garantir l'ordonnançabilité destâches. En effet, il existe des ensembles detâches qui ne sont pas ordonnançables par cet algorithme alors qu'ils le sont par P-EDF. Cependant, cet algorithme est plus simple à implémenter et permet de se familiariser avec les fonctions de \litmus.
+Comme le montre le listing de code \ref{annexe:p-edf}, je me suis appuyé sur la librairie \texttt{litmus/edf\_common.h} fournie dans \litmus. J'ai donc ensuite décidé d'implémenter un algorithme d'ordonnancement qui ne l'utilisait pas. J'ai donc choisi d'implémenter un algorithme RM (Rate Monotonic) partitionné. Cet algorithme est plus simple que P-EDF car il ne prend pas en compte les échéances des tâches. Il suffit alors de trier les tâches par période croissante et de les ordonnancer en fonction de leur période. Cependant, cet algorithme ne permet pas de garantir l'ordonnançabilité des tâches. En effet, il existe des ensembles de tâches qui ne sont pas ordonnançables par cet algorithme alors qu'ils le sont par P-EDF. Cependant, cet algorithme est plus simple à implémenter et permet de se familiariser avec les fonctions de \litmus.
 
 
 \subsubsection{Implémentation}
@@ -22,7 +22,7 @@ void rm_domain_init(rt_domain_t* rt, check_resched_needed_t resched,
 }
 \end{lstlisting}
 
-La complexité de cette fonction se cache derrière la nouvelle fonction d'ordre implémenté sous le nom de \texttt{rm\_ready\_order}. Cette fonction est passé en paramètre à \texttt{rt\_domain\_init} et permet d'initialiser le domaine temps réel avec l'ordre qui régit la priorité des tâches sous RM. Comme le montre le listing de code \ref{annexe:rm_common}, cette fonction est simple et permet de trier les tâches par période croissante. En cas, d'égalité, la priorité est départagée par PID croissant (la tâche avec le PID le plus petit est la plus prioritaire). On effectue aussi d'autres vérifications sur les tâches comme leur nature (tâche temps réel ou non), si deux fois la même tâche est passée en argument, ou encore si une des tâche est \texttt{NULL} (cas ou qu'une seul tâche n'est présente).
+La complexité de cette fonction se cache derrière la nouvelle fonction d'ordre implémenté sous le nom de \texttt{rm\_ready\_order}. Cette fonction est passée en paramètre à \texttt{rt\_domain\_init} et permet d'initialiser le domaine temps réel avec l'ordre qui régit la priorité des tâches sous RM. Comme le montre le listing de code \ref{annexe:rm_common}, cette fonction est simple et permet de trier les tâches par période croissante. En cas, d'égalité, la priorité est départagée par PID croissant (la tâche avec le PID le plus petit est la plus prioritaire). On effectue aussi d'autres vérifications sur les tâches comme leur nature (tâche temps réel ou non), si deux fois la même tâche est passée en argument, ou encore si une des tâches est \texttt{NULL} (cas ou qu'une seule tâche n'est présente).
 
 \subsubsection{Résultats et essais}
 
@@ -33,10 +33,10 @@ En raison de la grande quantité de nouveau code, faire fonctionner cet algorith
     \caption{Exemple d'ordonnancement avec défauts}
 \end{figure}
 
-Premièrement, l’ordonnanceur ne stipule pas a \textit{feather-trace} la fin d'exécution d'une tâches. Cela peut être corrigé en  appelant \texttt{sched\_trace\_task\_completion(prev, budget\_exhausted);} lors de la fin d'un job.
-Secondement, on peut voir que la deuxième tâche se fait préempter en $t=5ms$ par la première tâche, plus prioritaire. Cependant, l'exécution de cette deuxième tâche ne continue pas lorsque le processeur est libre. Cet erreur était alors du à une erreur de logique dans la fonctions principale d’ordonnancement dans laquelle je ne replaçait pas les tâches préemptés dans la \texttt{ready\_queue}.
+Premièrement, l'ordonnanceur ne stipule pas a \textit{feather-trace} la fin d'exécution d'une tâche. Cela peut être corrigé en  appelant \texttt{sched\_trace\_task\_completion(prev, budget\_exhausted);} lors de la fin d'un job.
+Secondement, on peut voir que la deuxième tâche se fait préempter en $t=5ms$ par la première tâche, plus prioritaire. Cependant, l'exécution de cette deuxième tâche ne continue pas lorsque le processeur est libre. Cette erreur était alors due à une erreur de logique dans la fonction principale d'ordonnancement dans laquelle je ne replaçais pas les tâches préemptées dans la \texttt{ready\_queue}.
 
-Après ces erreurs corrigées voici le résultat de l’ordonnancement de 2 tâches par RM toutes deux lancées sur le même processeur :
+Après ces erreurs corrigées voici le résultat de l'ordonnancement de 2 tâches par RM toutes deux lancées sur le même processeur :
 
 \begin{figure}[H]
     \centering
@@ -62,7 +62,7 @@ On peut aussi lancer un plus grand nombre de tâches sur une multitude de proces
 \end{figure}
 
 
-Enfin, on peut aussi voir ce qu'il se passe lorsque l'on cherche a ordonnancer les même tâches que celles que l'on à ordonnancé avec P-EDF et que l'on peut voir dans la figure \ref{fig:edf-schedualibility-demo}. Ces tâches sont non-ordonancables par RM et on obtient le tracé suivant :
+Enfin, on peut aussi voir ce qu'il se passe lorsque l'on cherche à ordonnancer les mêmes tâches que celles que l'on a ordonnancé avec P-EDF et que l'on peut voir dans la figure \ref{fig:edf-schedualibility-demo}. Ces tâches sont non-ordonancables par RM et on obtient le tracé suivant :
 
 \begin{figure}[H]
     \centering
@@ -70,4 +70,4 @@ Enfin, on peut aussi voir ce qu'il se passe lorsque l'on cherche a ordonnancer l
     \caption{Exemple d'ordonnancement de tâches non-ordonnançables par RM}
 \end{figure}
 
-Les dépassement des échéances montrent bien que RM est moins performant que P-EDF car il ne permet pas d'ordonnancer toutes les tâches ordonnançables par P-EDF. Cependant, il est plus simple à implémenter et m'a permis de me familiariser avec les fonctions de \litmus. Mais, des résultats comme le pire temps de réponse d'une tâche est plus simple a obtenir analytiquement avec RM qu'avec P-EDF. Cela est du au fait que RM est plus simple à analyser que P-EDF et c'est pourquoi il est actuellement plus utilisé dans des domaines comme l'avionique.
+Les dépassements des échéances montrent bien que RM est moins performant que P-EDF car il ne permet pas d'ordonnancer toutes les tâches ordonnançables par P-EDF. Cependant, il est plus simple à implémenter et m'a permis de me familiariser avec les fonctions de \litmus. Mais, des résultats comme le pire temps de réponse d'une tâche est plus simple à obtenir analytiquement avec RM qu'avec P-EDF. Cela est du au fait que RM est plus simple à analyser que P-EDF et c'est pourquoi il est actuellement plus utilisé dans des domaines comme l'avionique.

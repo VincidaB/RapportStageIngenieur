@@ -169,8 +169,7 @@ plateforme multi-cœur hétérogène\vspace{10pt} \\****************************
     \newpage
     \thispagestyle{empty}
     \mbox{}
-    \newpage
-    \tableofcontents
+    
     
 
     
@@ -181,7 +180,21 @@ plateforme multi-cœur hétérogène\vspace{10pt} \\****************************
     }
 
 
-    \addcontentsline{toc}{section}{Table des figures}
+
+    \newpage
+    \section*{Remerciements}
+    %\addcontentsline{toc}{section}{Remerciements}
+
+    Je tiens à remercier Antoine BERTOUT, mon maitre de stage, pour m'avoir accueilli au sein du laboratoire du LIAS et pour m'avoir encadré durant ce stage. Je le remercie aussi pour la confiance qu'il m'a accordée en me laissant une autonomie dans mon travail tout en étant disponible pour répondre à mes questions et pour me guider lors de certaines difficultés. Je le remercie aussi pour m'avoir permis de participer à la vie du laboratoire notamment en réalisant un séminaire sur les travaux de mon stage où j'ai pu présenter puis échanger avec les membres du laboratoire sur mon travail.
+    
+    Je remercie aussi Thomas Gaspard, doctorant au LIAS et membre du projet SHRIMP, pour avoir été disponible pour répondre à mes questions et pour m'avoir aidé à comprendre certains concepts.
+
+    Je tiens aussi à remercier l'ensemble du laboratoire du LIAS pour m'avoir accueilli durant ce stage et pour m'avoir permis de participer à la vie du laboratoire.
+
+    Je tiens aussi à dire merci aux autres stagiaires, notamment Tanguy Relo et Tom Ambroise pour leurs diverses aides tout au long de ce stage.
+    
+    \newpage
+    \tableofcontents
 
     \newpage
     \thispagestyle{empty}
@@ -193,7 +206,7 @@ plateforme multi-cœur hétérogène\vspace{10pt} \\****************************
     
     J'ai pu réaliser mon stage ingénieur durant ma deuxième année d'étude à l'ISAE-ENSMA, au laboratoire du LIAS de Chasseneuil-du-Poitou. Le LIAS, ou Laboratoire d'Informatique et d'Automatique pour les Systèmes, regroupe plusieurs dizaines d'enseignants-chercheurs dans les domaines de l'automatique, le génie électrique et l'informatique. Le site de Chasseneuil-du-Poitou regroupe deux équipes, l'équipe Ingénierie des Données et des moDèles (IDD) et l'équipe Systèmes Embarqués Temps Réel (SETR). 
 
-    J'ai été accueilli au sein de cette dernière afin de travailler avec \color{red} Antoine BERTOUT et Thomas GASPARD \color{black} sur le projet \gls{SHRIMP}. Mon stage s'intéresse à l'implémentation d'un \gls{ordonnanceur} sur \gls{plateforme heterogene}\cite{bertout2020workload}, tandis que le reste du projet s'intéresse entre autres à la conception d'un \gls{ordonnanceur} temps réel global et dynamique pour des plateformes \textit{unrelated}.
+    J'ai été accueilli au sein de cette dernière afin de travailler avec Antoine BERTOUT, maitre de conférence et enseignant chercheur à l'Université de Poitiers, et Thomas GASPARD, ingénieur ENSMA et doctorant au LIAS, sur le projet \gls{SHRIMP}. Mon stage s'intéresse à l'implémentation d'un \gls{ordonnanceur} sur \gls{plateforme heterogene}\cite{bertout2020workload}, tandis que le reste du projet s'intéresse entre autres à la conception d'un \gls{ordonnanceur} temps réel global et dynamique pour des plateformes \textit{unrelated}.
 
     Mon stage aura donc pour objectif d'identifier une solution permettant de programmer un \gls{ordonnanceur} temps réel sur une carte de développement particulière. Il me faudra ensuite étudier les mécanismes les plus adaptés pour la migration tâches sur cette plateforme. L'objectif final sera alors d'implémenter une politique d'\gls{ordonnancement} temps réel globale hétérogène naïve, voir plus évoluée en fonction de l'avancement des travaux de thèse.
     
@@ -206,7 +219,7 @@ plateforme multi-cœur hétérogène\vspace{10pt} \\****************************
     \newpage
     \section[OS compatibles avec la carte]{Systèmes d'exploitation compatibles avec la carte ROCK960}
 
-    Affin d'étudier les systèmes d'exploitation temps réel compatibles avec la carte de développement qui m'a été fournie, je me suis d'abord familiarisé avec celle-ci en installant des OS fournis par le fabriquant avant d'étudier la compatibilité avec des systèmes plus complexes.
+    Afin d'étudier les systèmes d'exploitation temps réel compatibles avec la carte de développement qui m'a été fournie, je me suis d'abord familiarisé avec celle-ci en installant des OS fournis par le fabricant avant d'étudier la compatibilité avec des systèmes plus complexes.
 
 
     \subsection{Présentation de la carte de développement}
@@ -266,52 +279,41 @@ plateforme multi-cœur hétérogène\vspace{10pt} \\****************************
 
 
     \newpage
-    \section*{Conclusion}
-    \addcontentsline{toc}{section}{Conclusion}
+    \section{Conclusion}
+    %\addcontentsline{toc}{section}{Conclusion}
 
-    Ce stage m'a permis de découvrir en profondeur le domaine de l'ordonnancement temps réel ainsi que le développement de module Linux. J'ai pu découvrir le monde de la recherche aux cotés de chercheur et doctorants qui m'ont permis de m'intégrer au sein du laboratoire.
+    Ce stage m'a permis de découvrir en profondeur le domaine de l'ordonnancement temps réel ainsi que le développement de module Linux. J'ai pu découvrir le monde de la recherche aux côtés de chercheur et doctorants qui m'ont permis de m'intégrer au sein du laboratoire.
     
-    J'ai pu grandement développer ma compréhension du noyau linux et de l'implémentation d'ordonnanceurs sous un système d'exmpoitation. 
+    J'ai pu grandement développer ma compréhension du noyau Linux et de l'implémentation d'ordonnanceurs sous un système d'exploitation. 
 
-    L'objectif de mon stage était d'étudier la mnière dont un algorithme d'ordonnancement pouvait être implémenté sur une plateforme hétérogène. J'ai pu étudier les différentes solutions possibles et les avantages et inconvénients de chacune. J'ai ensuite pu implémenter deux ordonnanceurs sur la plateforme qui m'a été fournie. J'ai pu étudier les résultats de ces implémentations et les comparer avec les résultats théoriques. J'ai aussi pu étudier les différentes solutions possibles pour générer des tâches qui metteraient en valeur la néture hétérogène de la plateforme, objectif qui n'avait pas été envisagé au début du stage.
+    L'objectif de mon stage était d'étudier la manière dont un algorithme d'ordonnancement pouvait être implémenté sur une plateforme hétérogène. J'ai pu étudier les différentes solutions possibles et les avantages et inconvénients de chacune. J'ai ensuite pu implémenter deux ordonnanceurs sur la plateforme qui m'a été fournie. J'ai pu étudier les résultats de ces implémentations et les comparer avec les résultats théoriques. J'ai aussi pu étudier les différentes solutions possibles pour générer des tâches qui mettraient en valeur la nature hétérogène de la plateforme, objectif qui n'avait pas été envisagé au début du stage.
 
-    Cependant je n'au pas pu implémenter un ordonnanceur qui utilise la nature hétérogène de la plateforme à son avantage. En-effet, cela était un des objectifs finaux de mon stage mais la complécité du noyau Linux, et du patch \litmus ne m'a pas permis de réaliser cela à temps. J'ai aussi passé une grande partie de mon temps à comprendre les mécanismes de migration de tâches et de job.
+    Cependant je n'au pas pu implémenter un ordonnanceur qui utilise la nature hétérogène de la plateforme à son avantage. En effet, cela était un des objectifs finaux de mon stage, mais la complexité du noyau Linux, et du patch \litmus ne m'a pas permis de réaliser cela à temps. J'ai aussi passé une grande partie de mon temps à comprendre les mécanismes de migration de tâches et de job.
 
-    Pour conclure, mes travaux ont permis d'implémenter deux ordonnanceurs sur une plateforme hétérogène et d'étudier les résultats de ces implémentations. Cependant, je n'ai pas pu implémenter un ordonnanceur qui utilise la nature hétérogène de la plateforme à son avantage. Cependant mon travail permetrtra au chercheurs du projet SHRIMP d'implémenter sur la plateforme hétérogène les ordonnanceurs qu'il concevront.
+    Pour conclure, mes travaux ont permis d'implémenter deux ordonnanceurs sur une plateforme hétérogène et d'étudier les résultats de ces implémentations. Cependant, je n'ai pas pu implémenter un ordonnanceur qui utilise la nature hétérogène de la plateforme à son avantage. Cependant, mon travail permettra aux chercheurs du projet SHRIMP d'implémenter sur la plateforme hétérogène les ordonnanceurs qu'ils concevront.
      
 
-
-
-%    \input{conclusion}
-
+    \newpage
+    \bibliography{refs} % Entries are in the refs.bib file
+    \addcontentsline{toc}{section}{Bibiliographie}
 
     \newpage
-    \section*{Remerciements}
-    \addcontentsline{toc}{section}{Remerciements}
+    \addcontentsline{toc}{section}{Glossaire}
+    \printnoidxglossaries %glossaire, dans le fichier lexique.tex
 
-    Je tiens à remercier Antoine Bertout, mon maitre de stage, pour m'avoir accueilli au sein du laboratoire du LIAS et pour m'avoir encadré durant ce stage. Je le remerci aussi pour la confiance qu'il m'a accordé en me laissant une autonomie dans mon travail tout en étant disponible pour répondre à mes questions et pour me guider lors de certaines difficutées. Je le remercie aussi pour m'avoir permis de participer à la vie du laboratoire notement en réalisant un séminaire sur les travaux de mon stage ou j'ai pu présenter puis échanger avec les membres du laboratoire sur mon travail.
-    
-    Je remercie aussi Thomas Gaspard, doctorant au LIAS et membre du projet SHRIMP, pour avoir été disponible pour répondre à mes questions et pour m'avoir aidé à comprendre certains concepts.
+    \newpage
+    \addcontentsline{toc}{section}{Table des figures}
+    \addcontentsline{toc}{section}{Table des listings}
+    \listoffigures
+    \lstlistoflistings
 
-    Je tiens aussi à remercier l'ensemble du laboratoire du LIAS pour m'avoir accueilli durant ce stage et pour m'avoir permis de participer à la vie du laboratoire.
 
-    Je tiens aussi à dire merci aux autres stagiaires, notament Tanguy Relo et Tom Ambroise pour leurs diverces aides tout au long de ce stage.
 
     \newpage
     \section*{Annexe}
     \addcontentsline{toc}{section}{Annexe}
     \input{annexe}
 
-    \newpage
-    \listoffigures
-    \lstlistoflistings
 
-
-    \newpage
-    \bibliography{refs} % Entries are in the refs.bib file
-    \addcontentsline{toc}{section}{Bibiliographie}
-
-    \addcontentsline{toc}{section}{Glossaire}
-    \printnoidxglossaries %glossaire, dans le fichier lexique.tex
     
 \end{document}
