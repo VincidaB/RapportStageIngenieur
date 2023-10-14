@@ -12,20 +12,17 @@
 % de développement disposant de processeurs multi-cœur répondant aux caractéristiques citées
 % plus tôt
 
-
-
-
 %section : contexte d'ou se place mon stage
-
-
-
 
 Les systèmes avioniques sont habituellement des ensembles complexes reposant sur des architectures anciennes de par le niveau de certification exigé. Par conséquent, les architectures plus récentes nécessitent une phase d'étude afin d'en évaluer l'intérêt. Dans ce contexte, le projet SHRIMP a pour but d'étudier l'implémentation d'un algorithme d'ordonnancement sur une plateforme hétérogène.   
 
-\subsection{Ordonnancement temps réel}
+\subsection{Ordonnancement}
 
-\subsubsection{Définitions}
-L'ordonnancement est l'étude de l'affectation des ressources à des tâches. Dans le cas de l'ordonnancement temps réel, les tâches sont des tâches temps réel. Une tâche temps réel est une tâche qui possède une contrainte temporelle. Cette contrainte peut être une échéance ou un délai maximal d'exécution. L'ordonnancement temps réel est donc l'étude de l'affectation des ressources tout en garantissant le respect des contraintes temporelles des tâches. 
+L'ordonnancement est l'étude de l'affectation des ressources à des tâches. Dans le cadre de mon stage, les ressources sont des processeurs et les tâches sont des programmes. L'ordonnancement consiste donc à affecter des processeurs à des programmes ou des tâches.
+
+
+\subsubsection{Ordonnancement temps réel}
+Dans le cas de l'ordonnancement temps réel, les tâches sont des tâches temps réel, c'est à dire des tâches qui possèdent une contrainte temporelle. Cette contrainte peut être une échéance ou un délai maximal d'exécution. L'ordonnancement temps réel est donc l'étude de l'affectation des ressources tout en garantissant le respect des contraintes temporelles des tâches. 
 
 On peut alors définir plusieurs catégories de temps réel :
 \begin{itemize}
@@ -33,6 +30,140 @@ On peut alors définir plusieurs catégories de temps réel :
     \item Le temps réel mou ou souple : les contraintes temporelles doivent être respectées mais une violation de ces contraintes n'entraîne pas de défaillance du système
     \item Le temps réel ferme : les contraintes temporelles doivent être respectées mais une violation de ces contraintes entraîne une dégradation des performances du système
 \end{itemize}
+
+
+On pourra par la suite représenter l'ordonnancement temps réel par un diagramme de Gantt. Un diagramme de Gantt est un diagramme qui représente l'utilisation des ressources en fonction du temps. On peut alors représenter l'exécution des tâches au cours du temps, en représentant leur réveil par une fleche montante, leur exécution par un rectangle, leur échéance ou \textit{deadline} par une fleche vers le bas, et la fin de leur exécution par un "T". 
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[xscale=0.5, yscale=0.6]
+
+        \newcommand\duration{15}
+        \newcommand\TaskNum{2}
+
+        % Define task properties
+
+        \newcommand{\rectangles}[5]{
+            \expandafter\def\csname rect#1ROW\endcsname{#2}
+            \expandafter\def\csname rect#1START\endcsname{#3}
+            \expandafter\def\csname rect#1END\endcsname{#4}
+            \expandafter\def\csname rect#1COLOR\endcsname{#5}
+        }
+
+        \newcommand{\wakeup}[3]{
+            \expandafter\def\csname wakeup#1ROW\endcsname{#2}
+            \expandafter\def\csname wakeup#1TIME\endcsname{#3}
+        }
+
+        \newcommand{\deadline}[3]{
+            \expandafter\def\csname deadline#1ROW\endcsname{#2}
+            \expandafter\def\csname deadline#1TIME\endcsname{#3}
+        }
+
+        \newcommand{\execEnd}[3]{
+            \expandafter\def\csname execEnd#1ROW\endcsname{#2}
+            \expandafter\def\csname execEnd#1TIME\endcsname{#3}
+        }
+        
+        
+        
+        \rectangles{0}{0}{0}{2}{"red"}
+        \rectangles{1}{0}{5}{7}{"red"}
+        \rectangles{2}{0}{10}{12}{"red"}
+        
+        \rectangles{3}{1}{2}{5}{"red"}
+        \rectangles{4}{1}{7}{8}{"red"}
+        
+        
+        
+        \wakeup{0}{0}{0}
+        \wakeup{1}{1}{0}
+        \wakeup{4}{0}{5}
+
+        \wakeup{5}{0}{5}
+        \wakeup{2}{0}{5}
+        \wakeup{3}{0}{10}
+
+        \deadline{0}{0}{5}
+        \deadline{1}{0}{5}
+        \deadline{2}{0}{5}
+        \deadline{3}{0}{10}
+        \deadline{4}{0}{15}
+        \deadline{5}{1}{15}
+
+        \execEnd{0}{0}{2}
+        \execEnd{1}{0}{7}
+        \execEnd{2}{0}{12}
+        \execEnd{3}{1}{8}        
+        
+        
+        \foreach \rect in {0,...,4}{
+            \pgfmathsetmacro{\row}{\csname rect\rect ROW\endcsname}
+            \pgfmathsetmacro{\start}{\csname rect\rect START\endcsname}
+            \pgfmathsetmacro{\end}{\csname rect\rect END\endcsname}
+            \pgfmathsetmacro{\color}{\csname rect\rect COLOR\endcsname}
+
+            \draw[fill=\color!30] (\start,1.5*\TaskNum - 0.5 - 1.5*\row) rectangle (\end,1.5*\TaskNum -1.5 - 1.5*\row) node[midway] {};
+        }
+
+        \foreach \wake in {0,...,5}{
+            \pgfmathsetmacro{\row}{\csname wakeup\wake ROW\endcsname}
+            \pgfmathsetmacro{\time}{\csname wakeup\wake TIME\endcsname}
+            
+            \draw[stealth-, thick] (\time,1.5*\TaskNum - 0.5 - 1.5*\row + 0.15) -- (\time,1.5*\TaskNum -1.5 - 1.5*\row) node[midway, left] {};
+        }
+
+        \foreach \dead in {0,...,5}{
+            \pgfmathsetmacro{\row}{\csname deadline\dead ROW\endcsname}
+            \pgfmathsetmacro{\time}{\csname deadline\dead TIME\endcsname}
+            
+            \draw[-stealth, thick] (\time,1.5*\TaskNum - 0.5 - 1.5*\row) -- (\time,1.5*\TaskNum -1.5 - 1.5*\row-0.15) node[midway, left] {};
+        }
+
+        \foreach \end in {0,...,3}{
+            \pgfmathsetmacro{\row}{\csname execEnd\end ROW\endcsname}
+            \pgfmathsetmacro{\time}{\csname execEnd\end TIME\endcsname}
+            
+            \draw[|-, thick] (\time,1.5*\TaskNum - 0.5 - 1.5*\row + 0.15) -- (\time,1.5*\TaskNum -1.5 - 1.5*\row) node[midway, left] {};
+        }
+        
+        
+        % Axes
+        \draw[->] (0,0) -- (\duration + 1,0) node[right] {Temps};
+        \draw[->] (0,0) -- (0,\TaskNum*1.5) node[above] {Taches};
+        
+        % Time ticks
+        \foreach \x in {0,1,...,\duration}
+            \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+        
+            \node[left] at (-0.5,2) {$\tau_1(WCET=2,T=5)$};
+            \node[left] at (-0.5,0.5) {$\tau_2(WCET=4,T=15)$};
+
+    \end{tikzpicture}   
+    
+    \vspace{20pt}
+
+    \begin{tikzpicture}[xscale=0.5, yscale=0.6, centered]
+        \draw[fill=red!30] (0,1.5*1 - 0.5) rectangle (2,1.5*1 -1.5) node[midway] {};
+        \node[right] at (2+0.5,1.5*1 - 1) {exécution d'une tâche};
+
+        \draw[stealth-, thick] (1,3) -> (1,2) node[midway] {};
+        \node[right] at (2+0.5,2.5) {réveil d'une tâche};
+
+        \draw[stealth-, thick] (1,4) -> (1,5) node[midway] {};
+        \node[right] at (2+0.5,4.5) {échéance d'une tâche};
+
+        \draw[-|, thick] (1,6) -> (1,7) node[midway] {};
+        \node[right] at (2+0.5,6.5) {fin d'exécution d'une tâche};
+
+    \end{tikzpicture}
+
+    \caption{Diagramme de Gantt de l'ordonnancement de deux taches et légende}
+\end{figure}
+
+Si l'on veut avoir des tâches dont le réveil n'est pas simultané on parlera alors de tâches avec \textit{offset}. Un \textit{offset} est un délai entre le début de l'ordonnancement et le réveil de la tâche. Par exemple, une tâche avec un \textit{offset} de $2 ms$ se réveillera deux millisecondes après les tâches qui ont un \textit{offset} de $0 ms$.
+
+
 
 \subsubsection{Différents types d'ordonnancement}
 
