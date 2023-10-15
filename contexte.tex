@@ -25,9 +25,9 @@ L'ordonnancement est l'étude de l'affectation des ressources à des tâches. Da
 % remarques a corriger : 
 %  Il faut étoffer la partie ordonnancement, présenter le modèle de tâche avec offset, wcet, échéance et période et y mettre le diagramme qui vient plus tard. Il y a pas mal de notions à détailler, système ordonnançable, migration, préemption, politiques globales et partitionnées ,etc.
 
-Dans les modèles théoriques d'ordonnancement, l'exécution d'une tâche $\tau$ est définie par un triplet $(C,T,D)$ où $C$ est le pire temps d'exécution (\textit{Worst Case Execution Time} ou WCET), $T$ est la période et $D$ est l'échéance. Le WCET est le temps d'exécution maximal d'une tâche. La période est le temps entre deux exécutions d'une tâche. L'échéance est la date limite à laquelle une tâche doit être exécutée. On parlera alors de tâche périodique si $T$ est constant, de tâche apériodiques si les tâches démarrent à intervalles irréguliers, et de tâches sporadiques lorsque une tâche est apériodique mais possède une contrainte temporelle minimum sur le temps entre deux exécutions.
+Dans les modèles théoriques d'ordonnancement, l'exécution d'une tâche $\tau$ est définie par un triplet $(C,T,D)$ où $C$ est le pire temps d'exécution (\textit{Worst Case Execution Time} ou WCET), $T$ est la période et $D$ est l'échéance. Le WCET est le temps d'exécution maximal d'une tâche. La période est le temps entre deux exécutions d'une tâche. L'échéance est la date limite à laquelle une tâche doit être exécutée. On parlera alors de tâches périodiques si $T$ est constant, de tâches apériodiques si les tâches démarrent à intervalles irréguliers, et de tâches sporadiques lorsque une tâche est apériodique mais que celle-ci   possède une contrainte temporelle minimum sur le temps entre deux exécutions.
 
-On pourra par la suite représenter l'ordonnancement temps réel par un diagramme de Gantt. Un diagramme de Gantt est un diagramme qui représente l'utilisation des ressources en fonction du temps. On peut alors représenter l'exécution des tâches au cours du temps, en représentant leur réveil par une fleche montante, leur exécution par un rectangle, leur échéance ou \textit{deadline} par une fleche vers le bas, et la fin de leur exécution par un "T". 
+On pourra par la suite représenter l'ordonnancement temps réel par un diagramme de Gantt. Un diagramme de Gantt est un diagramme qui représente l'utilisation des ressources en fonction du temps. On peut alors représenter l'exécution des tâches au cours du temps, en représentant leur réveil par une flèche montante, leur exécution par un rectangle, leur échéance ou \textit{deadline} par une flèche vers le bas, et la fin de leur exécution par un "T". 
 
 \begin{figure}[H]
     \centering
@@ -160,8 +160,12 @@ On représentera aussi le processeur sur lequel la tâche s'exécute par une cou
 
 On parlera alors de migration de tâche si une tâche change de processeur au cours de son exécution. On parlera de préemption si une tâche est interrompue par une autre tâche.
 
+Une politique d'ordonnancement peut être globale ou partitionnée. Un politique d'ordonnancement globale peut affecter une tâche à n'importe quel processeur tandis qu'un algorithme d'ordonnancement partitionné peut affecter une tâche à un sous-ensemble de processeurs. Par exemple, un algorithme d'ordonnancement partitionné sur une plateforme possédant 4 processeurs peut affecter une tâche à un processeur parmi les processeurs 1 et 2 et une autre tâche à un processeur parmi les processeurs 3 et 4. 
 
-Si l'on veut avoir des tâches dont le réveil n'est pas simultané on parlera alors de tâches avec \textit{offset}. Un \textit{offset} est un délai entre le début de l'ordonnancement et le réveil de la tâche. Par exemple, une tâche avec un \textit{offset} de $2 ms$ se réveillera deux millisecondes après les tâches qui ont un \textit{offset} de $0 ms$.
+On peut aussi séparer les algorithmes d'ordonnancement en deux catégories : hors-ligne et en ligne. Un ordonnanceur hors-ligne consiste à définir une table de séquençage en amont de la mise en route du système. Cette table de séquençage est alors utilisée par l'ordonnanceur pour ordonnancer les tâches. Un ordonnanceur en ligne consiste à ordonnancer les tâches au fur et à mesure de leur arrivée. Cela est plus complexe qu'un ordonnanceur hors-ligne car il doit ordonnancer les tâches sans connaître les tâches qui vont arriver dans le futur. Cependant, cela permet de réagir plus rapidement aux événements.
+
+
+Si l'on veut avoir des tâches dont le réveil n'est pas simultané, on parlera alors de tâches avec \textit{offset}. Un \textit{offset} est un délai entre le début de l'ordonnancement et le réveil de la tâche. Par exemple, une tâche avec un \textit{offset} de $2 ms$ se réveillera deux millisecondes après les tâches qui ont un \textit{offset} de $0 ms$.
 
 
 
@@ -177,16 +181,9 @@ On peut alors définir plusieurs catégories de temps réel :
 \end{itemize}
 
 
-Si on l'on note un ensemble de tâches $\tau_1, \tau_2, \tau_3, ...$ on peut alors définir un système de tâches $\tau$ comme un ensemble de tâches $\tau_i$ avec $i \in \mathbb{N}$. On peut alors définir un système de tâches ordonnançable comme un système de tâches pour lequel il existe un ordonnancement qui permet de respecter toutes les contraintes temporelles des tâches. C'est a dire, un ensemble de réveil, de préemptions et de migrations qui permettent de respecter les contraintes temporelles des tâches.
+Si on l'on note un ensemble de tâches $\tau_1, \tau_2, \tau_3, ...$ on peut alors définir un système de tâches $\tau$ comme un ensemble de tâches $\tau_i$ avec $i \in \left[ 0,n \right]$. On peut alors définir un système de tâches ordonnançable comme un système de tâches pour lequel il existe un ordonnancement qui permet de respecter toutes les contraintes temporelles des tâches. C'est-à-dire, un ensemble de réveils, de préemptions et de migrations qui permettent de respecter les contraintes temporelles des tâches.
 
 
-
-
-\subsubsection{Différents types d'ordonnancement}
-
-Il existe de multiples catégories d'ordonnanceurs : monoprocesseurs ou multiprocesseurs, préemptifs ou non préemptifs, globaux ou partitionnés, hors ligne ou en ligne, etc. Dans le cadre de mon stage, je me suis intéressé aux ordonnanceurs temps réel globaux et en ligne. L'aspect temps réel étant mentionné précédemment, je vais donc définir les termes globaux et en ligne. 
-
-Un ordonnanceur est dit global si il peut affecter une tâche à n'importe quel processeur. Un ordonnanceur hors ligne consiste à définir une table de séquençage en amont de la mise en route du système. Cette table de séquençage est alors utilisée par l'ordonnanceur pour ordonnancer les tâches. Un ordonnanceur en ligne consiste à ordonnancer les tâches au fur et à mesure de leur arrivée. Cela est plus complexe qu'un ordonnanceur hors ligne car il doit ordonnancer les tâches sans connaître les tâches qui vont arriver dans le futur. Cependant, cela permet de réagir plus rapidement aux événements.
 
 
 \subsection{Différentes plateformes}
@@ -204,7 +201,7 @@ Un ordonnanceur est dit global si il peut affecter une tâche à n'importe quel 
 % executes a task faster than the others processors then its also the
 % case for all other tasks.
 
-Il existe plusieurs types de plateformes, c'est a dire plusieurs manières d’arranger les processeurs. On peut les classer en quatre catégories : identique, uniforme, non uniforme et cohérente.
+Il existe plusieurs types de plateformes, c'est a dire plusieurs dont un ensemble de processeurs peuvent être arrangés. On peut les classer en quatre catégories : identique, uniforme, non uniforme et cohérente.
 % donner un peu plus de détail sur chaque plateforme
 \subsubsection{Plateforme identique}
 Dans une plateforme identique, tous les processeurs sont identiques. Ils possèdent la même vitesse d'exécution, la même mémoire cache, le même jeu d'instructions, etc. C'est la plateforme la plus simple à étudier et la plus documenté dans la literature scientifique. 

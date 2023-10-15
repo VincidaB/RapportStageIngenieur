@@ -40,7 +40,7 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,positioning}
 \usepackage{float}
-
+\usepackage{textcomp}
 \usepackage{soul}
 \usepackage{listings}
 \newcommand{\hilight}{\makebox[0pt][s]{\color{green!50}\rule[-3.6pt]{1.0\linewidth}{12pt}}}
@@ -219,7 +219,7 @@ plateforme multi-cœur hétérogène\vspace{10pt} \\****************************
     \newpage
     \section[OS compatibles avec la carte]{Systèmes d'exploitation compatibles avec la carte ROCK960}
 
-    Afin d'étudier les systèmes d'exploitation temps réel compatibles avec la carte de développement qui m'a été fournie, je me suis d'abord familiarisé avec celle-ci en installant des OS fournis par le fabricant avant d'étudier la compatibilité avec des systèmes plus complexes.
+    Afin d'étudier les systèmes d'exploitation temps réel compatibles avec la carte de développement qui m'a été fournie, je me suis d'abord familiarisé avec celle-ci en installant des systèmes d'exploitation fournis par le fabricant avant d'étudier la compatibilité avec des systèmes plus complexes.
 
 
     \subsection{Présentation de la carte de développement}
@@ -243,7 +243,7 @@ plateforme multi-cœur hétérogène\vspace{10pt} \\****************************
     \label{fig:litmusrtarchitecture}
 \end{figure}
 
-    \litmus est un patch au noyau Linux constitué de quatre parties : 
+    \litmus est un patch au noyau Linux, c'est-à-dire des ajouts de code, parfois au cœur du noyau, qui permettent d'ajouter des fonctionnalités à Linux. En-effet, Linux ne permet pas par défaut d'utiliser une politique temps réel pour l'ordonnancement des tâches. \litmus permet alors d'ajouter des fonctionnalités temps réel à Linux. \litmus est constitué de quatre parties : 
     \begin{itemize}
         \item \textbf{LITMUS\textsuperscript{RT} Core} : le patch au noyau Linux qui permet d'ajouter les fonctionnalités temps réel à Linux
         \item plusieurs \gls{ordonnanceur}
@@ -314,3 +314,14 @@ plateforme multi-cœur hétérogène\vspace{10pt} \\****************************
 
     
 \end{document}
+
+
+% - Il faut étoffer la partie ordonnancement, présenter le modèle de tâche avec offset, wcet, échéance et période et y mettre le diagramme qui vient plus tard. Il y a pas mal de notions à détailler, système ordonnançable, migration, préemption, politiques globales et partitionnées ,etc.
+% 
+% - Tu décris bien ce que tu as fait mais tu ne précises pas forcément ce qui t'y a amené. Par exemple, on veut programmer un ordonnanceur temps réel sur la carte, quelles sont les possibilités et pourquoi on se dirige vers cette solution.
+% 
+% - Tu peux décrire aussi rapidement ce qu'est un système d'exploitation, pourquoi linux de base ne permet pas directement d'employer une vraie politique temps réel -> LITMUS
+% 
+% - Éventuellement parler du tutoriel.
+% 
+% - Pas mal de termes à préciser, par exemple "commit" (résumer ce qu'est un gestionnaire de source), "patché", etc et des fautes à corriger.
