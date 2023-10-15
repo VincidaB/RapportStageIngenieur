@@ -119,7 +119,7 @@ Pour montrer le fonctionnement de cet algorithme, si l'on se place sur un même 
     \caption{Exemple de EDF à 2 tâches}
 \end{figure}
 
-On a ici une première tâche $\tau_1$ avec un pire temps d'exécution (\textit{Worst Case Execution Time}) de 2 et une période de 5, et une seconde tâche $\tau_2$ avec un pire temps d'exécution de 4 et une période de 15. On a alors préemption de la $\tau_2$ à $t=5$ afin d'exécuter $\tau_1$. Cela est dû au réveil de la tâche $\tau_1$ (représenté par la fleche montante) et à la date d'échéance plus proche de cette dernière. 
+On a ici une première tâche $\tau_1$ avec un pire temps d'exécution (\textit{Worst Case Execution Time}) de 2 et une période de 5, et une seconde tâche $\tau_2$ avec un pire temps d'exécution de 4 et une période de 15. On a alors préemption de la $\tau_2$ à $t=5$ afin d'exécuter $\tau_1$. Cela est dù au réveil de la tâche $\tau_1$ (représenté par la fleche montante) et à la date d'échéance plus proche de cette dernière. 
 
 
 \subsubsection{Implémentation}
@@ -179,4 +179,6 @@ Un algorithme partitionné nécessite le démarrage des tâches sur un processeu
     \label{fig:edf-schedualibility-demo}
 \end{figure}
 
-On peut voir qu'à $t=5ms$, il n'y a pas préemption de la première tâche et la seconde termine son exécution. En effet, selon EDF, la deuxième tâche à une \textit{deadline} dans 2ms, tandis que la première a une \textit{deadline} dans 5ms : la seconde est donc à cet instant plus prioritaire que la première. Cependant, à $t=15ms$, la seconde tâche est préemptée par la première car cette dernière se réveil et a une \textit{deadline} dans 5ms tandis que la seconde a une \textit{deadline} dans 6ms. On peut alors voir que la seconde tâche est préemptée à $t=15ms$ et reprend son exécution à $t=17ms$. 
+On peut voir qu'à $t=5ms$, il n'y a pas préemption de la première tâche et la seconde termine son exécution. En effet, selon EDF, la deuxième tâche à une \textit{deadline} dans 2ms, tandis que la première a une \textit{deadline} dans 5ms : la seconde est donc à cet instant plus prioritaire que la première. Cependant, à $t=15ms$, la seconde tâche est préemptée par la première car cette dernière se réveil et a une \textit{deadline} dans 5ms tandis que la seconde a une \textit{deadline} dans 6ms. On peut alors voir que la seconde tâche est préemptée à $t=15ms$ et reprend son exécution à $t=17ms$.
+
+On remarque aussi que ce tracé n'étant pas théorique, des délais supplémentaires sont présents dù au coûts de préemption et de démarrage des tâches. On peut aussi voir que les deux tâches sont démarrées sur le même processeur, le processeur 3.
