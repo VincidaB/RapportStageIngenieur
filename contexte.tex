@@ -20,17 +20,12 @@ Les systèmes avioniques sont habituellement des ensembles complexes reposant su
 
 L'ordonnancement est l'étude de l'affectation des ressources à des tâches. Dans le cadre de mon stage, les ressources sont des processeurs et les tâches sont des programmes. L'ordonnancement consiste donc à affecter des processeurs à des programmes ou des tâches.
 
+\subsubsection{Généralités sur l'ordonnancement}
 
-\subsubsection{Ordonnancement temps réel}
-Dans le cas de l'ordonnancement temps réel, les tâches sont des tâches temps réel, c'est à dire des tâches qui possèdent une contrainte temporelle. Cette contrainte peut être une échéance ou un délai maximal d'exécution. L'ordonnancement temps réel est donc l'étude de l'affectation des ressources tout en garantissant le respect des contraintes temporelles des tâches. 
+% remarques a corriger : 
+%  Il faut étoffer la partie ordonnancement, présenter le modèle de tâche avec offset, wcet, échéance et période et y mettre le diagramme qui vient plus tard. Il y a pas mal de notions à détailler, système ordonnançable, migration, préemption, politiques globales et partitionnées ,etc.
 
-On peut alors définir plusieurs catégories de temps réel :
-\begin{itemize}
-    \item Le temps réel dur : les contraintes temporelles doivent être respectées sous peine de défaillance du système
-    \item Le temps réel mou ou souple : les contraintes temporelles doivent être respectées mais une violation de ces contraintes n'entraîne pas de défaillance du système
-    \item Le temps réel ferme : les contraintes temporelles doivent être respectées mais une violation de ces contraintes entraîne une dégradation des performances du système
-\end{itemize}
-
+Dans les modèles théoriques d'ordonnancement, l'exécution d'une tâche $\tau$ est définie par un triplet $(C,T,D)$ où $C$ est le pire temps d'exécution (\textit{Worst Case Execution Time} ou WCET), $T$ est la période et $D$ est l'échéance. Le WCET est le temps d'exécution maximal d'une tâche. La période est le temps entre deux exécutions d'une tâche. L'échéance est la date limite à laquelle une tâche doit être exécutée. On parlera alors de tâche périodique si $T$ est constant, de tâche apériodiques si les tâches démarrent à intervalles irréguliers, et de tâches sporadiques lorsque une tâche est apériodique mais possède une contrainte temporelle minimum sur le temps entre deux exécutions.
 
 On pourra par la suite représenter l'ordonnancement temps réel par un diagramme de Gantt. Un diagramme de Gantt est un diagramme qui représente l'utilisation des ressources en fonction du temps. On peut alors représenter l'exécution des tâches au cours du temps, en représentant leur réveil par une fleche montante, leur exécution par un rectangle, leur échéance ou \textit{deadline} par une fleche vers le bas, et la fin de leur exécution par un "T". 
 
@@ -69,7 +64,7 @@ On pourra par la suite représenter l'ordonnancement temps réel par un diagramm
         
         \rectangles{0}{0}{0}{2}{"red"}
         \rectangles{1}{0}{5}{7}{"red"}
-        \rectangles{2}{0}{10}{12}{"red"}
+        \rectangles{2}{0}{10}{12}{"green"}
         
         \rectangles{3}{1}{2}{5}{"red"}
         \rectangles{4}{1}{7}{8}{"red"}
@@ -161,7 +156,29 @@ On pourra par la suite représenter l'ordonnancement temps réel par un diagramm
     \caption{Diagramme de Gantt de l'ordonnancement de deux taches et légende}
 \end{figure}
 
+On représentera aussi le processeur sur lequel la tâche s'exécute par une couleur de rectangle propre à chaque processeur. On a par exemple représenté le processeur 1 par un rectangle rouge et le processeur 2 par un rectangle vert sur la figure précédente.
+
+On parlera alors de migration de tâche si une tâche change de processeur au cours de son exécution. On parlera de préemption si une tâche est interrompue par une autre tâche.
+
+
 Si l'on veut avoir des tâches dont le réveil n'est pas simultané on parlera alors de tâches avec \textit{offset}. Un \textit{offset} est un délai entre le début de l'ordonnancement et le réveil de la tâche. Par exemple, une tâche avec un \textit{offset} de $2 ms$ se réveillera deux millisecondes après les tâches qui ont un \textit{offset} de $0 ms$.
+
+
+
+
+\subsubsection{Ordonnancement temps réel}
+Dans le cas de l'ordonnancement temps réel, les tâches sont des tâches temps réel, c'est à dire des tâches qui possèdent une contrainte temporelle. Cette contrainte peut être une échéance ou un délai maximal d'exécution. L'ordonnancement temps réel est donc l'étude de l'affectation des ressources tout en garantissant le respect des contraintes temporelles des tâches. 
+
+On peut alors définir plusieurs catégories de temps réel :
+\begin{itemize}
+    \item Le temps réel dur : les contraintes temporelles doivent être respectées sous peine de défaillance du système
+    \item Le temps réel mou ou souple : les contraintes temporelles doivent être respectées mais une violation de ces contraintes n'entraîne pas de défaillance du système
+    \item Le temps réel ferme : les contraintes temporelles doivent être respectées mais une violation de ces contraintes entraîne une dégradation des performances du système
+\end{itemize}
+
+
+Si on l'on note un ensemble de tâches $\tau_1, \tau_2, \tau_3, ...$ on peut alors définir un système de tâches $\tau$ comme un ensemble de tâches $\tau_i$ avec $i \in \mathbb{N}$. On peut alors définir un système de tâches ordonnançable comme un système de tâches pour lequel il existe un ordonnancement qui permet de respecter toutes les contraintes temporelles des tâches. C'est a dire, un ensemble de réveil, de préemptions et de migrations qui permettent de respecter les contraintes temporelles des tâches.
+
 
 
 
