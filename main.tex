@@ -217,6 +217,7 @@ carte embarquée multi-cœur hétérogène\vspace{10pt} \\**********************
 
 
     \newpage
+    
     \section[OS compatibles avec la carte]{Systèmes d'exploitation compatibles avec la carte ROCK960}
 
     Afin d'étudier les systèmes d'exploitation temps réel compatibles avec la carte de développement qui m'a été fournie, je me suis d'abord familiarisé avec celle-ci en installant des systèmes d'exploitation fournis par le fabricant avant d'étudier la compatibilité avec des systèmes plus complexes.
@@ -228,10 +229,9 @@ carte embarquée multi-cœur hétérogène\vspace{10pt} \\**********************
     \subsection{Installation d'un système d'exploitation}
     \input{Carte/installation-systeme-exploitation.tex}
 
-    \subsection{Etude des versions de Linux compatibles}
+    \subsection{Étude des versions de Linux compatibles}
     \input{Carte/versions-linux-compatible.tex}
 
-    
     \newpage
     \section{\litmus}
     \label{section:litmus}
@@ -243,7 +243,11 @@ carte embarquée multi-cœur hétérogène\vspace{10pt} \\**********************
     \label{fig:litmusrtarchitecture}
 \end{figure}
 
-    \litmus est un patch au noyau Linux, c'est-à-dire des ajouts de code, parfois au cœur du noyau, qui permettent d'ajouter des fonctionnalités à Linux. En effet, Linux ne permet pas par défaut d'utiliser une politique temps réel pour l'ordonnancement des tâches. \litmus permet alors d'ajouter des fonctionnalités temps réel à Linux. \litmus est constitué de quatre parties : 
+    \litmus est un patch au noyau Linux, c'est-à-dire des ajouts de code, parfois au cœur du noyau, qui permettent d'ajouter des fonctionnalités à Linux. En effet, Linux ne permet pas par défaut d'utiliser une politique temps réel pour l'ordonnancement des tâches. \litmus permet alors d'ajouter des fonctionnalités temps réel à Linux.
+    
+    L'ordonnanceur du noyau Linux n'est pas temps réel car il ne garantit pas le respect des contraintes temporelles des tâches. En effet, il ne prend pas en compte les contraintes temporelles des tâches, et les tâches peuvent alors être préemptées par une autre tâche. L'ordonnanceur du noyau Linux est alors un ordonnanceur global non temps réel. Cependant des modifications au noyau peuvent permettre de garantir des échéances de tâches, comme \litmus ou PREEMPT-RT : \litmus s'oriente plus vers la facilité de développement de nouveaux ordonnanceurs et l'expérimentation tandis que PREEMPT-RT est orienté vers le déploiement dans un système réel.
+    
+    \litmus est constitué de quatre parties : 
     \begin{itemize}
         \item \textbf{LITMUS\textsuperscript{RT} Core} : le patch au noyau Linux qui permet d'ajouter les fonctionnalités temps réel à Linux
         \item plusieurs \gls{ordonnanceur}
@@ -275,7 +279,7 @@ carte embarquée multi-cœur hétérogène\vspace{10pt} \\**********************
     \input{tasks.tex}
 
 
-    \newpage
+    %\newpage
     \section{Conclusion}
     %\addcontentsline{toc}{section}{Conclusion}
 

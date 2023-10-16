@@ -35,6 +35,12 @@ int simd_test(int array_size){
 int for_loop_sum(int range)
 {
     uint64_t k;
+    /*
+    using a uint64_t to avoid overflow (max value of uint32_t is only 4294967295,
+     while uint64_t is 18446744073709551615 or 2^64 - 1)
+    we can thus sum up to range = sqrt(2^64 - 1)*2  = 8589934592
+    
+    */
     volatile uint64_t c = 0;
     for(k = 0; k < range; k++){
         c += k;

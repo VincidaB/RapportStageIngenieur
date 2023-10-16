@@ -119,7 +119,7 @@ Pour montrer le fonctionnement de cet algorithme, si l'on se place sur un même 
     \caption{Exemple de EDF à 2 tâches}
 \end{figure}
 
-On a ici une première tâche $\tau_1$ avec un pire temps d'exécution (\textit{Worst Case Execution Time}) de 2 et une période de 5, et une seconde tâche $\tau_2$ avec un pire temps d'exécution de 4 et une période de 15. On a alors préemption de la $\tau_2$ à $t=5$ afin d'exécuter $\tau_1$. Cela est dù au réveil de la tâche $\tau_1$ (représenté par la fleche montante) et à la date d'échéance plus proche de cette dernière. 
+On a ici une première tâche $\tau_1$ avec un pire temps d'exécution (\textit{Worst Case Execution Time}) de 2 et une période de 5, et une seconde tâche $\tau_2$ avec un pire temps d'exécution de 4 et une période de 15. On a alors préemption de la $\tau_2$ à $t=5$ afin d'exécuter $\tau_1$. Cela est dù au réveil de la tâche $\tau_1$ (représenté par la fleche montante), tâche qui est plus prioritaire que la tâche $\tau_2$ car l'échéance de la tâche $\tau_1$ est plus proche. 
 
 
 \subsubsection{Implémentation}
@@ -149,7 +149,7 @@ On place notre fichier à compiler sous le mot-clé \texttt{obj-y} pour signifie
 Une fois le makefile modifié, la compilation de notre module sera exécutée lors de la compilation du noyau Linux à l'aide de make. La compilation du noyau est discutée dans la partie \ref{sec:compilation-linux-source}.
 
 Il faut aussi déclarer un ensemble de fonctions propres à l'ordonnancement, comme pour l'admission de tâches, le réveil d'une tâche, la fin d'une tâche, le démarrage de l'ordonnanceur, etc. Voici l'ensemble des fonctions que j'ai déclaré pour mon ordonnanceur :
-
+\newpage
 \begin{lstlisting}[style=cstyle, caption={Déclaration des fonctions de l'ordonnanceur}, label={lst:decl-func-sched}]
 static struct sched_plugin p_edf_plugin = {
     .plugin_name            = "P-EDF",
@@ -170,12 +170,15 @@ static struct sched_plugin p_edf_plugin = {
 
 \subsubsection{Résultats et essais}
 
-Un algorithme partitionné nécessite le démarrage des tâches sur un processeur en particulier. Par exemple, j'ai ici démarré deux tâches \texttt{rtspin} avec \textit{liblitmus} : l'une à un pire temps d'exécution de 2ms et une période de 5ms tandis que l'autre a un pire temps d'exécution de 4ms et une période de 7ms.
+Un algorithme partitionné nécessite le démarrage des tâches sur un processeur en particulier. Par exemple, j'ai ici démarré deux tâches \texttt{rtspin} avec \textit{liblitmus}. Les tâches \texttt{rtspin} sont des tâches dont la durée d'exécution est fixé et représente la condition de fin d'exécution de celle-ci.
+
+
+Les deux tâches sont alors démarrées sur le processeur 3, comme en atteste le chiffre 3 dans les exécutions des tâches de la figure \ref{fig:edf-schedualibility-demo}L'une à un pire temps d'exécution de 2ms et une période de 5ms tandis que l'autre a un pire temps d'exécution de 4ms et une période de 7ms.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{Images/P-EDF-SCHEDUALIBILITY-DEMO.png}
-    \caption{Ordonnancement de deux tâches avec P-EDF}
+    \caption{Ordonnancement de deux tâches avec P-EDF, toutes deux lancées sur le processeur 3}
     \label{fig:edf-schedualibility-demo}
 \end{figure}
 
