@@ -9,7 +9,7 @@ Le stage s'intéressant à l'implémentation d'un algorithme d'ordonnancement su
 
 
 \subsubsection{Le processeur RK3399}
-Au centre de la carte est un \gls{SOC} Rockchip RK3399. Ce processeur contient deux type de cœurs, ou processeurs. Deux d'entre eux sont des processeurs Cortex-A72 et les quatre autres sont des processeurs Cortex-A53. Ces 6 processeurs utilisent le même jeu d'instruction : ARMv8-A 64-bit. Cela sera important par la suite afin de faciliter la migration de tâches entre les processeurs, en effet si les jeux d'instructions des processeurs étaient différents, plusieurs copies du code compilé devraient exister tout en maintenant un lien d'équivalence entre les deux codes. Cela est bien au-delà de la portée de mon stage, mais serait un point intéressant à explorer.
+Au centre de la carte est un \gls{SoC} Rockchip RK3399. Comme le montre la figure \ref{fig:archi_rk3399}, cette puce contient entre autre deux clusters de cœurs, ou processeurs. Deux d'entre eux sont des processeurs Cortex-A72 et les quatre autres sont des processeurs Cortex-A53. Par la suite, on numérotera ces processeurs de 0 à 3 pour les A53 et 4 et 5 pour les A72. Ces 6 processeurs utilisent le même jeu d'instruction : ARMv8-A 64-bit. Cela sera important par la suite afin de faciliter la migration de tâches entre les processeurs, en effet si les jeux d'instructions des processeurs étaient différents, plusieurs copies du code compilé devraient exister tout en maintenant un lien d'équivalence entre les deux codes. Cela est bien au-delà de la portée de mon stage, mais serait un point intéressant à explorer.
 
 \begin{figure}[H]
     \centering
@@ -18,7 +18,7 @@ Au centre de la carte est un \gls{SOC} Rockchip RK3399. Ce processeur contient d
     \label{fig:archi_rk3399}
 \end{figure}
 
-Le SOC RK3399 contient bien d'autres composants et peut interfacer avec de nombreux périphériques (écran HDMI, USB, caméra MPI-CSI, SPI, UART, I2C, etc...) comme le montre la figure \ref{fig:archi_rk3399}. Ce diagramme nous montre aussi que les deux \gls{cluster} de processeurs ne partagent ni les caches L1 ni les caches L2, mais sont interconnectés par une interface CCI-500 qui, selon le site des développeurs ARM, permet la cohérence des caches des deux cluster.
+Le SOC RK3399 contient bien d'autres composants et peut interfacer avec de nombreux périphériques (écran HDMI, USB, caméra MPI-CSI, SPI, UART, I2C, etc...) comme le montre la figure \ref{fig:archi_rk3399}. Ce diagramme nous montre aussi que les deux \gls{cluster}s de processeurs ne partagent ni les caches L1 ni les caches L2, mais sont interconnectés par une interface CCI-500 qui, selon le site des développeurs ARM, permet la cohérence des caches des deux clusters.
 
 
 \subsubsection{Interfacer avec la carte}

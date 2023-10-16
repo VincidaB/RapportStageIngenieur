@@ -1,0 +1,76 @@
+\newcommand{\tset}{\Gamma} % task set
+\newcommand{\confer}{\textit{cf. }}
+\newcommand{\trate}[2]{r_{#1,#2}} % r_{i,j}$  task i  processor j
+\newcommand{\rate}[1]{r_{#1}}
+\newcommand{\proc}[1]{\pi_{#1}}  %processor
+\newcommand{\pset}{\Pi} % processor set
+\newcommand{\load}[1]{C_{#1}}
+\newcommand{\deadline}[1]{D_{#1}}
+\newcommand{\offset}[1]{O_{#1}}
+\newcommand{\U}[1][]{%
+  \ifx\relax#1\relax
+    U% Si la macro est appelée sans paramètre, affiche simplement U
+  \else
+    U(#1)% Si la macro est appelée avec un paramètre, affiche U(param)
+  \fi
+}
+\newcommand{\period}[1]{T_{#1}}
+\newcommand{\refractoryperiod}[1]{T_{#1}}
+\newcommand{\figref}[1]{\figurename~\ref{#1}}
+\newcommand{\arrref}[1]{Table~\ref{#1}}
+\newcommand{\secref}[1]{Section~\ref{#1}}
+\newcommand{\defeq}{\doteq}
+\DeclareMathOperator{\lcm}{lcm}
+
+% Generic task command
+
+%Use : \task[(<key>=<val>)?(,(<key>=<val>)*]{<name>}
+% with keys :
+%   -symbol for the task symbol                 optional    (default : \tau)
+%   -phase for the task phase                   optional    (default : {})
+%   -iteration for the task iteration number    optional    (default : {})
+%   -name : task's name                          mandatory
+
+
+% Keys for parsing, in "mt" spacename (for mytask)
+\makeatletter
+\define@key{mytask}{symbol}{\def\mt@symbol{#1}}
+\define@key{mytask}{phase}{\def\mt@phase{#1}}
+\define@key{mytask}{iteration}{\def\mt@iteration{#1}}
+
+% Default values
+\setkeys{mytask}{symbol=\tau, iteration=\mbox{}, phase={}}
+
+\newcommand{\task}[2][]{
+\begingroup%
+\setkeys{mytask}{#1}% parsing
+\ifx\mt@phase\empty % printing (or not) the comma if a phase is givent
+\mt@symbol_{#2}^{\mt@iteration}
+\else
+\mt@symbol_{#2,\mt@phase}^{\mt@iteration}
+\fi
+\endgroup
+}
+\makeatother
+
+\makeatletter
+\define@key{wcet}{phase}{\def\wcet@phase{#1}}
+
+\setkeys{wcet}{phase={}}
+
+\newcommand{\wcet}[2][]{
+\begingroup
+\setkeys{wcet}{#1}
+\ifx\wcet@phase\empty
+C_{#2}
+\else
+c_{#2}^{\wcet@phase}
+\fi
+\endgroup
+}
+\makeatother
+
+\newcommand{\job}[2]{j_{#1}^{#2}}% job
+\newcommand{\entiers}[2]{\left\llbracket#1,#2\right\rrbracket}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\DeclareMathOperator{\gcf}{gcf}

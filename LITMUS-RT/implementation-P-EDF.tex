@@ -30,7 +30,7 @@ Pour montrer le fonctionnement de cet algorithme, si l'on se place sur un même 
             \expandafter\def\csname wakeup#1TIME\endcsname{#3}
         }
 
-        \newcommand{\deadline}[3]{
+        \newcommand{\deadlinee}[3]{
             \expandafter\def\csname deadline#1ROW\endcsname{#2}
             \expandafter\def\csname deadline#1TIME\endcsname{#3}
         }
@@ -59,12 +59,12 @@ Pour montrer le fonctionnement de cet algorithme, si l'on se place sur un même 
         \wakeup{2}{0}{5}
         \wakeup{3}{0}{10}
 
-        \deadline{0}{0}{5}
-        \deadline{1}{0}{5}
-        \deadline{2}{0}{5}
-        \deadline{3}{0}{10}
-        \deadline{4}{0}{15}
-        \deadline{5}{1}{15}
+        \deadlinee{0}{0}{5}
+        \deadlinee{1}{0}{5}
+        \deadlinee{2}{0}{5}
+        \deadlinee{3}{0}{10}
+        \deadlinee{4}{0}{15}
+        \deadlinee{5}{1}{15}
 
         \execEnd{0}{0}{2}
         \execEnd{1}{0}{7}

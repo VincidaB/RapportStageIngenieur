@@ -1,13 +1,10 @@
-Les systèmes avioniques sont habituellement des ensembles complexes reposant sur des architectures anciennes de par le niveau de certification exigé. Par conséquent, les architectures plus récentes nécessitent une phase d'étude afin d'en évaluer l'intérêt. Dans ce contexte, le projet SHRIMP a pour but d'étudier l'implémentation d'un algorithme d'ordonnancement sur une plateforme hétérogène.   
+Les systèmes avioniques sont habituellement des ensembles complexes reposant sur des architectures anciennes en raison du niveau de certification exigé. Par conséquent, les architectures plus récentes nécessitent une phase d'étude afin d'en évaluer l'intérêt. Dans ce contexte, le projet SHRIMP a pour but d'étudier l'implémentation d'un algorithme d'ordonnancement sur une plateforme hétérogène.   
 
 \subsection{Ordonnancement}
 
 L'ordonnancement est l'étude de l'affectation des ressources à des tâches. Dans le cadre de mon stage, les ressources sont des processeurs et les tâches sont des programmes. L'ordonnancement consiste donc à affecter des processeurs à des programmes ou des tâches.
 
 \subsubsection{Généralités sur l'ordonnancement}
-
-% remarques a corriger : 
-%  Il faut étoffer la partie ordonnancement, présenter le modèle de tâche avec offset, wcet, échéance et période et y mettre le diagramme qui vient plus tard. Il y a pas mal de notions à détailler, système ordonnançable, migration, préemption, politiques globales et partitionnées ,etc.
 
 Dans les modèles théoriques d'ordonnancement, l'exécution d'une tâche $\tau$ est définie par un triplet $(C,T,D)$ où $C$ est le pire temps d'exécution (\textit{Worst Case Execution Time} ou WCET), $T$ est la période et $D$ est l'échéance. Le WCET est le temps d'exécution maximal d'une tâche. La période est le temps entre deux exécutions d'une tâche. L'échéance est la date limite à laquelle une tâche doit être exécutée. On parlera alors de tâches périodiques si $T$ est constant, de tâches apériodiques si les tâches démarrent à intervalles irréguliers, et de tâches sporadiques lorsque une tâche est apériodique mais que celle-ci   possède une contrainte temporelle minimum sur le temps entre deux exécutions.
 
@@ -34,7 +31,7 @@ On pourra par la suite représenter l'ordonnancement temps réel par un diagramm
             \expandafter\def\csname wakeup#1TIME\endcsname{#3}
         }
 
-        \newcommand{\deadline}[3]{
+        \newcommand{\deadlinee}[3]{
             \expandafter\def\csname deadline#1ROW\endcsname{#2}
             \expandafter\def\csname deadline#1TIME\endcsname{#3}
         }
@@ -63,12 +60,12 @@ On pourra par la suite représenter l'ordonnancement temps réel par un diagramm
         \wakeup{2}{0}{5}
         \wakeup{3}{0}{10}
 
-        \deadline{0}{0}{5}
-        \deadline{1}{0}{5}
-        \deadline{2}{0}{5}
-        \deadline{3}{0}{10}
-        \deadline{4}{0}{15}
-        \deadline{5}{1}{15}
+        \deadlinee{0}{0}{5}
+        \deadlinee{1}{0}{5}
+        \deadlinee{2}{0}{5}
+        \deadlinee{3}{0}{10}
+        \deadlinee{4}{0}{15}
+        \deadlinee{5}{1}{15}
 
         \execEnd{0}{0}{2}
         \execEnd{1}{0}{7}
@@ -140,11 +137,12 @@ On pourra par la suite représenter l'ordonnancement temps réel par un diagramm
     \caption{Diagramme de Gantt de l'ordonnancement de deux taches et légende}
 \end{figure}
 
-On représentera aussi le processeur sur lequel la tâche s'exécute par une couleur de rectangle propre à chaque processeur. On a par exemple représenté le processeur 1 par un rectangle rouge et le processeur 2 par un rectangle vert sur la figure précédente.
+On représentera aussi le processeur sur lequel la tâche s'exécute par une couleur de rectangle propre à chaque processeur. On a par exemple représenté le processeur 1 par un rectangle rouge et le processeur 2 par un rectangle vert sur la figure précédente. On placera aussi un chiffre, représentant l'identifiant du processeur, dans chacun de ces rectangles.
 
 On parlera alors de migration de tâche si une tâche change de processeur au cours de son exécution. On parlera de préemption si une tâche est interrompue par une autre tâche.
+Chaque exécution d'une tâche est appelé un \textit{job}. On réalisera donc la distinction entre migration de tâche et migration de \textit{jobs}.
 
-Une politique d'ordonnancement peut être globale ou partitionnée. Un politique d'ordonnancement globale peut affecter une tâche à n'importe quel processeur tandis qu'un algorithme d'ordonnancement partitionné peut affecter une tâche à un sous-ensemble de processeurs. Par exemple, un algorithme d'ordonnancement partitionné sur une plateforme possédant 4 processeurs peut affecter une tâche à un processeur parmi les processeurs 1 et 2 et une autre tâche à un processeur parmi les processeurs 3 et 4. 
+Une politique d'ordonnancement peut être globale ou partitionnée. Une politique d'ordonnancement globale peut affecter une tâche à n'importe quel processeur tandis qu'un algorithme d'ordonnancement partitionné peut affecter une tâche à un seul processeur. Dans ce second cas, il n'y a pas de migration de tâches.
 
 On peut aussi séparer les algorithmes d'ordonnancement en deux catégories : hors-ligne et en ligne. Un ordonnanceur hors-ligne consiste à définir une table de séquençage en amont de la mise en route du système. Cette table de séquençage est alors utilisée par l'ordonnanceur pour ordonnancer les tâches. Un ordonnanceur en ligne consiste à ordonnancer les tâches au fur et à mesure de leur arrivée. Cela est plus complexe qu'un ordonnanceur hors-ligne car il doit ordonnancer les tâches sans connaître les tâches qui vont arriver dans le futur. Cependant, cela permet de réagir plus rapidement aux événements.
 
@@ -190,17 +188,38 @@ Il existe plusieurs types de plateformes, c'est a dire plusieurs dont un ensembl
 \subsubsection{Plateforme identique}
 Dans une plateforme identique, tous les processeurs sont identiques. Ils possèdent la même vitesse d'exécution, la même mémoire cache, le même jeu d'instructions, etc. C'est la plateforme la plus simple à étudier et la plus documenté dans la literature scientifique. 
 
+En définissant $\tset\defeq\set{\task{1},\dotsc,\task{n}}$ un système de $n$ tâches et $\pset\defeq\set{\proc{1},\dotsc,\proc{m}}$ un système de $m$ processeurs. On notera $\trate{i}{j}$ la vitesse de $\task{i}$ sur $\proc{j}$, c'est à dire que si $\task{i}$ s'exécute sur $\proc{j}$ pendant $t$ unités de temps, alors elle progresse de $\trate{i}{j}\cdot t$.
+
+Pour une plateforme identique, on peut alors dire :
+$\forall \task{i}\in\tset,\forall\proc{j}\in\pset,\trate{i}{j}=\trate{1}{1}$. 
+
+
+
 \subsubsection{Plateforme uniforme}
-Dans une plateforme uniforme, chaque processeur possède une vitesse d'exécution différente. Dans ce cas, un processeur de vitesse 2 exécute toutes les tâches deux fois plus vite qu'un processeur de vitesse 1. C'est une plateforme plus complexe à étudier que la plateforme identique mais moins complexe que la plateforme non uniforme. Un exemple réel d'une telle plateforme est une plateforme identique dans laquelle certains processeurs ont vu leur fréquence changée : les processeurs ayant une plus grande fréquence d'exécution sont alors des processeurs plus rapides tandis que les processeurs ayant une plus petite fréquence d'exécution sont des processeurs plus lents. 
+Dans une plateforme uniforme, chaque processeur possède une vitesse d'exécution différente. Dans ce cas, un processeur de vitesse 2 exécute toutes les tâches deux fois plus vite qu'un processeur de vitesse 1. C'est une plateforme plus complexe à étudier que la plateforme identique mais moins complexe que la plateforme non uniforme. Un exemple réel d'une telle plateforme est une puce possédant plusieurs processeurs de même architecture mais de vitesses différentes, par exemple, avec des fréquences différents. 
+
+En reprenant les notations de la plateforme précédente, une plateforme uniforme est définie par :
+$\forall\proc{j}\in\pset,\exists\lambda_j\in\mathbb{R}^{+*},\forall\task{i}\in\tset,\trate{i}{j}=\lambda_j\trate{1}{1}$. Sans perte de généralité, on prend $\trate{1}{1}=1$ et on note alors $\trate{i}{j}=\rate{j}=\lambda_j \forall\task{i}\in\tset,\forall\proc{j}\in\pset$.
 
 \subsubsection{Plateforme non-uniforme ou \textit{unrelated}}
-Dans une plateforme non uniforme, chaque processeur possède une vitesse d'exécution différente. La vitesse d'exécution d'un processeur n'est pas un multiple de la vitesse d'exécution des autres processeurs. C'est la plateforme la plus complexe à étudier. Il peut alors y avoir une affinité tâche/processeur : le processeur $P_1$ exécute la tâche $T_1$ plus vite que le processeur $P_2$ mais le processeur $P_2$ exécute la tâche $T_2$ plus vite que le processeur $P_1$. Cela est une plateforme très complexe à étudier.
+Dans une plateforme non uniforme, chaque processeur possède une vitesse d'exécution différente. La vitesse d'exécution d'un processeur n'est pas un multiple de la vitesse d'exécution des autres processeurs. C'est la plateforme la plus générale et donc la plus difficile à étudier. Il peut alors y avoir une affinité tâche/processeur : le processeur $P_1$ exécute la tâche $T_1$ plus vite que le processeur $P_2$ mais le processeur $P_2$ exécute la tâche $T_2$ plus vite que le processeur $P_1$.
 
 \subsubsection{Plateforme cohérente}
-Dans une plateforme cohérente, chaque processeur possède une vitesse d'exécution différente qui peut être ordonnée. Par exemple, le processeur $P_1$ exécute toutes les tâches plus vite que le processeur $P_2$ qui exécute toutes les tâches plus vite que le processeur $P_3$. Cependant, pour certaines tâches, il est concevable sous ce modèle de plateforme que les processeurs exécutent des tâches à des vitesses identiques. C'est une plateforme plus complexe à étudier que la plateforme uniforme mais moins complexe que la plateforme non-uniforme.
+Dans une plateforme cohérente, chaque processeur possède une vitesse d'exécution différente qui peut être ordonnée. Par exemple, le processeur $P_1$ exécute toutes les tâches plus vite que le processeur $P_2$ qui exécute toutes les tâches plus vite que le processeur $P_3$. On peut donc ordonner les vitesses, ou \textit{rates}, de chaque processeur.
+
+On a alors : 
+$\forall\proc{j},\proc{j'}\in\pset,\exists\task{i}\in\tset,\trate{i}{j}>\trate{i}{j'}\implies\forall\task{i'}\in\tset,\trate{i'}{j}\geq\trate{i'}{j'}$. 
+
+
+\begin{center}
+    \color{red}
+    ADD FIGURE TO DESCRIBE VENN DIAGRAM OF PLATFORMS
+\end{center}
 
 \subsection{Projet SHRIMP}
 
-On peut alors regrouper les plateformes uniformes, non-uniformes et cohérentes sous le terme de plateformes hétérogènes. Le projet SHRIMP s'intéresse à l'ordonnancement temps réel sur des plateformes hétérogènes. En effet, la démocratisation des systèmes sur puce (SoC) a permis l'émergence de plateformes hétérogènes. Par exemple, un SoC peut regrouper des clusters de processeurs, un processeur graphique, un processeur réseau. Ces SoC sont de plus en plus utilisés dans les systèmes embarqués. Par exemple, les smartphones sont des systèmes embarqués qui utilisent des SoC. 
+On peut alors regrouper les plateformes uniformes, non-uniformes et cohérentes sous le terme de plateformes hétérogènes. Le projet SHRIMP (pour Scheduling of Real-tIme Heterogeneous Multiprocessor Platform), dirigé par Antoine \textsc{Bertout}, s'intéresse à l'ordonnancement temps réel sur des plateformes hétérogènes. Ce projet est financé par l'Association Nationale de la Recherche ou ANR, dans le cadre du programme Jeunes Chercheuses et Jeunes Chercheurs.
+
+En effet, la démocratisation des systèmes sur puce (ou \textit{System on a chip} ou \textit{SoC}) a permis l'émergence de plateformes hétérogènes. Par exemple, un SoC peut regrouper des clusters de processeurs, un processeur graphique, un processeur réseau. Ces SoC sont de plus en plus utilisés dans les systèmes embarqués. Par exemple, les smartphones sont des systèmes embarqués qui utilisent des SoC. 
 
 Mon stage s'intéresse alors à l'étude de l'implémentation d'ordonnanceurs temps réel sur des plateformes hétérogènes. En effet, les ordonnanceurs temps réel existant sont souvent développés pour des plateformes homogènes. Cependant, les plateformes hétérogènes sont de plus en plus utilisées dans les systèmes embarqués. Les travaux de thèse qui sont réalisés par Thomas GASPARD s'intéressent à concevoir et à étudier théoriquement des ordonnanceurs temps réel qui utilisent les caractéristiques des plateformes hétérogènes. J'ai alors pour but d'étudier l'implémentation d'ordonnanceurs temps réel sur une plateforme hétérogène afin de faciliter l'évaluation des travaux de thèse sur une plateforme réelle.

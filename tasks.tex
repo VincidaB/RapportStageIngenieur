@@ -13,7 +13,7 @@ Mon objectif était alors de générer des tâches qui s'exécutent à des vites
 
 Ma première idée était de calculer la checksum d'un fichier de petite taille. La taille du fichier permettrait alors de faire varier le temps d'exécution. Cette opération était principalement calculatoire, j'avais espoir que le temps d'exécution ne varie pas trop entre deux exécutions sur un même processeur. Cependant, cette opération semblait posséder trop d'accès à la mémoire et au stockage : deux choses que je ne voulais pas prendre en compte dans mon temps d'exécution. C'est ce que j'ai pu voir sur l'exécution d'une telle tâche, sur laquelle je réalise la \gls{checksum md5} sur un fichier de code de 95KiB, j'ai donc abandonné cette idée.
 
-\subsubsection{Deuxièle idée : somme sur un grand nombre d'entiers}
+\subsubsection{Deuxième idée : somme sur un grand nombre d'entiers}
 
 Ma deuxième idée était de faire une somme sur un grand nombre d'entiers. Cette opération est aussi calculatoire, mais ne possède pas d'accès mémoire. J'ai donc créé un programme qui réalise une somme sur un grand nombre d'entiers. Ce programme est présent en annexe au listing \ref{annexe:sum-int}. Il contient aussi d'autres essais, et le choix de l'essai se fait lors de l'appel du programme. On notera par exemple que la variable sur laquelle on réalise la somme est déclarée en tant que \texttt{volatile} afin d'éviter que le compilateur optimise le code.
 
