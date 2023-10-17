@@ -149,7 +149,7 @@ On place notre fichier à compiler sous le mot-clé \texttt{obj-y} pour signifie
 Une fois le makefile modifié, la compilation de notre module sera exécutée lors de la compilation du noyau Linux à l'aide de make. La compilation du noyau est discutée dans la partie \ref{sec:compilation-linux-source}.
 
 Il faut aussi déclarer un ensemble de fonctions propres à l'ordonnancement, comme pour l'admission de tâches, le réveil d'une tâche, la fin d'une tâche, le démarrage de l'ordonnanceur, etc. Voici l'ensemble des fonctions que j'ai déclaré pour mon ordonnanceur :
-\newpage
+%\newpage
 \begin{lstlisting}[style=cstyle, caption={Déclaration des fonctions de l'ordonnanceur}, label={lst:decl-func-sched}]
 static struct sched_plugin p_edf_plugin = {
     .plugin_name            = "P-EDF",

@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[11pt]{article}
 \usepackage[T1]{fontenc}
 \usepackage[francais]{babel}
 
@@ -194,7 +194,11 @@ carte embarquée multi-cœur hétérogène\vspace{10pt} \\**********************
     Je tiens aussi à dire merci aux autres stagiaires, notamment Tanguy \textsc{Relo} et Tom \textsc{Ambroise} pour leurs diverses aides tout au long de ce stage.
     
     \newpage
-    \tableofcontents
+    \thispagestyle{empty}
+    \mbox{}
+    \newpage
+    \thispagestyle{empty}
+    {\small \tableofcontents}
 
     \newpage
     \thispagestyle{empty}
@@ -279,7 +283,10 @@ carte embarquée multi-cœur hétérogène\vspace{10pt} \\**********************
     \input{tasks.tex}
 
 
-    %\newpage
+    % \newpage
+    % \mbox{}
+    % \thispagestyle{empty}
+    \newpage
     \section{Conclusion}
     %\addcontentsline{toc}{section}{Conclusion}
 
